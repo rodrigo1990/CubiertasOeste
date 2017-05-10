@@ -1,0 +1,11 @@
+{
+  "id": 249807565,
+ 
+ "nickname": "TETE1511144",
+
+  "password": "qatest8928",
+  
+"site_status": "active",
+ 
+ "email": "test_user_81005537@testuser.com"
+}

@@ -1,0 +1,682 @@
+$naranja:rgb(255,106,0);
+$naranja-input:rgb(255,149,77);
+$gris-claro:rgb(204,204,204);
+$blanco:rgb(242,242,242);
+$gris-campo-busqueda:rgb(229,229,229);
+$icons-color: rgba(102, 102, 102, 1);
+$fuente:Futura Medium;
+$fuente-secundaria:Arial;
+$blanco-100:white;
+
+@mixin borde($color){
+	border-style:solid;
+	border-color:$color;
+	border-width:1px;
+}
+
+@mixin bordeBottom($color){
+	border-bottom-style:solid;
+	border-bottom-color:$color;
+	border-bottom-width:1px;
+}
+
+@mixin listaSinDecoracion(){
+	li{
+	list-style-type:none;
+	}
+}
+
+@mixin textoDireccion(){
+	.h6-direccion-envio-menu{
+	margin-top:0%;
+	margin-bottom:0%;
+	
+	font-size:80%;
+	//margin-left:60%;
+	float:right;
+
+}
+.h6-direccion-envio-menu-cel{
+	margin-top:0%;
+	margin-bottom:0%;
+	font-size:80%;
+	float:left;
+	margin-left:10%;
+
+}
+#separadorDireccionMenu{
+	color:$naranja;
+	font-size:15pt;
+
+}
+}//mixin
+
+@mixin sombraCarrito(){
+	-webkit-box-shadow: 10px 29px 96px 1px rgba(0,0,0,0.33);
+-moz-box-shadow: 10px 29px 96px 1px rgba(0,0,0,0.33);
+box-shadow: 10px 29px 96px 1px rgba(0,0,0,0.33);
+}
+
+
+@mixin textoMenu(){
+	p{
+		font-family: Futura Medium;
+	}
+}
+@mixin textoMenuSecundario(){
+	p{
+		font-family: Arial;
+	}
+}
+
+
+@mixin tituloCarrito(){
+	h6{
+		font-family: Futura Medium;
+	}
+
+}
+
+@mixin tituloCarritoSecundario(){
+	h6{
+		font-family: Arial;
+	}
+}
+
+@mixin element-menu($margin-left,$margin-top){
+	float:left;
+	margin-top:$margin-top;
+	margin-left:$margin-left;
+	margin-bottom:0%;
+}
+
+@mixin textoCarrito($fuente){
+
+
+li{
+	font-family:$fuente;
+
+	font-size:80%;
+
+	font-weight:bold;
+
+	color:$blanco-100;
+}
+}
+
+@mixin boton-comprar-carrito(){
+	.boton-comprar-carrito{
+	color:$naranja;
+	margin-left:-40% !important;
+}
+
+.boton-comprar-carrito {
+    border              : 2px solid white;                      /* 2 pixeles de borde negro                                                */
+    text-align          : center;                              /* Texto centrado                                                          */
+    text-decoration     : none;                                /* Sin decoraciones para el texto (por defecto viene con underline)        */
+    padding             : 10px 100px 10px 100px;                                /* Un poco de padding para que se vea bien el botón                        */
+    /* La transición en el click (:active) tiene que ser rápida 150ms (transform y color), la transición para cambiar de foco en 150ms    */
+    transition          : transform 0.15s ease-in-out, color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;   
+    font-family         : $fuente, $fuente-secundaria;                   /* Fuente de google                                                        */
+    font-size           : 1.7rem;                              /* Tamaño de la fuente                                                     */
+    color               : #FFF;                                /* Color del texto en blanco                                               */
+    margin              : 10px;                                /* 10 pixeles de margen para separar los botones entre si.                 */
+    position            : relative;                            /* Posición relativa para que sus hijos partan desde él                    */
+    overflow            : hidden;                              /* Todo lo que sobresalga del botón no se verá                             */
+    cursor              : pointer;                             /* Puntero del mouse que muestre una mano                                  */
+    transform           : perspective(600px) translateZ(0px) rotateZ(0deg) rotateX(0deg); /* Perspectiva, rotación y posición por defecto */
+    text-shadow         : 1px 1px 1px #666;                    /* Una ligera sombra gris para el texto                                    */
+}
+/* Elimino el outline del botón por una transición con la sombra */
+.boton-comprar-carrito:focus { 
+    outline    : 0px solid transparent;                        /* Elimino el outline que viene por defecto en los button */
+    box-shadow : 0px 0px 4px 2px #800,  0px 0px 2px 1px #300;  /* Creo uan sombra en gris oscuro con 2 tonalidades       */  
+}  
+
+/* Color del borde rojo al pasar el mouse por encima del botón */
+.boton-comprar-carrito:hover, .boton-comprar-carrito:active { border : 2px solid $naranja; color:white; }
+
+
+
+
+
+
+
+
+/*****************************ANIMACION CAPA DE ARRIBA **////////////////////////////////////////          
+/* Alejo el objeto en la perspectiva cuando el usuario presiona sobre él */
+.boton-comprar-carrito:active {
+    transform : perspective(600px) translateZ(-75px) rotateZ(-0.5deg) rotateX(-10deg); /* Creo el efecto de hundimiento para el botón */
+    color     : #BBB;                                                                  /* Cambio el color del texto a gris            */
+}
+
+
+/*Cuerpos estándar para los pseudo-elementos ::before (Capa animación) y ::after (Capa fondo)*/
+
+/* Preparación para los pseudo elementos before y after */
+.boton-comprar-carrito::before, .boton-comprar-carrito::after {
+    content    : '';                   /* Contenido (requerida para inicializar el pseudo-selector)               */
+    position   : absolute;             /* Posición absoluta (relativa al button)                                  */
+    top        : 0px;                  /* Empezamos desde arriba del <button>                                     */
+    left       : 0px;                  /* Empezamos desde la izquierda del <button>                               */
+    width      : 100%;                 /* Ancho 100% del <button>                                                 */
+    height     : 100%;                 /* Alto 100% del <button>                                                  */
+    transition : 0.4s ease-in-out;     /* Transición para el hover de 500ms para que se vea bien (capa animación) */
+}
+/* Para las transiciones del fondo a color rojo en el hover, se utilizara el pseudo elemento ::before (capa animación) */
+.boton-comprar-carrito::before {
+    z-index    : -1;                   /* MUY IMPORTANTE esta capa va por debajo de la capa principal */
+}
+/* Para mostrar el fondo negro del botón se utilizara el pseudo elemento ::after (capa fondo) */
+.boton-comprar-carrito::after {
+    z-index          : -2;             /* MUY IMPORTANTE esta capa va por debajo de la capa animación */
+    background-color : $naranja;  /* Color del fondo gris oscuro                                 */
+}
+}
+/********************************FIN DE MIXIING****************************************/
+
+
+.vertical-align-middle { 
+    vertical-align: middle; 
+}
+
+.padding-bottom-3 {
+    padding-bottom: 6px;
+}
+.padding-bottom-8 {
+    padding-bottom: 18px;
+}
+.material-icons.md-18 {
+ font-size: 18px; 
+
+}
+
+.material-icons.md-light {
+ color:$icons-color;
+
+ }
+
+ .direccion-menu-cel{
+ 	background-color:$gris-claro;
+ }
+
+  .direccion-menu{
+ 	background-color:$gris-claro;
+ 	@include textoDireccion();
+ }
+
+
+body{
+	overflow-x:hidden;
+	margin:auto;
+}
+body::-webkit-scrollbar {
+    width: 5px;
+}
+ 
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+ 
+body::-webkit-scrollbar-thumb {
+  background-color: $naranja;
+  outline: 1px solid slategrey;
+}
+
+/*********************************MENU****************************************************************/
+ .menu{
+ 	width: 100%;
+	background-color:$blanco;
+	@include textoMenu();
+}
+@-moz-document url-prefix() {
+	 .menu{
+ 	width: 100%;
+	background-color:$blanco;
+	@include textoMenuSecundario();
+}
+
+}
+ #icon-mas-menu{
+ 	margin-top:2.2% !important;
+ }
+
+#producto-title-menu{
+	margin-left:1% !important;
+	margin-top:2% !important;
+ }
+
+ #buscador-menu{
+ 	margin-top:1.3% !important;
+ }
+ /*#total-menu{
+ 	margin-top:2% !important;	
+ }*/
+.form-control:focus {
+  border-color: $naranja-input;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+}
+
+
+
+.inner-addon { 
+    position: relative; 
+}
+
+/* style icon */
+.inner-addon .material-icons {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+  margin-top: -2%;
+}
+
+.right-addon input { padding-right: 30px; }
+.right-addon .material-icons { right: 0px;}
+
+
+ .campo-busqueda-menu{
+ //	background:$gris-campo-busqueda;
+ 	//height:40px; 
+ }
+
+
+
+.h4-producto-title-menu{
+
+   padding-bottom: 20px;
+   vertical-align: middle; 
+   font-family:$fuente;
+}
+
+@-moz-document url-prefix() {
+
+.h4-producto-title-menu{
+    padding-bottom: 20px;
+	vertical-align: middle; 
+   font-family:$fuente-secundaria;
+}
+}//mozilla
+
+
+.element-menu{
+
+	@include element-menu(6%,1%);
+
+}
+.element-menu-carrito{
+	float:right;
+	margin-right:1%;
+	margin-top:1.4%;
+
+	//@include element-menu(0.5%,1.5%);
+
+
+}
+
+.element-menu-buscador{
+
+	@include element-menu(2.5%,1.5%);
+
+}
+
+.element-menu-carrito-cel{
+
+	@include element-menu(0.5%,3%);
+
+
+}
+#mostrar-total-menu{
+	//@include borde(black);
+	text-align:left;
+	line-height:0%;
+	margin-top:0.2% !important;
+	font-size:85%;
+	font-family:$fuente;
+
+	@include tituloCarrito();
+}
+
+@-moz-document url-prefix() {
+	#mostrar-total-menu{
+	@include tituloCarritoSecundario
+	}
+}
+
+
+
+
+#carrito-icon-menu{
+	margin-top:1.2%;
+	margin-left:0.5% !important;
+	z-index:1;
+}
+
+#carrito-cont-menu{
+	@include borde(black);
+	//padding:5px;
+}
+
+#cantidad{
+	position:absolute;
+	color:white;
+	z-index:1000;
+	font-size:85%;
+	
+	background-color:$naranja;
+	  padding-left: 4px;
+  padding-right: 4px;
+	  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border-radius: 9px;
+  margin-left: 20px;
+}
+.icon-shopping-cart{
+	background-image:url("../elementos_separados/icon-carrito2-06.png");
+	width:29px;
+	height:24px;
+}
+#btn-carrito{
+	margin-top:1.4% !important;
+	cursor:pointer;
+}
+
+.carrito{
+	@include borde($gris-claro);
+	position:fixed;
+	z-index:1000;
+	//margin:auto;
+	margin-top:-30%;
+	//right:0%;
+	left:65%;
+	display:none;
+	height:auto;
+	width:30.5%;
+	max-width:320px;
+		max-height:500px;
+
+	background-color:rgb(43,42,42);
+
+	@include textoCarrito($fuente);
+	@include sombraCarrito();
+	overflow-y:scroll;
+	overflow-x:hidden;
+
+
+
+	}
+
+
+	@-moz-document url-prefix() {
+	.carrito{
+	@include borde($gris-claro);
+	position:fixed;
+	z-index:1000;
+	//margin:auto;
+	margin-top:-30%;
+	//right:0%;
+	left:65%;
+	display:block;
+	height:auto;
+	width:38%;
+	max-width:330px;
+		max-height:500px;
+		background-color:rgb(43,42,42);
+
+	@include textoCarrito($fuente-secundaria);
+		@include sombraCarrito();
+		overflow-y:scroll;
+	overflow-x:hidden;
+
+	}
+	}
+
+	.carrito::-webkit-scrollbar {
+    width: 4px;
+}
+ 
+.carrito::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+ 
+.carrito::-webkit-scrollbar-thumb {
+  background-color: $naranja;
+  outline: 1px solid slategrey;
+}
+
+
+
+#carrito-close{
+	float:right;
+	color:$naranja;
+	cursor: pointer;
+}
+
+ul#carrito-lista{
+	//padding:50px;
+	margin-left:-13%;
+	width:113%;
+	height:100%;
+
+
+}
+#carrito-lista li{
+	list-style:none;
+	//display:inline;
+}
+
+
+#carrito-lista .item-descripcion-carrito{
+	float:left;
+
+	color:$blanco-100;
+	list-style:none;
+	margin-left:0%;
+	margin-top:0%;
+	padding:2%;
+	width:100%;
+	@include bordeBottom($gris-claro);
+
+}
+
+#carrito-lista .item-total-carrito{
+	float:left;
+	font-family:$fuente;
+	font-weight:bold;
+	color:$blanco-100;
+	list-style:none;
+	margin-left:35%;
+	height:100%;
+	width:100%;
+	padding:6%;
+	//@include bordeBottom($gris-claro);
+
+}
+.carrito-img{
+	position:relative;
+	float:left;
+	padding:0% 5% 5% 0%;
+}
+.carrito-borrar-item{
+	position:absolute;
+	right:5px;
+	margin-top:-9%;
+	cursor:pointer;
+}
+.item-descripcion-vacio-carrito{
+
+
+	margin-left:15%;
+	padding:5%;
+
+}
+
+
+@include boton-comprar-carrito();
+
+.list-busqueda-menu{
+	list-style:none;
+	color:black;
+	@include bordeBottom($naranja);
+	padding:5px;
+}
+.a-busqueda-menu{
+	font-family:$fuente;
+	color:black;
+}
+	@-moz-document url-prefix() {
+	.a-busqueda-menu{
+	font-family:$fuente-secundaria;
+	color:black;
+}	
+	}
+/************SLIDER****************************************************************************************/
+.slider{
+	width:100%;
+	margin:auto;
+	overflow:hidden;
+	z-index:1;
+}
+.slider ul{
+	display:flex;
+	padding:0;
+	width:200%;
+
+	animation: cambio 4s infinite;
+	animation-direction:alternate;
+}
+.slider li{
+	list-style:none;
+	width:100%;
+}
+
+@keyframes cambio{
+	0%{margin-left:0;}
+	25%{margin-left:0;}
+	50%{margin-left: -100%;}
+	100%{margin-left:-100%;}
+}
+/**********************PRODUCTO/*************************************************************************/
+.producto-precio{
+	@include bordeBottom(black);
+	width:45%;
+	margin-left:25%;
+}
+/*******************************************************************************************************/
+.producto{
+	//@include borde(black);
+	width:30%;
+	float:left;
+	text-align:center;
+	margin-left:2%;
+	margin-top:2%;
+}
+
+
+#resultadoBusqueda{
+	@include borde(black);
+	position:Absolute;
+	z-index:1000;
+	background-color:white;
+	//width:29.8%;
+	//height:10%;
+	//margin-left: 2%;
+	display:none;
+
+
+}
+#comprar-total{
+	@include borde(black);
+	@include listaSinDecoracion();
+	width:25%;
+	height:25%;
+	//float:right;
+	margin-top:5%;
+	margin-right:2%;
+	display:block;
+}
+.div-identificacionMp{
+	//@include borde(black);
+	display:inline-block;
+	width:25%;
+}
+.div-direccionMp{
+	//@include borde(black);
+	display:inline-block;
+	width:25%;
+	margin-top:0%;
+
+}
+#nombre-form-alert{
+	display:none;
+}
+#apellido-form-alert{
+	display:none;
+}
+#dni-form-alert{
+	display:none;
+}
+#email-form-alert{
+	display:none;
+}
+#cod_area-form-alert{
+	display:none;
+}
+#telefono-form-alert{
+	display:none;
+}
+
+.form-alert{
+	color:red;
+}
+
+#btn-form{
+	display:none;
+}
+#cp-form-alert{
+	display:none;
+}
+#calle-form-alert{
+	display:none;
+}
+
+#altura-form-alert{
+	display:none;
+}
+#provincia-form-alert{
+	display:none;
+}
+#ciudad-form-alert{
+	display:none;
+}
+#piso-form-alert{
+	display:none;
+}
+#departamento-form-alert{
+	display:none;
+}
+
+#contrasenia-form-alert{
+	display:none;
+}
+#validarContraseniaButton{
+	display:none;
+}
+#contrasenia-repetir-form-alert{
+	display:none;
+}
+#validarUsuario-form-alert{
+	display:none;
+}
+.comprobante{
+	@include borde(black);
+		width:50%;
+		margin-top: 2%;
+}
+span{
+	color:red;
+
+}
+.total-comprobante{
+	margin-left:40%;
+}

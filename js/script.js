@@ -1,0 +1,758 @@
+function borrarDeCarrito(id){
+
+				$.ajax({
+				data:"id="+ id,
+				url:'ajax/borrarDeCarrito.php',
+				type:'get',
+				success:function(response){
+				//$(".carrito").html(response);
+				//alert(response);
+				//window.location="index.php?session=true";
+				$("#carrito-lista").html(response);
+
+					$.ajax({
+					url:'ajax/mostrarCantidad.php',
+					success:function(response){
+
+					$("#cantidad-strong").html(response);
+
+					$.ajax({
+					url:'ajax/mostrarTotalIndex.php',
+					success:function(response){
+
+					$("#total").html(response);
+
+
+
+					}
+					});	
+
+					}
+					});
+
+
+
+
+				}
+				});
+	}
+function borrarDeCarritoCheckOut(id){
+
+				$.ajax({
+				data:{id:id,session:"true"},
+				url:'ajax/borrarDeCarritoCheckOut.php',
+				type:'get',
+				success:function(response){
+				$("#carrito-CheckOut").html(response);
+				
+					$.ajax({
+					data:"session=true",
+					url:'ajax/mostrarTotal.php',
+					type:'get',
+					success:function(response){
+
+						$("#comprar-total").html(response);
+
+
+
+					}
+					});
+
+
+
+				}
+				});
+	}
+
+function buscarCubiertas(){
+
+	var cubiertaBuscada = $("#busqueda_cubiertas").val();
+
+		if(cubiertaBuscada != ''){
+
+			$.ajax({
+			data:"cubiertaBuscada="+ cubiertaBuscada,
+			url:'ajax/busquedaCubiertas.php',
+			type:'get',
+			success:function(response){
+			//alert(response);
+			document.getElementById("resultadoBusqueda").style.display = "block";
+			$("#resultadoBusqueda").html(response)
+
+			}
+			});
+
+		}else{
+			document.getElementById("resultadoBusqueda").style.display = "none";
+
+		}
+}
+
+function registrarUsuario(nombre,apellido,tipo_dni,dni,email,cod_area,telefono,provincia,ciudad,cp,calle,altura,piso,departamento,total,referencia){
+				
+			$.ajax({
+			data:{nombre:nombre,apellido:apellido,tipo_dni:tipo_dni,dni:dni,email:email,cod_area:cod_area,telefono:telefono,provincia:provincia,ciudad:ciudad,cp:cp,calle:calle,altura:altura,piso:piso,departamento:departamento,total:total,referencia:referencia},
+			url:'ajax/registrarUsuario.php',
+			type:'post',
+			success:function(response){
+
+				if(response==1){
+					window.location.href = "index.php";
+				}else{
+					alert(response);
+				}
+			}
+			});
+
+
+		}
+		function eliminarPagoFallido(referencia){
+
+				$.ajax({
+				data:{referencia:referencia},
+				url:'ajax/eliminarPagoFallido.php',
+				type:'post',
+				success:function(response){
+				}
+				});
+		}
+
+		function actualizarCantidad1(id){
+
+	var cantidad= $("#cantidad1").val();
+	var session="true"
+
+				$.ajax({
+				data:{cantidad:cantidad,id:id,session:session},
+				url:'ajax/actualizarCantidad.php',
+				type:'get',
+				success:function(response){
+				$("#carrito-CheckOut").html(response);
+
+					$.ajax({
+					data:"session=true",
+					url:'ajax/mostrarTotal.php',
+					type:'get',
+					success:function(response){
+
+						$("#comprar-total").html(response);
+
+
+
+					}
+					});
+
+
+				}
+				});
+
+}
+
+function actualizarCantidad2(id){
+
+	var cantidad= $("#cantidad2").val();
+	var session="true"
+
+				$.ajax({
+				data:{cantidad:cantidad,id:id,session:session},
+				url:'ajax/actualizarCantidad.php',
+				type:'get',
+				success:function(response){
+				$("#carrito-CheckOut").html(response);
+
+					$.ajax({
+					data:"session=true",
+					url:'ajax/mostrarTotal.php',
+					type:'get',
+					success:function(response){
+
+						$("#comprar-total").html(response);
+
+
+
+					}
+					});
+
+
+				}
+				});
+
+}
+function actualizarCantidad3(id){
+
+	var cantidad= $("#cantidad3").val();
+	var session="true"
+
+				$.ajax({
+				data:{cantidad:cantidad,id:id,session:session},
+				url:'ajax/actualizarCantidad.php',
+				type:'get',
+				success:function(response){
+				$("#carrito-CheckOut").html(response);
+
+					$.ajax({
+					data:"session=true",
+					url:'ajax/mostrarTotal.php',
+					type:'get',
+					success:function(response){
+
+						$("#comprar-total").html(response);
+
+
+
+					}
+					});
+
+
+				}
+				});
+
+}
+
+function actualizarCantidad4(id){
+
+	var cantidad= $("#cantidad4").val();
+	var session="true"
+
+				$.ajax({
+				data:{cantidad:cantidad,id:id,session:session},
+				url:'ajax/actualizarCantidad.php',
+				type:'get',
+				success:function(response){
+				$("#carrito-CheckOut").html(response);
+
+					$.ajax({
+					data:"session=true",
+					url:'ajax/mostrarTotal.php',
+					type:'get',
+					success:function(response){
+
+						$("#comprar-total").html(response);
+
+
+
+					}
+					});
+
+
+				}
+				});
+
+}
+function actualizarCantidad5(id){
+
+	var cantidad= $("#cantidad5").val();
+	var session="true"
+
+				$.ajax({
+				data:{cantidad:cantidad,id:id,session:session},
+				url:'ajax/actualizarCantidad.php',
+				type:'get',
+				success:function(response){
+				$("#carrito-CheckOut").html(response);
+
+					$.ajax({
+					data:"session=true",
+					url:'ajax/mostrarTotal.php',
+					type:'get',
+					success:function(response){
+
+						$("#comprar-total").html(response);
+
+
+
+					}
+					});
+
+
+				}
+				});
+
+}
+function actualizarCantidad6(id){
+
+	var cantidad= $("#cantidad6").val();
+	var session="true"
+
+				$.ajax({
+				data:{cantidad:cantidad,id:id,session:session},
+				url:'ajax/actualizarCantidad.php',
+				type:'get',
+				success:function(response){
+				$("#carrito-CheckOut").html(response);
+
+					$.ajax({
+					data:"session=true",
+					url:'ajax/mostrarTotal.php',
+					type:'get',
+					success:function(response){
+
+						$("#comprar-total").html(response);
+
+
+
+					}
+					});
+
+
+				}
+				});
+
+}
+function actualizarCantidad7(id){
+
+	var cantidad= $("#cantidad7").val();
+	var session="true"
+
+				$.ajax({
+				data:{cantidad:cantidad,id:id,session:session},
+				url:'ajax/actualizarCantidad.php',
+				type:'get',
+				success:function(response){
+				$("#carrito-CheckOut").html(response);
+
+					$.ajax({
+					data:"session=true",
+					url:'ajax/mostrarTotal.php',
+					type:'get',
+					success:function(response){
+
+						$("#comprar-total").html(response);
+
+
+
+					}
+					});
+
+
+				}
+				});
+
+}
+function actualizarCantidad8(id){
+
+	var cantidad= $("#cantidad8").val();
+	var session="true"
+
+				$.ajax({
+				data:{cantidad:cantidad,id:id,session:session},
+				url:'ajax/actualizarCantidad.php',
+				type:'get',
+				success:function(response){
+				$("#carrito-CheckOut").html(response);
+
+					$.ajax({
+					data:"session=true",
+					url:'ajax/mostrarTotal.php',
+					type:'get',
+					success:function(response){
+
+						$("#comprar-total").html(response);
+
+
+
+					}
+					});
+
+
+				}
+				});
+
+}
+function actualizarCantidad9(id){
+
+	var cantidad= $("#cantidad9").val();
+	var session="true"
+
+				$.ajax({
+				data:{cantidad:cantidad,id:id,session:session},
+				url:'ajax/actualizarCantidad.php',
+				type:'get',
+				success:function(response){
+				$("#carrito-CheckOut").html(response);
+
+					$.ajax({
+					data:"session=true",
+					url:'ajax/mostrarTotal.php',
+					type:'get',
+					success:function(response){
+
+						$("#comprar-total").html(response);
+
+
+
+					}
+					});
+
+
+				}
+				});
+
+}
+function actualizarCantidad10(id){
+
+	var cantidad= $("#cantidad10").val();
+	var session="true"
+
+				$.ajax({
+				data:{cantidad:cantidad,id:id,session:session},
+				url:'ajax/actualizarCantidad.php',
+				type:'get',
+				success:function(response){
+				$("#carrito-CheckOut").html(response);
+
+					$.ajax({
+					data:"session=true",
+					url:'ajax/mostrarTotal.php',
+					type:'get',
+					success:function(response){
+
+						$("#comprar-total").html(response);
+
+
+
+					}
+					});
+
+
+				}
+				});
+
+}
+
+
+
+	function validarUsuario(){
+
+		var email=$("#email").val();
+		var contrasenia=$("#contrasenia").val();
+	
+			$.ajax({
+
+				data:{email:email,contrasenia:contrasenia},
+				url:'ajax/validarUsuario.php',
+				type:'post',
+				success:function(response){
+					if(response=="TRUE"){
+						window.location ="usuario.php?email="+email+"";
+
+					}else{
+					$("#validarUsuario-form-alert").css("display","block");
+					}
+
+				}
+				});
+	}
+
+$(document).ready(function() {
+
+	$("#provincia").change(function(){
+
+		var provincia = $("#provincia option:selected").val();
+
+				$.ajax({
+				data:"provincia="+ provincia,
+				url:'ajax/buscarCiudadSegunProvincia.php',
+				type:'post',
+				success:function(response){
+				$("#ciudad").html(response);
+
+
+				}
+				});
+
+	});
+
+	var soloLetrasSinEspacios=/^[a-zA-Z]*$/;
+			var soloNumeros=/^[0-9]*$/;
+			var emailValido=/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+			var listaDeCod_Area=[11,220,221,223,230,236,237,249,260,261,263,264,266,280,291,294,297,298,299,336,341,342,343,345,348,351,353,358,362,364,370,376,379,380,381,383,385,387,388,2202,2221,2223,2224,2225,2226,2227,2229,2241,2242,2243,2244,2245,2246,2252,2254,2255,2257,2261,2262,2264,2265,2266,2267,2268,2271,2272,2273,2274,2281,2283,2284,2285,2286,2291,2292,2296,2297,2302,2314,2316,2317,2320,2323,2324,2325,2326,2331,2333,2334,2335,2336,2337,2338,2342,2343,2344,2345,2346,2352,2353,2354,2355,2356,2357,2358,2392,2393,2394,2395,2396,2473,2474,2475,2477,2478,2622,2624,2625,2626,2646,2647,2648,2651,2652,2655,2656,2657,2658,2901,2902,2903,2920,2921,2922,2923,2924,2925,2926,2927,2928,2929,2931,2932,2933,2934,2935,2936,2940,2942,2945,2946,2948,2952,2953,2954,2962,2963,2964,2966,2972,2982,2983,3327,3329,3382,3385,3387,3388,3400,3401,3402,3404,3405,3406,3407,3408,3409,3435,3436,3437,3438,3442,3444,3445,3446,3447,3454,3455,3456,3458,3460,3462,3463,3464,3465,3466,3467,3468,3469,3471,3472,3476,3482,3483,3487,3489,3491,3492,3493,3496,3497,3498,3521,3522,3524,3525,3532,3533,3537,3541,3542,3543,3544,3546,3547,3548,3549,3562,3563,3564,3571,3572,3573,3574,3575,3576,3582,3583,3584,3585,3711,3715,3716,3718,3721,3725,3731,3734,3735,3741,3743,3751,3754,3755,3756,3757,3758,3772,3773,3774,3775,3777,3781,3782,3786,3821,3825,3826,3827,3832,3835,3837,3838,3841,3843,3844,3845,3846,3854,3855,3856,3857,3858,3861,3862,3863,3865,3867,3868,3869,3873,3876,3877,3878,3885,3886,3887,3888,3891,3892,3894];
+			var soloLetrasYNumeros=/^[a-zA-Z0-9]+$/;
+			var soloLetrasYEspacios=/^[a-zA-Z\s]*$/;
+			var soloLetrasEspaciosYNumeros=/^[a-zA-Z0-9\s]+$/;
+			var soloLetrasEspaciosYNumerosReconoceCampoVacio=/^[a-zA-Z0-9\s]*$/;
+
+
+			var nombre_esta_validado=false;
+			var apellido_esta_validado=false;
+			var dni_esta_validado=false;
+			var email_esta_validado=false;
+			var cod_area_esta_validado=false;
+			var telefono_esta_validado=false;
+
+			var provincia_esta_validado=false;
+			var ciudad_esta_validado=false;
+			var cp_esta_validado=false;
+			var calle_esta_validado=false;
+			var altura_esta_validado=false;
+			var piso_esta_validado=true;
+			var departamento_esta_validado=true;
+
+			var nombre;
+			var apellido;
+			var dni;
+			var tio
+			var email;
+			var cod_area;
+			var telefono;
+			var cp;
+			var calle;
+			var altura;
+			var piso;
+			var departamento;
+
+
+
+
+			function validar_compra(){
+				if(nombre_esta_validado==true&&apellido_esta_validado==true&&dni_esta_validado==true&&email_esta_validado==true&&cod_area_esta_validado==true&&telefono_esta_validado==true&&provincia_esta_validado==true&&ciudad_esta_validado==true&&cp_esta_validado==true&&calle_esta_validado==true&&altura_esta_validado==true&&piso_esta_validado==true && departamento_esta_validado==true){
+					$("#btn-form").css("display","block");
+				}else{
+					$("#btn-form").css("display","none");
+				}
+			}//validar_compra
+
+			$("#nombre").keyup(function(){
+
+			    nombre=$("#nombre").val();
+
+			    if(nombre.length<3||nombre.search(soloLetrasSinEspacios)){
+			    $("#nombre-form-alert").css("display","block");
+			    nombre_esta_validado=false;
+			    validar_compra();
+
+			    }
+
+				else{
+			    $("#nombre-form-alert").css("display","none");
+			    nombre_esta_validado=true;
+			    validar_compra();
+			    }
+
+			});//keyup
+
+			$("#apellido").keyup(function(){
+
+			    apellido=$("#apellido").val();
+
+			    if(apellido.length<3||apellido.search(soloLetrasSinEspacios)){
+			    $("#apellido-form-alert").css("display","block");
+			    apellido_esta_validado=false;
+			    validar_compra();
+			    }
+			    
+				else{
+			    $("#apellido-form-alert").css("display","none");
+			    apellido_esta_validado=true;
+			    validar_compra();
+			    }
+
+			});//keyup
+
+			$("#dni").keyup(function(){
+
+			    dni=$("#dni").val();
+
+			    if(dni.length!=8||dni.search(soloNumeros)){
+			    $("#dni-form-alert").css("display","block");
+			    dni_esta_validado=false;
+			    validar_compra();
+			    }
+			    
+				else{
+			    $("#dni-form-alert").css("display","none");
+			    dni_esta_validado=true;
+			    validar_compra();
+			    }
+
+			});//keyup
+
+			$("#email").keyup(function(){
+
+			    email=$("#email").val();
+
+			    if(email.length==0||email.search(emailValido)){
+			    $("#email-form-alert").css("display","block");
+			    email_esta_validado=false;
+			    validar_compra();
+			    }
+			    
+				else{
+			    $("#email-form-alert").css("display","none");
+			    email_esta_validado=true;
+			    validar_compra();
+			    }
+
+			});//keyup
+
+			$("#cod_area").keyup(function(){
+
+				cod_area=$("#cod_area").val();
+
+				for(i=0;i<listaDeCod_Area.length;i++){
+					if(cod_area!=listaDeCod_Area[i]){
+						$("#cod_area-form-alert").css("display","block");
+						cod_area_esta_validado=false;
+						validar_compra();
+					}else{
+						$("#cod_area-form-alert").css("display","none");
+						cod_area_esta_validado=true;
+						validar_compra();
+						break;
+
+					}
+				}
+
+
+			});//keyup
+
+			$("#telefono").keyup(function(){
+
+			    telefono=$("#telefono").val();
+
+			    if(telefono.length<8||telefono.search(soloNumeros)){
+			    $("#telefono-form-alert").css("display","block");
+			    telefono_esta_validado=false;
+			    validar_compra();
+			    }
+			    
+				else{
+			    $("#telefono-form-alert").css("display","none");
+			    telefono_esta_validado=true;
+			    validar_compra();
+			    }
+
+			});//keyup
+
+		$('#provincia').change(function() {
+
+			    if (!$('#provincia').val()) {
+  				$("#provincia-form-alert").css("display","block");
+			    provincia_esta_validado=false;
+			    validar_compra();
+			    }
+			    else {
+			    $("#provincia-form-alert").css("display","none");
+			    provincia_esta_validado=true;
+			    validar_compra();
+			    }
+			});//change
+
+		$('#ciudad').change(function() {
+
+			    if (!$('#ciudad').val()) {
+  				$("#ciudad-form-alert").css("display","block");
+			    ciudad_esta_validado=false;
+			    validar_compra();
+			    }
+			    else {
+			    $("#ciudad-form-alert").css("display","none");
+			    ciudad_esta_validado=true;
+			    validar_compra();
+			    }
+			});//change
+
+			$("#cp").keyup(function(){
+
+			    cp=$("#cp").val();
+
+			    if(cp.length<8||cp.search(soloLetrasYNumeros)){
+			    $("#cp-form-alert").css("display","block");
+			    cp_esta_validado=false;
+			    validar_compra();
+			    }
+			    
+				else{
+			    $("#cp-form-alert").css("display","none");
+			    cp_esta_validado=true;
+			    validar_compra();
+			    }
+
+			});//keyup	
+
+
+
+			$("#calle").keyup(function(){
+
+			    calle=$("#calle").val();
+
+			    if(calle.length<3||calle.search(soloLetrasEspaciosYNumeros)){
+			    $("#calle-form-alert").css("display","block");
+			    calle_esta_validado=false;
+			    validar_compra();
+			    }
+			    
+				else{
+			    $("#calle-form-alert").css("display","none");
+			    calle_esta_validado=true;
+			    validar_compra();
+			    }
+
+			});//keyup
+
+
+			$("#altura").keyup(function(){
+
+			    altura=$("#altura").val();
+
+			    if(altura.length==0||altura.search(soloNumeros)){
+			    $("#altura-form-alert").css("display","block");
+			    altura_esta_validado=false;
+			    validar_compra();
+			    }
+			    
+				else{
+			    $("#altura-form-alert").css("display","none");
+			    altura_esta_validado=true;
+			    validar_compra();
+			    }
+
+			});//keyup
+
+
+		$("#piso").keyup(function(){
+
+			    piso=$("#piso").val();
+
+			    if(piso.search(soloNumeros)){
+			    $("#piso-form-alert").css("display","block");
+			    piso_esta_validado=false;
+			    validar_compra();
+			    }
+			    
+				else{
+			    $("#piso-form-alert").css("display","none");
+			    piso_esta_validado=true;
+			    validar_compra();
+			    }
+
+
+
+
+			});//keyup
+		$("#departamento").keyup(function(){
+
+		    departamento=$("#departamento").val();
+
+			
+
+		    if(departamento.search(soloLetrasEspaciosYNumerosReconoceCampoVacio)){
+		    	$("#departamento-form-alert").css("display","block");
+		    	departamento_esta_validado=false;
+		    	validar_compra();
+		    }else{
+		    	$("#departamento-form-alert").css("display","none");
+		    	departamento_esta_validado=true;
+		    	validar_compra();
+		    }
+
+
+
+		});//keyup
+});
+
+	
+     function anular(e) {
+          tecla = (document.all) ? e.keyCode : e.which;
+          return (tecla != 13);
+     }
