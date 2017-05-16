@@ -31,12 +31,6 @@ $usuario=new Usuario();
 
 	<!-- FUNCIONES JS -->
 	<script type="text/javascript" src="js/script.js"></script>
-	<script>
-		    $(window).load(function(){
-	      $("#menu-fixed").sticky({ topSpacing: 0 });
-	    });
-	</script>
-
 
 		<!--Start of Zendesk Chat Script-->
 	<script type="text/javascript">
@@ -48,54 +42,7 @@ $usuario=new Usuario();
 	</script>
 	<!--End of Zendesk Chat Script-->
 
-	<script>
-	var i=0;
-
-		function carritoDisplayNone(){
-		document.getElementById("carrito").style.display = "block";
-		}
-
-
-		function cerrarVentanaCarrito() {
-			
-		  	$("#carrito").removeClass("animated");
-			$("#carrito").removeClass("slideInDown");
-			$("#carrito").addClass("animated");
-			$("#carrito").addClass("zoomOut");
-			i=1;
-		 	 document.getElementById("carrito").style.display = "none";
-
-			//setTimeout(carritoDisplayNone(),30000);
-			//pregunto si if = 1 para que no tape el boton a la hora de volver a
-
-		}
-
-	$(document).ready(function() 
-	{
-				 	 document.getElementById("carrito").style.display = "none";
-
-		$( "#btn-carrito").click(function() {
-
-			if(i==1){
-			$("#carrito").removeClass("animated");
-			$("#carrito").removeClass("fadeOutUp");
-			$("#carrito").addClass("animated");
-			$("#carrito").addClass("slideInDown");
-			}
-
-		 	 document.getElementById("carrito").style.display = "block";
-
-		});
-		
-	
-	});
-
-
-	</script>
-
-
 		<title>Cubiertas Oeste</title>
-
 
 </head>
 <body>
@@ -219,12 +166,68 @@ $usuario=new Usuario();
 		?>
 	</ul>
 </div>
-<div>
+<div class="container-fluid">
 	<?php
 	$bd->listarProductos();
   ?>
 
 </div>
+<div class="row">
+	<div class="buscador-filtros-index hidden-xs col-sm-12 col-md-12 col-lg-12">
+		<div class="container">
+			<form id="buscador-filtros-form" name="buscador-filtros-form" action="buscador-filtros.php" method="post">
+				<div class="buscador-filtros-tituloInput-index">
+
+					<h5 class="">Tipo de vehiculo</h6>
+				
+					<select type="text" id="tipo-de-vehiculo" class="buscador-filtros-select-index form-control" name="tipo-de-vehiculo" fomr="buscador-filtros-form">
+						<option value="valor_nulo" selected="selected">Selecciona opcion...</option>
+						<?php $bd->listarTipoVehiculo(); ?>
+					</select>
+				</div>
+
+				<div class="buscador-filtros-tituloInput-index">
+
+					<h5 class="">Rodado</h6>
+					<select type="text" id="rodado" class="buscador-filtros-select-index form-control" name="rodado" form="buscador-filtros-form">
+						
+						<option value="valor_nulo" selected="selected">Selecciona opcion...</option>
+						<?php $bd->listarRodado(); ?>
+					
+					</select>
+				</div>
+
+				<div class="buscador-filtros-tituloInput-index">
+
+					<h5 class="">Marca</h6>
+
+					<select type="text" id="marca" class="buscador-filtros-select-index form-control" name="marca" form="buscador-filtros-form">
+						
+						<option value="valor_nulo" selected="selected">Selecciona opcion...</option>
+						<?php $bd->listarMarca(); ?>
+
+					</select>
+				</div>
+
+				<div class="buscador-filtros-tituloInput-index">
+
+					<h5 class="">Categoria</h6>
+
+					<select type="text" id="categoria" class="buscador-filtros-select-index form-control" name="categoria" form="buscador-filtros-form">
+						
+						<option value="valor_nulo" selected="selected">Selecciona opcion...</option>
+						<?php $bd->listarCategoria(); ?>
+
+					</select>
+				</div>
+
+			<div type ="submit"class="buscador-filtros-btn" onClick="document.forms['buscador-filtros-form'].submit();">
+				<i id="buscador-filtros-search" class="material-icons">search</i>
+			</div>
+			</form>
+		</div><!-- container -->
+	</div><!-- buscador-filtros -->
+</div><!-- row -->
 
 
 

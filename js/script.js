@@ -1,3 +1,39 @@
+
+/////////////FUNCIONES DE CARRITO
+var i=0;
+$(document).ready(function() {
+
+ document.getElementById("carrito").style.display = "none";
+
+		$( "#btn-carrito").click(function() {
+
+			if(i==1){
+			$("#carrito").removeClass("animated");
+			$("#carrito").removeClass("fadeOutUp");
+			$("#carrito").addClass("animated");
+			$("#carrito").addClass("slideInDown");
+			}
+
+		 	 document.getElementById("carrito").style.display = "block";
+
+		});	
+
+});// ready
+
+function cerrarVentanaCarrito() {
+	
+  	$("#carrito").removeClass("animated");
+	$("#carrito").removeClass("slideInDown");
+	$("#carrito").addClass("animated");
+	$("#carrito").addClass("zoomOut");
+
+	i=1;
+ 	 document.getElementById("carrito").style.display = "none";
+
+}
+
+
+
 function borrarDeCarrito(id){
 
 				$.ajax({
@@ -36,6 +72,22 @@ function borrarDeCarrito(id){
 				}
 				});
 	}
+
+///////////////////////////////////////////////MENU FIXED
+
+$(window).load(function(){
+	      $("#menu-fixed").sticky({ topSpacing: 0 });
+	    });
+
+$(window).load(function(){
+	      $("#buscador-fixed").sticky({ topSpacing: 55 });
+	    });
+
+
+
+
+
+
 function borrarDeCarritoCheckOut(id){
 
 				$.ajax({
@@ -443,7 +495,7 @@ function actualizarCantidad10(id){
 				}
 				});
 	}
-
+/////////////////////////////////////VALIDACIONES
 $(document).ready(function() {
 
 	$("#provincia").change(function(){
@@ -749,9 +801,15 @@ $(document).ready(function() {
 
 
 		});//keyup
-});
 
-	
+
+
+
+
+
+});// ready
+
+
      function anular(e) {
           tecla = (document.all) ? e.keyCode : e.which;
           return (tecla != 13);

@@ -29,6 +29,7 @@ $bd=new BaseDatos();
   if(isset($_GET['id'])){
 
 	$bd->listarUnSoloProducto($_GET['id']);
+	$bd->listarDescripcion($_GET['id']);
 
 	}else{
 		
