@@ -167,7 +167,7 @@ class BaseDatos{
 						<div class='paralelogramo-btn'><a href='vermasproducto.php?id=".$fila['id']."'>Ver mas</a></div>
 
 					</div>";				
-				}
+				}//end if
 		}//while
 
 
@@ -648,7 +648,7 @@ public function listarTipoVehiculo(){
 
 		if($tipo_de_vehiculo!='valor_nulo' && $rodado=='valor_nulo' && $marca =='valor_nulo' && $categoria=='valor_nulo' && $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -661,7 +661,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($rodado!='valor_nulo' && $tipo_de_vehiculo=='valor_nulo' && $marca =='valor_nulo' && $categoria=='valor_nulo' && $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -673,7 +673,7 @@ public function listarTipoVehiculo(){
 
 
 	}elseif($marca!='valor_nulo' && $tipo_de_vehiculo=='valor_nulo' && $rodado =='valor_nulo' && $categoria=='valor_nulo' && $ancho=='valor_nulo' && $alto=='valor_nulo'){
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -685,7 +685,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($categoria!='valor_nulo' && $tipo_de_vehiculo=='valor_nulo' && $marca =='valor_nulo' && $rodado=='valor_nulo'  && $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -698,7 +698,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($ancho!='valor_nulo' && $tipo_de_vehiculo=='valor_nulo' && $marca =='valor_nulo' && $rodado=='valor_nulo'  && $categoria=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -711,7 +711,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($alto!='valor_nulo' && $tipo_de_vehiculo=='valor_nulo' && $marca =='valor_nulo' && $rodado=='valor_nulo'  && $categoria=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -724,7 +724,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$rodado!='valor_nulo' && $marca=='valor_nulo' && $categoria=='valor_nulo'&& $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -736,7 +736,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$marca!='valor_nulo' && $rodado=='valor_nulo' && $categoria=='valor_nulo'&& $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -748,7 +748,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$categoria!='valor_nulo' && $rodado=='valor_nulo' && $marca=='valor_nulo'&& $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -760,7 +760,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$ancho!='valor_nulo' && $rodado=='valor_nulo' && $marca=='valor_nulo'&& $categoria=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -772,7 +772,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$alto!='valor_nulo' && $rodado=='valor_nulo' && $marca=='valor_nulo'&& $categoria=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -784,7 +784,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($rodado!='valor_nulo'&&$marca!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&&$categoria=='valor_nulo'&& $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -796,7 +796,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($rodado!='valor_nulo'&&$categoria!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&&$marca=='valor_nulo'&& $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -808,7 +808,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($rodado!='valor_nulo'&&$ancho!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&&$marca=='valor_nulo'&& $categoria=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -820,7 +820,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($rodado!='valor_nulo'&&$alto!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&&$marca=='valor_nulo'&& $categoria=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -832,7 +832,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($marca!='valor_nulo'&&$categoria!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&&$rodado=='valor_nulo'&& $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -844,7 +844,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($marca!='valor_nulo'&&$ancho!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&&$rodado=='valor_nulo'&& $categoria=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -856,7 +856,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($marca!='valor_nulo'&& $alto!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&&$rodado=='valor_nulo'&& $categoria=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -868,7 +868,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($categoria!='valor_nulo'&& $ancho!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&&$rodado=='valor_nulo'&& $marca=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -880,7 +880,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($categoria!='valor_nulo'&& $alto!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&&$rodado=='valor_nulo'&& $marca=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -892,7 +892,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($ancho!='valor_nulo'&& $alto!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&&$rodado=='valor_nulo'&& $marca=='valor_nulo' && $categoria=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -904,7 +904,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$rodado!='valor_nulo'&&$marca!='valor_nulo'&&$categoria=='valor_nulo'&& $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -917,7 +917,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$rodado!='valor_nulo'&&$categoria!='valor_nulo'&&$marca=='valor_nulo'&& $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -930,7 +930,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$rodado!='valor_nulo'&&$ancho!='valor_nulo'&&$marca=='valor_nulo'&& $categoria=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -943,7 +943,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$rodado!='valor_nulo'&&$alto!='valor_nulo'&&$marca=='valor_nulo'&& $categoria=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -956,7 +956,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$marca!='valor_nulo'&&$categoria!='valor_nulo'&&$rodado=='valor_nulo'&& $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -968,7 +968,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$marca!='valor_nulo'&&$ancho!='valor_nulo'&&$rodado=='valor_nulo'&& $categoria=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -980,7 +980,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$marca!='valor_nulo'&&$alto!='valor_nulo'&&$rodado=='valor_nulo'&& $categoria=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -992,7 +992,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$categoria!='valor_nulo'&&$ancho!='valor_nulo'&&$rodado=='valor_nulo'&& $marca=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1004,7 +1004,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$categoria!='valor_nulo'&&$alto!='valor_nulo'&&$rodado=='valor_nulo'&& $marca=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1016,7 +1016,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$ancho!='valor_nulo'&&$alto!='valor_nulo'&&$rodado=='valor_nulo'&& $marca=='valor_nulo' && $categoria=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1028,7 +1028,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($rodado!='valor_nulo'&&$marca!='valor_nulo'&&$categoria!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&& $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1040,7 +1040,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($rodado!='valor_nulo'&&$marca!='valor_nulo'&&$ancho!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&& $categoria=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1052,7 +1052,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($rodado!='valor_nulo'&&$marca!='valor_nulo'&&$alto!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&& $categoria=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1064,7 +1064,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($rodado!='valor_nulo'&&$categoria!='valor_nulo'&&$ancho!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&& $marca=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1076,7 +1076,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($rodado!='valor_nulo'&&$categoria!='valor_nulo'&&$alto!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&& $marca=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1088,7 +1088,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($rodado!='valor_nulo'&&$ancho!='valor_nulo'&&$alto!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&& $marca=='valor_nulo' && $categoria=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1100,7 +1100,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($marca!='valor_nulo'&&$categoria!='valor_nulo'&&$ancho!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&& $rodado=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1112,7 +1112,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($marca!='valor_nulo'&&$categoria!='valor_nulo'&&$alto!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&& $rodado=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1124,7 +1124,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($marca!='valor_nulo'&&$ancho!='valor_nulo'&&$alto!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&& $rodado=='valor_nulo' && $categoria=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1136,7 +1136,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($categoria!='valor_nulo'&&$ancho!='valor_nulo'&&$alto!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&& $rodado=='valor_nulo' && $marca=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1148,7 +1148,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo' && $rodado!='valor_nulo' && $marca !='valor_nulo' && $categoria!='valor_nulo'&& $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1160,7 +1160,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo' && $rodado!='valor_nulo' && $marca !='valor_nulo' && $ancho!='valor_nulo'&& $categoria=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1172,7 +1172,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo' && $rodado!='valor_nulo' && $marca !='valor_nulo' && $alto!='valor_nulo'&& $categoria=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1184,7 +1184,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo' && $rodado!='valor_nulo' && $categoria !='valor_nulo' && $ancho!='valor_nulo'&& $marca=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1196,7 +1196,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo' && $rodado!='valor_nulo' && $categoria !='valor_nulo' && $alto!='valor_nulo'&& $marca=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1208,7 +1208,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo' && $marca!='valor_nulo' && $categoria !='valor_nulo' && $alto!='valor_nulo'&& $rodado=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1220,7 +1220,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo' && $marca!='valor_nulo' && $categoria !='valor_nulo' && $alto!='valor_nulo'&& $rodado=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1239,7 +1239,7 @@ public function listarTipoVehiculo(){
 
 	elseif($rodado!='valor_nulo' && $marca !='valor_nulo'&& $categoria=='valor_nulo' && $ancho!='valor_nulo' && $alto=='valor_nulo' && $tipo_de_vehiculo=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1251,7 +1251,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($rodado!='valor_nulo' && $marca !='valor_nulo'&& $categoria=='valor_nulo' && $alto!='valor_nulo' && $ancho=='valor_nulo' && $tipo_de_vehiculo=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1263,7 +1263,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($rodado!='valor_nulo' && $marca !='valor_nulo'&& $ancho!='valor_nulo' && $alto!='valor_nulo' && $categoria=='valor_nulo' && $tipo_de_vehiculo=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1275,7 +1275,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($rodado!='valor_nulo' && $categoria !='valor_nulo'&& $ancho!='valor_nulo' && $alto!='valor_nulo' && $marca=='valor_nulo' && $tipo_de_vehiculo=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1287,7 +1287,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($marca !='valor_nulo'&& $categoria!='valor_nulo' && $ancho!='valor_nulo' && $alto!='valor_nulo' && $tipo_de_vehiculo=='valor_nulo' && $rodado=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1299,7 +1299,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($marca !='valor_nulo'&& $tipo_de_vehiculo!='valor_nulo' && $ancho!='valor_nulo' && $alto!='valor_nulo' && $categoria=='valor_nulo' && $rodado=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1311,7 +1311,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo' && $rodado!='valor_nulo' && $marca !='valor_nulo' && $categoria!='valor_nulo'&& $ancho!='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1323,7 +1323,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo' && $rodado!='valor_nulo' && $marca !='valor_nulo' && $categoria!='valor_nulo'&& $alto!='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1335,7 +1335,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo' && $rodado!='valor_nulo' && $marca !='valor_nulo' && $ancho!='valor_nulo'&& $alto!='valor_nulo' && $categoria=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1347,7 +1347,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo' && $rodado!='valor_nulo' && $categoria !='valor_nulo' && $ancho!='valor_nulo'&& $alto!='valor_nulo' && $marca=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1359,7 +1359,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo' && $marca!='valor_nulo' && $categoria !='valor_nulo' && $ancho!='valor_nulo'&& $alto!='valor_nulo' && $rodado=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1371,7 +1371,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($rodado!='valor_nulo' && $marca!='valor_nulo' && $categoria !='valor_nulo' && $ancho!='valor_nulo'&& $alto!='valor_nulo' && $tipo_de_vehiculo=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1383,7 +1383,7 @@ public function listarTipoVehiculo(){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo' && $rodado!='valor_nulo' && $marca!='valor_nulo' && $categoria !='valor_nulo' && $ancho!='valor_nulo'&& $alto!='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1409,28 +1409,61 @@ if($confirmacion_busqueda==1){
 
 			if($fila['tiene_descuento']==0){
 
-				echo "<div class='producto'><h3>".$fila['marca']."</h3>
-						<img  width='175px' height='175px' src=img/".$fila['imagen'].">
+				echo "<div class='producto producto-buscador-filtros'>
+
+
+						<h3>".$fila['marca']."</h3><h3> <span>".$fila['modelo']."</span></h3>
+
+
+						<img  width='175' height='175' src=img/".$fila['imagen'].">
+
 						<div class='producto-precio'>
-						<h4><strong>$".$fila['precio']."</strong></h4>
+
+						<h4>$".$fila['precio']." ARG</h4>
+
 						</div>
-						<h2>".$fila['modelo']."</h2>
-						<h2>".$fila['ancho']." ancho x ".$fila['alto']." alto</h2>
-						<h3>De nuestra linea ".$fila['descripcion']."</h3>
-					<a href='vermasproducto.php?id=".$fila['id']."'>Ver mas</a></div>";
+
+						<ul>
+						<li>Medida:".$fila['ancho']." x ".$fila['alto']."</li>
+						<li>Rodado:".$fila['rodado']."</li>
+						<li>Vehiculo:".$fila['tipo_vehiculo']."</li>
+						<li>Categoria:".$fila['descripcion']."</li>
+
+						</ul>
+
+
+						
+
+					<div class='paralelogramo-btn'><a href='vermasproducto.php?id=".$fila['id']."'>Ver mas</a></div>
+
+					</div>";
 
 				}else if($fila['tiene_descuento']==1){
 				
-				echo "<div class='producto'><h3>".$fila['marca']."</h3>
-						<img  width='175px' height='175px' src=img/".$fila['imagen'].">
-						<h2>".$fila['modelo']."</h2>
-						<h2>".$fila['ancho']." ancho x ".$fila['alto']." alto</h2>
-						<h3>De nuestra linea ".$fila['descripcion']."</h3>
-						<h3>$".$fila['precio']."ARG</h3>
-						<!--<h3>¡OFERTA!</h3>-->
-						<!--<h3>$".$fila['precio_descuento']."ARG</h3>-->
-						<button><a href='vermasproducto.php?id=".$fila['id']."'>Ver mas</a></button></div>";					
-				}//if
+				echo "<div class='producto producto-buscador-filtros'>
+
+						<h3>".$fila['marca']." </h3><h3><span> ".$fila['modelo']."</span></h3>
+
+
+						<img  width='175' height='175' src=img/".$fila['imagen'].">
+
+						<div class='producto-precio'>
+
+						<h4><del>$".$fila['precio']." arg</del> $".$fila['precio_descuento']." ARG</h4>
+
+						</div>
+
+						<ul>
+						<li>Medida:".$fila['ancho']." x ".$fila['alto']."</li>
+						<li>Rodado:".$fila['rodado']."</li>
+						<li>Vehiculo:".$fila['tipo_vehiculo']."</li>
+						<li>Categoria:".$fila['descripcion']."</li>
+						</ul>
+
+						<div class='paralelogramo-btn'><a href='vermasproducto.php?id=".$fila['id']."'>Ver mas</a></div>
+
+					</div>";				
+				}//end if
 		}//while
 		
 	
@@ -1447,7 +1480,7 @@ if($confirmacion_busqueda==1){
 
 		if($tipo_de_vehiculo!='valor_nulo' && $rodado=='valor_nulo' && $marca =='valor_nulo' && $categoria=='valor_nulo' && $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1461,7 +1494,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($rodado!='valor_nulo' && $tipo_de_vehiculo=='valor_nulo' && $marca =='valor_nulo' && $categoria=='valor_nulo' && $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1474,7 +1507,7 @@ if($confirmacion_busqueda==1){
 
 
 	}elseif($marca!='valor_nulo' && $tipo_de_vehiculo=='valor_nulo' && $rodado =='valor_nulo' && $categoria=='valor_nulo' && $ancho=='valor_nulo' && $alto=='valor_nulo'){
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1487,7 +1520,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($categoria!='valor_nulo' && $tipo_de_vehiculo=='valor_nulo' && $marca =='valor_nulo' && $rodado=='valor_nulo'  && $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1501,7 +1534,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($ancho!='valor_nulo' && $tipo_de_vehiculo=='valor_nulo' && $marca =='valor_nulo' && $rodado=='valor_nulo'  && $categoria=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1515,7 +1548,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($alto!='valor_nulo' && $tipo_de_vehiculo=='valor_nulo' && $marca =='valor_nulo' && $rodado=='valor_nulo'  && $categoria=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1529,7 +1562,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$rodado!='valor_nulo' && $marca=='valor_nulo' && $categoria=='valor_nulo'&& $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1542,7 +1575,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$marca!='valor_nulo' && $rodado=='valor_nulo' && $categoria=='valor_nulo'&& $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1555,7 +1588,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$categoria!='valor_nulo' && $rodado=='valor_nulo' && $marca=='valor_nulo'&& $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1568,7 +1601,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$ancho!='valor_nulo' && $rodado=='valor_nulo' && $marca=='valor_nulo'&& $categoria=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1581,7 +1614,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$alto!='valor_nulo' && $rodado=='valor_nulo' && $marca=='valor_nulo'&& $categoria=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1594,7 +1627,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($rodado!='valor_nulo'&&$marca!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&&$categoria=='valor_nulo'&& $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1607,7 +1640,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($rodado!='valor_nulo'&&$categoria!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&&$marca=='valor_nulo'&& $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1620,7 +1653,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($rodado!='valor_nulo'&&$ancho!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&&$marca=='valor_nulo'&& $categoria=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1633,7 +1666,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($rodado!='valor_nulo'&&$alto!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&&$marca=='valor_nulo'&& $categoria=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1646,7 +1679,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($marca!='valor_nulo'&&$categoria!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&&$rodado=='valor_nulo'&& $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1659,7 +1692,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($marca!='valor_nulo'&&$ancho!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&&$rodado=='valor_nulo'&& $categoria=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1672,7 +1705,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($marca!='valor_nulo'&& $alto!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&&$rodado=='valor_nulo'&& $categoria=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1685,7 +1718,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($categoria!='valor_nulo'&& $ancho!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&&$rodado=='valor_nulo'&& $marca=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1698,7 +1731,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($categoria!='valor_nulo'&& $alto!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&&$rodado=='valor_nulo'&& $marca=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1711,7 +1744,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($ancho!='valor_nulo'&& $alto!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&&$rodado=='valor_nulo'&& $marca=='valor_nulo' && $categoria=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1724,7 +1757,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$rodado!='valor_nulo'&&$marca!='valor_nulo'&&$categoria=='valor_nulo'&& $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1738,7 +1771,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$rodado!='valor_nulo'&&$categoria!='valor_nulo'&&$marca=='valor_nulo'&& $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1752,7 +1785,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$rodado!='valor_nulo'&&$ancho!='valor_nulo'&&$marca=='valor_nulo'&& $categoria=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1766,7 +1799,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$rodado!='valor_nulo'&&$alto!='valor_nulo'&&$marca=='valor_nulo'&& $categoria=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1780,7 +1813,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$marca!='valor_nulo'&&$categoria!='valor_nulo'&&$rodado=='valor_nulo'&& $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1793,7 +1826,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$marca!='valor_nulo'&&$ancho!='valor_nulo'&&$rodado=='valor_nulo'&& $categoria=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1806,7 +1839,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$marca!='valor_nulo'&&$alto!='valor_nulo'&&$rodado=='valor_nulo'&& $categoria=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1819,7 +1852,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$categoria!='valor_nulo'&&$ancho!='valor_nulo'&&$rodado=='valor_nulo'&& $marca=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1832,7 +1865,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$categoria!='valor_nulo'&&$alto!='valor_nulo'&&$rodado=='valor_nulo'&& $marca=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1845,7 +1878,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$ancho!='valor_nulo'&&$alto!='valor_nulo'&&$rodado=='valor_nulo'&& $marca=='valor_nulo' && $categoria=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1858,7 +1891,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($rodado!='valor_nulo'&&$marca!='valor_nulo'&&$categoria!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&& $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1871,7 +1904,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($rodado!='valor_nulo'&&$marca!='valor_nulo'&&$ancho!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&& $categoria=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1884,7 +1917,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($rodado!='valor_nulo'&&$marca!='valor_nulo'&&$alto!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&& $categoria=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1897,7 +1930,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($rodado!='valor_nulo'&&$categoria!='valor_nulo'&&$ancho!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&& $marca=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1910,7 +1943,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($rodado!='valor_nulo'&&$categoria!='valor_nulo'&&$alto!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&& $marca=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1923,7 +1956,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($rodado!='valor_nulo'&&$ancho!='valor_nulo'&&$alto!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&& $marca=='valor_nulo' && $categoria=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1936,7 +1969,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($marca!='valor_nulo'&&$categoria!='valor_nulo'&&$ancho!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&& $rodado=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1949,7 +1982,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($marca!='valor_nulo'&&$categoria!='valor_nulo'&&$alto!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&& $rodado=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1962,7 +1995,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($marca!='valor_nulo'&&$ancho!='valor_nulo'&&$alto!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&& $rodado=='valor_nulo' && $categoria=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1975,7 +2008,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($categoria!='valor_nulo'&&$ancho!='valor_nulo'&&$alto!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&& $rodado=='valor_nulo' && $marca=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -1988,7 +2021,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo' && $rodado!='valor_nulo' && $marca !='valor_nulo' && $categoria!='valor_nulo'&& $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2001,7 +2034,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo' && $rodado!='valor_nulo' && $marca !='valor_nulo' && $ancho!='valor_nulo'&& $categoria=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2014,7 +2047,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo' && $rodado!='valor_nulo' && $marca !='valor_nulo' && $alto!='valor_nulo'&& $categoria=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2027,7 +2060,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo' && $rodado!='valor_nulo' && $categoria !='valor_nulo' && $ancho!='valor_nulo'&& $marca=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2040,7 +2073,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo' && $rodado!='valor_nulo' && $categoria !='valor_nulo' && $alto!='valor_nulo'&& $marca=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2053,7 +2086,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo' && $marca!='valor_nulo' && $categoria !='valor_nulo' && $alto!='valor_nulo'&& $rodado=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2066,7 +2099,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo' && $marca!='valor_nulo' && $categoria !='valor_nulo' && $alto!='valor_nulo'&& $rodado=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2086,7 +2119,7 @@ if($confirmacion_busqueda==1){
 
 	elseif($rodado!='valor_nulo' && $marca !='valor_nulo'&& $categoria=='valor_nulo' && $ancho!='valor_nulo' && $alto=='valor_nulo' && $tipo_de_vehiculo=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2099,7 +2132,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($rodado!='valor_nulo' && $marca !='valor_nulo'&& $categoria=='valor_nulo' && $alto!='valor_nulo' && $ancho=='valor_nulo' && $tipo_de_vehiculo=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2112,7 +2145,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($rodado!='valor_nulo' && $marca !='valor_nulo'&& $ancho!='valor_nulo' && $alto!='valor_nulo' && $categoria=='valor_nulo' && $tipo_de_vehiculo=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2125,7 +2158,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($rodado!='valor_nulo' && $categoria !='valor_nulo'&& $ancho!='valor_nulo' && $alto!='valor_nulo' && $marca=='valor_nulo' && $tipo_de_vehiculo=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2138,7 +2171,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($marca !='valor_nulo'&& $categoria!='valor_nulo' && $ancho!='valor_nulo' && $alto!='valor_nulo' && $tipo_de_vehiculo=='valor_nulo' && $rodado=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2151,7 +2184,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($marca !='valor_nulo'&& $tipo_de_vehiculo!='valor_nulo' && $ancho!='valor_nulo' && $alto!='valor_nulo' && $categoria=='valor_nulo' && $rodado=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2164,7 +2197,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo' && $rodado!='valor_nulo' && $marca !='valor_nulo' && $categoria!='valor_nulo'&& $ancho!='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2177,7 +2210,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo' && $rodado!='valor_nulo' && $marca !='valor_nulo' && $categoria!='valor_nulo'&& $alto!='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2190,7 +2223,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo' && $rodado!='valor_nulo' && $marca !='valor_nulo' && $ancho!='valor_nulo'&& $alto!='valor_nulo' && $categoria=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2203,7 +2236,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo' && $rodado!='valor_nulo' && $categoria !='valor_nulo' && $ancho!='valor_nulo'&& $alto!='valor_nulo' && $marca=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2216,7 +2249,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo' && $marca!='valor_nulo' && $categoria !='valor_nulo' && $ancho!='valor_nulo'&& $alto!='valor_nulo' && $rodado=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2229,7 +2262,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($rodado!='valor_nulo' && $marca!='valor_nulo' && $categoria !='valor_nulo' && $ancho!='valor_nulo'&& $alto!='valor_nulo' && $tipo_de_vehiculo=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2242,7 +2275,7 @@ if($confirmacion_busqueda==1){
 
 	}elseif($tipo_de_vehiculo!='valor_nulo' && $rodado!='valor_nulo' && $marca!='valor_nulo' && $categoria !='valor_nulo' && $ancho!='valor_nulo'&& $alto!='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2267,31 +2300,64 @@ if($confirmacion_busqueda==1){
 		
 		while($fila=$resultado->fetch_assoc()){
 
-			if($fila['tiene_descuento']==0){
+		if($fila['tiene_descuento']==0){
 
-				echo "<div class='producto'><h3>".$fila['marca']."</h3>
-						<img  width='175px' height='175px' src=img/".$fila['imagen'].">
+				echo "<div class='producto producto-buscador-filtros'>
+
+
+						<h3>".$fila['marca']."</h3><h3> <span>".$fila['modelo']."</span></h3>
+
+
+						<img  width='175' height='175' src=img/".$fila['imagen'].">
+
 						<div class='producto-precio'>
-						<h4><strong>$".$fila['precio']."</strong></h4>
+
+						<h4>$".$fila['precio']." ARG</h4>
+
 						</div>
-						<h2>".$fila['modelo']."</h2>
-						<h2>".$fila['ancho']." ancho x ".$fila['alto']." alto</h2>
-						<h3>De nuestra linea ".$fila['descripcion']."</h3>
-					<a href='vermasproducto.php?id=".$fila['id']."'>Ver mas</a></div>";
+
+						<ul>
+						<li>Medida:".$fila['ancho']." x ".$fila['alto']."</li>
+						<li>Rodado:".$fila['rodado']."</li>
+						<li>Vehiculo:".$fila['tipo_vehiculo']."</li>
+						<li>Categoria:".$fila['descripcion']."</li>
+
+						</ul>
+
+
+						
+
+					<div class='paralelogramo-btn'><a href='vermasproducto.php?id=".$fila['id']."'>Ver mas</a></div>
+
+					</div>";
 
 				}else if($fila['tiene_descuento']==1){
 				
-				echo "<div class='producto'><h3>".$fila['marca']."</h3>
-						<img  width='175px' height='175px' src=img/".$fila['imagen'].">
-						<h2>".$fila['modelo']."</h2>
-						<h2>".$fila['ancho']." ancho x ".$fila['alto']." alto</h2>
-						<h3>De nuestra linea ".$fila['descripcion']."</h3>
-						<h3>$".$fila['precio']."ARG</h3>
-						<!--<h3>¡OFERTA!</h3>-->
-						<!--<h3>$".$fila['precio_descuento']."ARG</h3>-->
-						<button><a href='vermasproducto.php?id=".$fila['id']."'>Ver mas</a></button></div>";					
-				}//if
-		}//while
+				echo "<div class='producto producto-buscador-filtros'>
+
+						<h3>".$fila['marca']." </h3><h3><span> ".$fila['modelo']."</span></h3>
+
+
+						<img  width='175' height='175' src=img/".$fila['imagen'].">
+
+						<div class='producto-precio'>
+
+						<h4><del>$".$fila['precio']." arg</del> $".$fila['precio_descuento']." ARG</h4>
+
+						</div>
+
+						<ul>
+						<li>Medida:".$fila['ancho']." x ".$fila['alto']."</li>
+						<li>Rodado:".$fila['rodado']."</li>
+						<li>Vehiculo:".$fila['tipo_vehiculo']."</li>
+						<li>Categoria:".$fila['descripcion']."</li>
+						</ul>
+
+						<div class='paralelogramo-btn'><a href='vermasproducto.php?id=".$fila['id']."'>Ver mas</a></div>
+
+					</div>";				
+				}//end if
+		}//while producto-buscador-filtros
 		
 	
 
@@ -2305,7 +2371,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 		if($tipo_de_vehiculo!='valor_nulo' && $rodado=='valor_nulo' && $marca =='valor_nulo' && $categoria=='valor_nulo' && $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2319,7 +2385,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($rodado!='valor_nulo' && $tipo_de_vehiculo=='valor_nulo' && $marca =='valor_nulo' && $categoria=='valor_nulo' && $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2332,7 +2398,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 
 	}elseif($marca!='valor_nulo' && $tipo_de_vehiculo=='valor_nulo' && $rodado =='valor_nulo' && $categoria=='valor_nulo' && $ancho=='valor_nulo' && $alto=='valor_nulo'){
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2345,7 +2411,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($categoria!='valor_nulo' && $tipo_de_vehiculo=='valor_nulo' && $marca =='valor_nulo' && $rodado=='valor_nulo'  && $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2359,7 +2425,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($ancho!='valor_nulo' && $tipo_de_vehiculo=='valor_nulo' && $marca =='valor_nulo' && $rodado=='valor_nulo'  && $categoria=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2373,7 +2439,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($alto!='valor_nulo' && $tipo_de_vehiculo=='valor_nulo' && $marca =='valor_nulo' && $rodado=='valor_nulo'  && $categoria=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2387,7 +2453,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$rodado!='valor_nulo' && $marca=='valor_nulo' && $categoria=='valor_nulo'&& $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2400,7 +2466,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$marca!='valor_nulo' && $rodado=='valor_nulo' && $categoria=='valor_nulo'&& $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2413,7 +2479,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$categoria!='valor_nulo' && $rodado=='valor_nulo' && $marca=='valor_nulo'&& $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2426,7 +2492,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$ancho!='valor_nulo' && $rodado=='valor_nulo' && $marca=='valor_nulo'&& $categoria=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2439,7 +2505,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$alto!='valor_nulo' && $rodado=='valor_nulo' && $marca=='valor_nulo'&& $categoria=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2452,7 +2518,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($rodado!='valor_nulo'&&$marca!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&&$categoria=='valor_nulo'&& $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2465,7 +2531,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($rodado!='valor_nulo'&&$categoria!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&&$marca=='valor_nulo'&& $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2478,7 +2544,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($rodado!='valor_nulo'&&$ancho!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&&$marca=='valor_nulo'&& $categoria=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2491,7 +2557,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($rodado!='valor_nulo'&&$alto!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&&$marca=='valor_nulo'&& $categoria=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2504,7 +2570,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($marca!='valor_nulo'&&$categoria!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&&$rodado=='valor_nulo'&& $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2517,7 +2583,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($marca!='valor_nulo'&&$ancho!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&&$rodado=='valor_nulo'&& $categoria=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2530,7 +2596,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($marca!='valor_nulo'&& $alto!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&&$rodado=='valor_nulo'&& $categoria=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2543,7 +2609,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($categoria!='valor_nulo'&& $ancho!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&&$rodado=='valor_nulo'&& $marca=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2556,7 +2622,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($categoria!='valor_nulo'&& $alto!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&&$rodado=='valor_nulo'&& $marca=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2569,7 +2635,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($ancho!='valor_nulo'&& $alto!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&&$rodado=='valor_nulo'&& $marca=='valor_nulo' && $categoria=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2582,7 +2648,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$rodado!='valor_nulo'&&$marca!='valor_nulo'&&$categoria=='valor_nulo'&& $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2596,7 +2662,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$rodado!='valor_nulo'&&$categoria!='valor_nulo'&&$marca=='valor_nulo'&& $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2610,7 +2676,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$rodado!='valor_nulo'&&$ancho!='valor_nulo'&&$marca=='valor_nulo'&& $categoria=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2624,7 +2690,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$rodado!='valor_nulo'&&$alto!='valor_nulo'&&$marca=='valor_nulo'&& $categoria=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2638,7 +2704,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$marca!='valor_nulo'&&$categoria!='valor_nulo'&&$rodado=='valor_nulo'&& $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2651,7 +2717,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$marca!='valor_nulo'&&$ancho!='valor_nulo'&&$rodado=='valor_nulo'&& $categoria=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2664,7 +2730,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$marca!='valor_nulo'&&$alto!='valor_nulo'&&$rodado=='valor_nulo'&& $categoria=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2677,7 +2743,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$categoria!='valor_nulo'&&$ancho!='valor_nulo'&&$rodado=='valor_nulo'&& $marca=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2690,7 +2756,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$categoria!='valor_nulo'&&$alto!='valor_nulo'&&$rodado=='valor_nulo'&& $marca=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2703,7 +2769,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($tipo_de_vehiculo!='valor_nulo'&&$ancho!='valor_nulo'&&$alto!='valor_nulo'&&$rodado=='valor_nulo'&& $marca=='valor_nulo' && $categoria=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2716,7 +2782,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($rodado!='valor_nulo'&&$marca!='valor_nulo'&&$categoria!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&& $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2729,7 +2795,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($rodado!='valor_nulo'&&$marca!='valor_nulo'&&$ancho!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&& $categoria=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2742,7 +2808,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($rodado!='valor_nulo'&&$marca!='valor_nulo'&&$alto!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&& $categoria=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2755,7 +2821,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($rodado!='valor_nulo'&&$categoria!='valor_nulo'&&$ancho!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&& $marca=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2768,7 +2834,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($rodado!='valor_nulo'&&$categoria!='valor_nulo'&&$alto!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&& $marca=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2781,7 +2847,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($rodado!='valor_nulo'&&$ancho!='valor_nulo'&&$alto!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&& $marca=='valor_nulo' && $categoria=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2794,7 +2860,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($marca!='valor_nulo'&&$categoria!='valor_nulo'&&$ancho!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&& $rodado=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2807,7 +2873,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($marca!='valor_nulo'&&$categoria!='valor_nulo'&&$alto!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&& $rodado=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2820,7 +2886,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($marca!='valor_nulo'&&$ancho!='valor_nulo'&&$alto!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&& $rodado=='valor_nulo' && $categoria=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2833,7 +2899,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($categoria!='valor_nulo'&&$ancho!='valor_nulo'&&$alto!='valor_nulo'&&$tipo_de_vehiculo=='valor_nulo'&& $rodado=='valor_nulo' && $marca=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2846,7 +2912,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($tipo_de_vehiculo!='valor_nulo' && $rodado!='valor_nulo' && $marca !='valor_nulo' && $categoria!='valor_nulo'&& $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2859,7 +2925,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($tipo_de_vehiculo!='valor_nulo' && $rodado!='valor_nulo' && $marca !='valor_nulo' && $ancho!='valor_nulo'&& $categoria=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2872,7 +2938,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($tipo_de_vehiculo!='valor_nulo' && $rodado!='valor_nulo' && $marca !='valor_nulo' && $alto!='valor_nulo'&& $categoria=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2885,7 +2951,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($tipo_de_vehiculo!='valor_nulo' && $rodado!='valor_nulo' && $categoria !='valor_nulo' && $ancho!='valor_nulo'&& $marca=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2898,7 +2964,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($tipo_de_vehiculo!='valor_nulo' && $rodado!='valor_nulo' && $categoria !='valor_nulo' && $alto!='valor_nulo'&& $marca=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2911,7 +2977,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($tipo_de_vehiculo!='valor_nulo' && $marca!='valor_nulo' && $categoria !='valor_nulo' && $alto!='valor_nulo'&& $rodado=='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2924,7 +2990,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($tipo_de_vehiculo!='valor_nulo' && $marca!='valor_nulo' && $categoria !='valor_nulo' && $alto!='valor_nulo'&& $rodado=='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2944,7 +3010,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	elseif($rodado!='valor_nulo' && $marca !='valor_nulo'&& $categoria=='valor_nulo' && $ancho!='valor_nulo' && $alto=='valor_nulo' && $tipo_de_vehiculo=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2957,7 +3023,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($rodado!='valor_nulo' && $marca !='valor_nulo'&& $categoria=='valor_nulo' && $alto!='valor_nulo' && $ancho=='valor_nulo' && $tipo_de_vehiculo=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2970,7 +3036,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($rodado!='valor_nulo' && $marca !='valor_nulo'&& $ancho!='valor_nulo' && $alto!='valor_nulo' && $categoria=='valor_nulo' && $tipo_de_vehiculo=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2983,7 +3049,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($rodado!='valor_nulo' && $categoria !='valor_nulo'&& $ancho!='valor_nulo' && $alto!='valor_nulo' && $marca=='valor_nulo' && $tipo_de_vehiculo=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -2996,7 +3062,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($marca !='valor_nulo'&& $categoria!='valor_nulo' && $ancho!='valor_nulo' && $alto!='valor_nulo' && $tipo_de_vehiculo=='valor_nulo' && $rodado=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -3009,7 +3075,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($marca !='valor_nulo'&& $tipo_de_vehiculo!='valor_nulo' && $ancho!='valor_nulo' && $alto!='valor_nulo' && $categoria=='valor_nulo' && $rodado=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -3022,7 +3088,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($tipo_de_vehiculo!='valor_nulo' && $rodado!='valor_nulo' && $marca !='valor_nulo' && $categoria!='valor_nulo'&& $ancho!='valor_nulo' && $alto=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -3035,7 +3101,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($tipo_de_vehiculo!='valor_nulo' && $rodado!='valor_nulo' && $marca !='valor_nulo' && $categoria!='valor_nulo'&& $alto!='valor_nulo' && $ancho=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -3048,7 +3114,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($tipo_de_vehiculo!='valor_nulo' && $rodado!='valor_nulo' && $marca !='valor_nulo' && $ancho!='valor_nulo'&& $alto!='valor_nulo' && $categoria=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -3061,7 +3127,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($tipo_de_vehiculo!='valor_nulo' && $rodado!='valor_nulo' && $categoria !='valor_nulo' && $ancho!='valor_nulo'&& $alto!='valor_nulo' && $marca=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -3074,7 +3140,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($tipo_de_vehiculo!='valor_nulo' && $marca!='valor_nulo' && $categoria !='valor_nulo' && $ancho!='valor_nulo'&& $alto!='valor_nulo' && $rodado=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -3087,7 +3153,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($rodado!='valor_nulo' && $marca!='valor_nulo' && $categoria !='valor_nulo' && $ancho!='valor_nulo'&& $alto!='valor_nulo' && $tipo_de_vehiculo=='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -3100,7 +3166,7 @@ public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_veh
 
 	}elseif($tipo_de_vehiculo!='valor_nulo' && $rodado!='valor_nulo' && $marca!='valor_nulo' && $categoria !='valor_nulo' && $ancho!='valor_nulo'&& $alto!='valor_nulo'){
 
-			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion,TV.descripcion,CAT.descripcion
+			$stmt=$this->mysqli->prepare("SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,PRO.origen,ROD.descripcion as rodado,TV.descripcion AS tipo_vehiculo,CAT.descripcion
 										 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 										 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
 										 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
@@ -3125,30 +3191,63 @@ if($confirmacion_busqueda==1){
 		
 		while($fila=$resultado->fetch_assoc()){
 
-			if($fila['tiene_descuento']==0){
+	if($fila['tiene_descuento']==0){
 
-				echo "<div class='producto'><h3>".$fila['marca']."</h3>
-						<img  width='175px' height='175px' src=img/".$fila['imagen'].">
+				echo "<div class='producto producto-buscador-filtros'>
+
+
+						<h3>".$fila['marca']."</h3><h3> <span>".$fila['modelo']."</span></h3>
+
+
+						<img  width='175' height='175' src=img/".$fila['imagen'].">
+
 						<div class='producto-precio'>
-						<h4><strong>$".$fila['precio']."</strong></h4>
+
+						<h4>$".$fila['precio']." ARG</h4>
+
 						</div>
-						<h2>".$fila['modelo']."</h2>
-						<h2>".$fila['ancho']." ancho x ".$fila['alto']." alto</h2>
-						<h3>De nuestra linea ".$fila['descripcion']."</h3>
-					<a href='vermasproducto.php?id=".$fila['id']."'>Ver mas</a></div>";
+
+						<ul>
+						<li>Medida:".$fila['ancho']." x ".$fila['alto']."</li>
+						<li>Rodado:".$fila['rodado']."</li>
+						<li>Vehiculo:".$fila['tipo_vehiculo']."</li>
+						<li>Categoria:".$fila['descripcion']."</li>
+
+						</ul>
+
+
+						
+
+					<div class='paralelogramo-btn'><a href='vermasproducto.php?id=".$fila['id']."'>Ver mas</a></div>
+
+					</div>";
 
 				}else if($fila['tiene_descuento']==1){
 				
-				echo "<div class='producto'><h3>".$fila['marca']."</h3>
-						<img  width='175px' height='175px' src=img/".$fila['imagen'].">
-						<h2>".$fila['modelo']."</h2>
-						<h2>".$fila['ancho']." ancho x ".$fila['alto']." alto</h2>
-						<h3>De nuestra linea ".$fila['descripcion']."</h3>
-						<h3>$".$fila['precio']."ARG</h3>
-						<!--<h3>¡OFERTA!</h3>-->
-						<!--<h3>$".$fila['precio_descuento']."ARG</h3>-->
-						<button><a href='vermasproducto.php?id=".$fila['id']."'>Ver mas</a></button></div>";					
-				}//if
+				echo "<div class='producto producto-buscador-filtros'>
+
+						<h3>".$fila['marca']." </h3><h3><span> ".$fila['modelo']."</span></h3>
+
+
+						<img  width='175' height='175' src=img/".$fila['imagen'].">
+
+						<div class='producto-precio'>
+
+						<h4><del>$".$fila['precio']." arg</del> $".$fila['precio_descuento']." ARG</h4>
+
+						</div>
+
+						<ul>
+						<li>Medida:".$fila['ancho']." x ".$fila['alto']."</li>
+						<li>Rodado:".$fila['rodado']."</li>
+						<li>Vehiculo:".$fila['tipo_vehiculo']."</li>
+						<li>Categoria:".$fila['descripcion']."</li>
+						</ul>
+
+						<div class='paralelogramo-btn'><a href='vermasproducto.php?id=".$fila['id']."'>Ver mas</a></div>
+
+					</div>";				
+				}//end if
 		}//while
 		
 	

@@ -1,23 +1,23 @@
 /********************************FIN DE MIXIING****************************************/
-/* line 261, ../estilos_scss/estilos.scss */
+/* line 264, ../estilos_scss/estilos.scss */
 .vertical-align-middle { vertical-align: middle; }
 
-/* line 265, ../estilos_scss/estilos.scss */
+/* line 268, ../estilos_scss/estilos.scss */
 .padding-bottom-3 { padding-bottom: 6px; }
 
-/* line 268, ../estilos_scss/estilos.scss */
+/* line 271, ../estilos_scss/estilos.scss */
 .padding-bottom-8 { padding-bottom: 18px; }
 
-/* line 271, ../estilos_scss/estilos.scss */
+/* line 274, ../estilos_scss/estilos.scss */
 .material-icons.md-18 { font-size: 18px; }
 
-/* line 276, ../estilos_scss/estilos.scss */
+/* line 279, ../estilos_scss/estilos.scss */
 .material-icons.md-light { color: #666666; }
 
-/* line 281, ../estilos_scss/estilos.scss */
+/* line 284, ../estilos_scss/estilos.scss */
 .direccion-menu-cel { background-color: #cccccc; }
 
-/* line 285, ../estilos_scss/estilos.scss */
+/* line 288, ../estilos_scss/estilos.scss */
 .direccion-menu { background-color: #cccccc; }
 /* line 48, ../estilos_scss/estilos.scss */
 .direccion-menu .h6-direccion-envio-menu { margin-top: 0%; margin-bottom: 0%; font-size: 80%; float: right; }
@@ -26,79 +26,79 @@
 /* line 65, ../estilos_scss/estilos.scss */
 .direccion-menu #separadorDireccionMenu { color: #ff6a00; font-size: 15pt; }
 
-/* line 291, ../estilos_scss/estilos.scss */
+/* line 294, ../estilos_scss/estilos.scss */
 body { overflow-x: hidden; margin: auto; }
 
-/* line 295, ../estilos_scss/estilos.scss */
+/* line 298, ../estilos_scss/estilos.scss */
 body::-webkit-scrollbar { width: 5px; height: 1px; }
 
-/* line 300, ../estilos_scss/estilos.scss */
+/* line 303, ../estilos_scss/estilos.scss */
 body::-webkit-scrollbar-track { -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); }
 
-/* line 304, ../estilos_scss/estilos.scss */
+/* line 307, ../estilos_scss/estilos.scss */
 body::-webkit-scrollbar-thumb { background-color: #ff6a00; outline: 1px solid slategrey; }
 
 /*********************************MENU****************************************************************/
-/* line 310, ../estilos_scss/estilos.scss */
+/* line 313, ../estilos_scss/estilos.scss */
 .menu { width: 100%; background-color: #f2f2f2; border-bottom-style: solid; border-bottom-color: #e6e6e6; border-bottom-width: 1px; }
 /* line 80, ../estilos_scss/estilos.scss */
 .menu p { font-family: Futura Medium; }
 
-/* line 317, ../estilos_scss/estilos.scss */
+/* line 320, ../estilos_scss/estilos.scss */
 #menu-fixed { z-index: 2000 !important; }
 
-@-moz-document url-prefix() { /* line 321, ../estilos_scss/estilos.scss */
+@-moz-document url-prefix() { /* line 324, ../estilos_scss/estilos.scss */
   .menu { width: 100%; background-color: #f2f2f2; }
   /* line 85, ../estilos_scss/estilos.scss */
   .menu p { font-family: Arial; } }
 
-/* line 328, ../estilos_scss/estilos.scss */
+/* line 331, ../estilos_scss/estilos.scss */
 #icon-mas-menu { margin-top: 2.2% !important; }
 
-/* line 332, ../estilos_scss/estilos.scss */
+/* line 335, ../estilos_scss/estilos.scss */
 #producto-title-menu { margin-left: 1% !important; margin-top: 2% !important; }
 
-/* line 337, ../estilos_scss/estilos.scss */
+/* line 340, ../estilos_scss/estilos.scss */
 #buscador-menu { margin-top: 1.3% !important; }
 
 /*#total-menu{
 	margin-top:2% !important;	
 }*/
-/* line 343, ../estilos_scss/estilos.scss */
+/* line 346, ../estilos_scss/estilos.scss */
 .form-control:focus { border-color: #ff954d; box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6); }
 
-/* line 350, ../estilos_scss/estilos.scss */
+/* line 353, ../estilos_scss/estilos.scss */
 .inner-addon { position: relative; }
 
 /* style icon */
-/* line 355, ../estilos_scss/estilos.scss */
+/* line 358, ../estilos_scss/estilos.scss */
 .inner-addon .material-icons { position: absolute; padding: 10px; pointer-events: none; margin-top: -2%; }
 
-/* line 362, ../estilos_scss/estilos.scss */
+/* line 365, ../estilos_scss/estilos.scss */
 .right-addon input { padding-right: 30px; }
 
-/* line 363, ../estilos_scss/estilos.scss */
+/* line 366, ../estilos_scss/estilos.scss */
 .right-addon .material-icons { right: 0px; }
 
-/* line 373, ../estilos_scss/estilos.scss */
+/* line 376, ../estilos_scss/estilos.scss */
 .h4-producto-title-menu { padding-bottom: 20px; vertical-align: middle; font-family: Futura Medium; }
 
-@-moz-document url-prefix() { /* line 382, ../estilos_scss/estilos.scss */
+@-moz-document url-prefix() { /* line 385, ../estilos_scss/estilos.scss */
   .h4-producto-title-menu { padding-bottom: 20px; vertical-align: middle; font-family: Arial; } }
 
-/* line 390, ../estilos_scss/estilos.scss */
+/* line 393, ../estilos_scss/estilos.scss */
 .element-menu { float: left; margin-top: 1%; margin-left: 5%; margin-bottom: 0%; }
 
-/* line 395, ../estilos_scss/estilos.scss */
+/* line 398, ../estilos_scss/estilos.scss */
 .element-menu-carrito { float: left; margin-right: 1%; margin-top: 1.4%; }
 
-/* line 406, ../estilos_scss/estilos.scss */
+/* line 409, ../estilos_scss/estilos.scss */
 .element-menu-buscador { float: left; margin-top: 1.5%; margin-left: 2.5%; margin-bottom: 0%; }
 
-/* line 412, ../estilos_scss/estilos.scss */
+/* line 415, ../estilos_scss/estilos.scss */
 .element-menu-carrito-cel { float: left; margin-top: 3%; margin-left: 0.5%; margin-bottom: 0%; }
 
-/* line 418, ../estilos_scss/estilos.scss */
+/* line 421, ../estilos_scss/estilos.scss */
 #mostrar-total-menu { text-align: left; line-height: 0%; margin-top: 0.2% !important; font-size: 85%; font-family: Futura Medium; margin-left: 2%; }
 /* line 92, ../estilos_scss/estilos.scss */
 #mostrar-total-menu h6 { font-family: Futura Medium; }
@@ -106,412 +106,446 @@ body::-webkit-scrollbar-thumb { background-color: #ff6a00; outline: 1px solid sl
 @-moz-document url-prefix() { /* line 99, ../estilos_scss/estilos.scss */
   #mostrar-total-menu h6 { font-family: Arial; } }
 
-/* line 439, ../estilos_scss/estilos.scss */
+/* line 442, ../estilos_scss/estilos.scss */
 #carrito-icon-menu { margin-top: 1.2%; margin-left: 0.5% !important; z-index: 1; }
 
-/* line 445, ../estilos_scss/estilos.scss */
+/* line 448, ../estilos_scss/estilos.scss */
 #carrito-cont-menu { border-style: solid; border-color: black; border-width: 1px; }
 
-/* line 450, ../estilos_scss/estilos.scss */
+/* line 453, ../estilos_scss/estilos.scss */
 #cantidad { position: absolute; color: white; z-index: 1000; font-size: 85%; background-color: #ff6a00; padding-left: 4px; padding-right: 4px; -webkit-border-radius: 9px; -moz-border-radius: 9px; border-radius: 9px; margin-left: 20px; }
 
-/* line 464, ../estilos_scss/estilos.scss */
+/* line 467, ../estilos_scss/estilos.scss */
 .icon-shopping-cart { background-image: url("../elementos_separados/icon-carrito2-06.png"); width: 29px; height: 24px; }
 
-/* line 469, ../estilos_scss/estilos.scss */
+/* line 472, ../estilos_scss/estilos.scss */
 #btn-carrito { margin-top: 1.4% !important; cursor: pointer; }
 
-/* line 474, ../estilos_scss/estilos.scss */
+/* line 477, ../estilos_scss/estilos.scss */
 .carrito { border-style: solid; border-color: #cccccc; border-width: 1px; position: fixed; z-index: 5000; margin-top: -30%; left: 65%; display: none; height: auto; width: 30.5%; max-width: 320px; max-height: 500px; background-color: #2b2a2a; -webkit-box-shadow: 10px 29px 96px 1px rgba(0, 0, 0, 0.33); -moz-box-shadow: 10px 29px 96px 1px rgba(0, 0, 0, 0.33); box-shadow: 10px 29px 96px 1px rgba(0, 0, 0, 0.33); overflow-y: scroll; overflow-x: hidden; }
 /* line 146, ../estilos_scss/estilos.scss */
 .carrito li { font-family: Futura Medium; font-size: 80%; font-weight: bold; color: white; }
 
-/* line 477, ../estilos_scss/estilos.scss */
+/* line 480, ../estilos_scss/estilos.scss */
 .carrito-para-buscador-filtros { border-style: solid; border-color: #cccccc; border-width: 1px; position: fixed; z-index: 5000; margin-top: 1%; left: 65%; display: none; height: auto; width: 30.5%; max-width: 320px; max-height: 500px; background-color: #2b2a2a; -webkit-box-shadow: 10px 29px 96px 1px rgba(0, 0, 0, 0.33); -moz-box-shadow: 10px 29px 96px 1px rgba(0, 0, 0, 0.33); box-shadow: 10px 29px 96px 1px rgba(0, 0, 0, 0.33); overflow-y: scroll; overflow-x: hidden; }
 /* line 146, ../estilos_scss/estilos.scss */
 .carrito-para-buscador-filtros li { font-family: Futura Medium; font-size: 80%; font-weight: bold; color: white; }
 
-@-moz-document url-prefix() { /* line 482, ../estilos_scss/estilos.scss */
+@-moz-document url-prefix() { /* line 485, ../estilos_scss/estilos.scss */
   .carrito { border-style: solid; border-color: #cccccc; border-width: 1px; position: fixed; z-index: 5000; margin-top: -30%; left: 65%; display: block; height: auto; width: 38%; max-width: 330px; max-height: 500px; background-color: #2b2a2a; -webkit-box-shadow: 10px 29px 96px 1px rgba(0, 0, 0, 0.33); -moz-box-shadow: 10px 29px 96px 1px rgba(0, 0, 0, 0.33); box-shadow: 10px 29px 96px 1px rgba(0, 0, 0, 0.33); overflow-y: scroll; overflow-x: hidden; }
   /* line 146, ../estilos_scss/estilos.scss */
   .carrito li { font-family: Arial; font-size: 80%; font-weight: bold; color: white; } }
 
-/* line 505, ../estilos_scss/estilos.scss */
+/* line 508, ../estilos_scss/estilos.scss */
 .carrito::-webkit-scrollbar { width: 4px; }
 
-/* line 509, ../estilos_scss/estilos.scss */
+/* line 512, ../estilos_scss/estilos.scss */
 .carrito::-webkit-scrollbar-track { -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); }
 
-/* line 513, ../estilos_scss/estilos.scss */
+/* line 516, ../estilos_scss/estilos.scss */
 .carrito::-webkit-scrollbar-thumb { background-color: #ff6a00; outline: 1px solid slategrey; }
 
-/* line 518, ../estilos_scss/estilos.scss */
+/* line 521, ../estilos_scss/estilos.scss */
 .carrito-para-buscador-filtros::-webkit-scrollbar { width: 4px; }
 
-/* line 522, ../estilos_scss/estilos.scss */
+/* line 525, ../estilos_scss/estilos.scss */
 .carrito-para-buscador-filtros::-webkit-scrollbar-track { -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); }
 
-/* line 526, ../estilos_scss/estilos.scss */
+/* line 529, ../estilos_scss/estilos.scss */
 .carrito-para-buscador-filtros::-webkit-scrollbar-thumb { background-color: #ff6a00; outline: 1px solid slategrey; }
 
-/* line 533, ../estilos_scss/estilos.scss */
+/* line 536, ../estilos_scss/estilos.scss */
 #carrito-close { float: right; color: #ff6a00; cursor: pointer; }
 
-/* line 539, ../estilos_scss/estilos.scss */
+/* line 542, ../estilos_scss/estilos.scss */
 ul#carrito-lista { margin-left: -13%; width: 113%; height: 100%; }
 
-/* line 547, ../estilos_scss/estilos.scss */
+/* line 550, ../estilos_scss/estilos.scss */
 #carrito-lista li { list-style: none; }
 
-/* line 553, ../estilos_scss/estilos.scss */
+/* line 556, ../estilos_scss/estilos.scss */
 #carrito-lista .item-descripcion-carrito { float: left; color: white; list-style: none; margin-left: 0%; margin-top: 0%; padding: 2%; width: 100%; border-bottom-style: solid; border-bottom-color: #cccccc; border-bottom-width: 1px; }
 
-/* line 566, ../estilos_scss/estilos.scss */
+/* line 569, ../estilos_scss/estilos.scss */
 #carrito-lista .item-total-carrito { float: left; font-family: Futura Medium; font-weight: bold; color: white; list-style: none; margin-left: 35%; height: 100%; width: 100%; padding: 6%; }
 
-/* line 579, ../estilos_scss/estilos.scss */
+/* line 582, ../estilos_scss/estilos.scss */
 .carrito-img { position: relative; float: left; padding: 0% 5% 5% 0%; }
 
-/* line 584, ../estilos_scss/estilos.scss */
+/* line 587, ../estilos_scss/estilos.scss */
 .carrito-borrar-item { position: absolute; right: 5px; margin-top: -9%; cursor: pointer; }
 
-/* line 590, ../estilos_scss/estilos.scss */
+/* line 593, ../estilos_scss/estilos.scss */
 .item-descripcion-vacio-carrito { margin-left: 15%; padding: 5%; }
 
-/* line 190, ../estilos_scss/estilos.scss */
+/* line 193, ../estilos_scss/estilos.scss */
 .boton-comprar-carrito { color: #ff6a00; margin-left: -40% !important; }
 
-/* line 195, ../estilos_scss/estilos.scss */
+/* line 198, ../estilos_scss/estilos.scss */
 .boton-comprar-carrito { border: 2px solid white; /* 2 pixeles de borde negro                                                */ text-align: center; /* Texto centrado                                                          */ text-decoration: none; /* Sin decoraciones para el texto (por defecto viene con underline)        */ padding: 10px 100px 10px 100px; /* Un poco de padding para que se vea bien el botón                        */ /* La transición en el click (:active) tiene que ser rápida 150ms (transform y color), la transición para cambiar de foco en 150ms    */ transition: transform 0.15s ease-in-out, color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; font-family: Futura Medium, Arial; /* Fuente de google                                                        */ font-size: 1.7rem; /* Tamaño de la fuente                                                     */ color: #FFF; /* Color del texto en blanco                                               */ margin: 10px; /* 10 pixeles de margen para separar los botones entre si.                 */ position: relative; /* Posición relativa para que sus hijos partan desde él                    */ overflow: hidden; /* Todo lo que sobresalga del botón no se verá                             */ cursor: pointer; /* Puntero del mouse que muestre una mano                                  */ transform: perspective(600px) translateZ(0px) rotateZ(0deg) rotateX(0deg); /* Perspectiva, rotación y posición por defecto */ text-shadow: 1px 1px 1px #666; /* Una ligera sombra gris para el texto                                    */ }
 
 /* Elimino el outline del botón por una transición con la sombra */
-/* line 213, ../estilos_scss/estilos.scss */
+/* line 216, ../estilos_scss/estilos.scss */
 .boton-comprar-carrito:focus { outline: 0px solid transparent; /* Elimino el outline que viene por defecto en los button */ box-shadow: 0px 0px 4px 2px #800,  0px 0px 2px 1px #300; /* Creo uan sombra en gris oscuro con 2 tonalidades       */ }
 
 /* Color del borde rojo al pasar el mouse por encima del botón */
-/* line 219, ../estilos_scss/estilos.scss */
+/* line 222, ../estilos_scss/estilos.scss */
 .boton-comprar-carrito:hover, .boton-comprar-carrito:active { border: 2px solid #ff6a00; color: white; }
 
 /*****************************ANIMACION CAPA DE ARRIBA **/
 /* Alejo el objeto en la perspectiva cuando el usuario presiona sobre él */
-/* line 230, ../estilos_scss/estilos.scss */
+/* line 233, ../estilos_scss/estilos.scss */
 .boton-comprar-carrito:active { transform: perspective(600px) translateZ(-75px) rotateZ(-0.5deg) rotateX(-10deg); /* Creo el efecto de hundimiento para el botón */ color: #BBB; /* Cambio el color del texto a gris            */ }
 
 /*Cuerpos estándar para los pseudo-elementos ::before (Capa animación) y ::after (Capa fondo)*/
 /* Preparación para los pseudo elementos before y after */
-/* line 239, ../estilos_scss/estilos.scss */
+/* line 242, ../estilos_scss/estilos.scss */
 .boton-comprar-carrito::before, .boton-comprar-carrito::after { content: ''; /* Contenido (requerida para inicializar el pseudo-selector)               */ position: absolute; /* Posición absoluta (relativa al button)                                  */ top: 0px; /* Empezamos desde arriba del <button>                                     */ left: 0px; /* Empezamos desde la izquierda del <button>                               */ width: 100%; /* Ancho 100% del <button>                                                 */ height: 100%; /* Alto 100% del <button>                                                  */ transition: 0.4s ease-in-out; /* Transición para el hover de 500ms para que se vea bien (capa animación) */ }
 
 /* Para las transiciones del fondo a color rojo en el hover, se utilizara el pseudo elemento ::before (capa animación) */
-/* line 249, ../estilos_scss/estilos.scss */
+/* line 252, ../estilos_scss/estilos.scss */
 .boton-comprar-carrito::before { z-index: -1; /* MUY IMPORTANTE esta capa va por debajo de la capa principal */ }
 
 /* Para mostrar el fondo negro del botón se utilizara el pseudo elemento ::after (capa fondo) */
-/* line 253, ../estilos_scss/estilos.scss */
+/* line 256, ../estilos_scss/estilos.scss */
 .boton-comprar-carrito::after { z-index: -2; /* MUY IMPORTANTE esta capa va por debajo de la capa animación */ background-color: #ff6a00; /* Color del fondo gris oscuro                                 */ }
 
-/* line 601, ../estilos_scss/estilos.scss */
+/* line 604, ../estilos_scss/estilos.scss */
 .list-busqueda-menu { list-style: none; color: black; border-bottom-style: solid; border-bottom-color: #ff6a00; border-bottom-width: 1px; padding: 5px; }
 
-/* line 607, ../estilos_scss/estilos.scss */
+/* line 610, ../estilos_scss/estilos.scss */
 .a-busqueda-menu { font-family: Futura Medium; color: black; }
 
-@-moz-document url-prefix() { /* line 612, ../estilos_scss/estilos.scss */
+@-moz-document url-prefix() { /* line 615, ../estilos_scss/estilos.scss */
   .a-busqueda-menu { font-family: Arial; color: black; } }
 
+/* line 621, ../estilos_scss/estilos.scss */
+#logo-menu { cursor: pointer; }
+
 /************SLIDER****************************************************************************************/
-/* line 618, ../estilos_scss/estilos.scss */
+/* line 625, ../estilos_scss/estilos.scss */
 .slider { width: 100%; margin: auto; overflow: hidden; z-index: 1; }
 
-/* line 624, ../estilos_scss/estilos.scss */
+/* line 631, ../estilos_scss/estilos.scss */
 .slider ul { display: flex; padding: 0; width: 200%; animation: cambio 4s infinite; animation-direction: alternate; }
 
-/* line 632, ../estilos_scss/estilos.scss */
+/* line 639, ../estilos_scss/estilos.scss */
 .slider li { list-style: none; width: 100%; }
 
-@keyframes cambio { /* line 638, ../estilos_scss/estilos.scss */
+@keyframes cambio { /* line 645, ../estilos_scss/estilos.scss */
   0% { margin-left: 0; }
-  /* line 639, ../estilos_scss/estilos.scss */
+  /* line 646, ../estilos_scss/estilos.scss */
   25% { margin-left: 0; }
-  /* line 640, ../estilos_scss/estilos.scss */
+  /* line 647, ../estilos_scss/estilos.scss */
   50% { margin-left: -100%; }
-  /* line 641, ../estilos_scss/estilos.scss */
+  /* line 648, ../estilos_scss/estilos.scss */
   100% { margin-left: -100%; } }
 
 /****************************************TITULOS HOME/**********************************************/
-/* line 646, ../estilos_scss/estilos.scss */
+/* line 653, ../estilos_scss/estilos.scss */
 .titulo-home-row { margin-top: -3%; }
 
-/* line 652, ../estilos_scss/estilos.scss */
+/* line 659, ../estilos_scss/estilos.scss */
 .titulo-home { text-align: center; margin-top: 0% !important; }
 
-/* line 656, ../estilos_scss/estilos.scss */
+/* line 663, ../estilos_scss/estilos.scss */
 .titulo-home h3 { color: white; font-family: Futura Medium; font-weight: 500; padding: 2%; margin-top: 3%; }
 
-/* line 665, ../estilos_scss/estilos.scss */
+/* line 672, ../estilos_scss/estilos.scss */
 div.titulo-cont { background-color: #2b2a2a; width: 20%; height: 20%; margin-left: 40%; text-align: center; }
 
-@-moz-document url-prefix() { /* line 674, ../estilos_scss/estilos.scss */
+@-moz-document url-prefix() { /* line 681, ../estilos_scss/estilos.scss */
   .titulo-home h3 { color: white; font-family: Arial; font-weight: 500; padding: 9%; margin-top: 3%; } }
 
-/* line 683, ../estilos_scss/estilos.scss */
+/* line 690, ../estilos_scss/estilos.scss */
 hr.linea-titulo { border-style: solid; border-width: 1px; border-color: #ff6a00; width: 50%; margin: 0% 0% 0% 24%; }
 
 /***********************************************SEPARADOR********************************************/
-/* line 693, ../estilos_scss/estilos.scss */
+/* line 700, ../estilos_scss/estilos.scss */
 div.separador { background-color: #2b2a2a; }
 
-/* line 696, ../estilos_scss/estilos.scss */
+/* line 703, ../estilos_scss/estilos.scss */
 .separador-row { margin-top: 2%; }
 
-/* line 700, ../estilos_scss/estilos.scss */
+/* line 707, ../estilos_scss/estilos.scss */
 .separador-row h2 { float: left; font-family: Futura Lt Condensed; font-style: italic; font-weight: 100; color: white; padding-bottom: 2%; margin-left: 10%; width: auto; }
 
-@-moz-document url-prefix() { /* line 713, ../estilos_scss/estilos.scss */
+@-moz-document url-prefix() { /* line 720, ../estilos_scss/estilos.scss */
   .separador-row h2 { float: left; font-family: Arial; font-style: italic; font-weight: 100; color: white; padding-bottom: 2%; margin-left: 10%; width: auto; } }
 
-/* line 726, ../estilos_scss/estilos.scss */
+/* line 733, ../estilos_scss/estilos.scss */
 .separador-img { float: left; }
 
-/* line 730, ../estilos_scss/estilos.scss */
+/* line 737, ../estilos_scss/estilos.scss */
 .element-separador { margin-left: 14%; }
 
-/* line 733, ../estilos_scss/estilos.scss */
+/* line 740, ../estilos_scss/estilos.scss */
 img.separador-img { margin-top: 2%; }
 
+/*************************FIXED-CONTACTO-INFO*******************************************************/
+/* line 744, ../estilos_scss/estilos.scss */
+.fixed-contacto-info { z-index: 5000; position: fixed; border-style: solid; border-color: #ff6a00; border-width: 1px; width: auto; height: auto; background-color: #f2f2f2; right: 1%; bottom: 8%; margin-bottom: 0%; float: right; border-radius: 5px; text-align: center; display: block; }
+
+/* line 761, ../estilos_scss/estilos.scss */
+.fixed-contacto-info p { margin: 1.5%; color: #ff6a00; }
+
+/* line 765, ../estilos_scss/estilos.scss */
+.fixed-contacto-info #info-contacto-close { float: right; color: #ff6a00; cursor: pointer; }
+
+/* line 771, ../estilos_scss/estilos.scss */
+.fixed-contacto-info:after, .fixed-contacto-info:before { top: 100%; left: 50%; border: solid transparent; content: " "; height: 0; width: 0; position: absolute; pointer-events: none; }
+
+/* line 782, ../estilos_scss/estilos.scss */
+.fixed-contacto-info:after { border-color: rgba(213, 110, 32, 0); border-top-color: #f2f2f2; border-width: 20px; margin-left: 105px; }
+
+/* line 788, ../estilos_scss/estilos.scss */
+.fixed-contacto-info:before { border-color: rgba(194, 225, 245, 0); border-top-color: #ff6a00; border-width: 22px; margin-left: 103px; }
+
 /**********************PRODUCTO/*************************************************************************/
-/* line 740, ../estilos_scss/estilos.scss */
+/* line 798, ../estilos_scss/estilos.scss */
 .producto-precio { border-bottom-style: solid; border-bottom-color: black; border-bottom-width: 2px; width: 100%; margin-left: 0%; }
 
-/* line 746, ../estilos_scss/estilos.scss */
+/* line 804, ../estilos_scss/estilos.scss */
 .producto { float: left; max-width: 20%; max-height: 25%; text-align: center; margin-left: 1%; margin-top: 4%; z-index: -1; }
 
-/* line 757, ../estilos_scss/estilos.scss */
+/* line 815, ../estilos_scss/estilos.scss */
 .producto del { font-size: 90%; }
 
-/* line 762, ../estilos_scss/estilos.scss */
+/* line 820, ../estilos_scss/estilos.scss */
 .producto h3 { font-family: impact; margin-top: -10px; }
 
-/* line 768, ../estilos_scss/estilos.scss */
+/* line 826, ../estilos_scss/estilos.scss */
 .producto h3 span { font-family: impact; color: #ff6a00; }
 
-/* line 773, ../estilos_scss/estilos.scss */
+/* line 831, ../estilos_scss/estilos.scss */
 .producto h4 { font-size: 109%; font-weight: bold; }
 
-@-moz-document url-prefix() { /* line 778, ../estilos_scss/estilos.scss */
+/* line 836, ../estilos_scss/estilos.scss */
+.producto-buscador-filtros h4 { font-size: 100%; }
+
+@-moz-document url-prefix() { /* line 840, ../estilos_scss/estilos.scss */
   .producto h4 { font-size: 100%; font-weight: bold; } }
 
-/* line 783, ../estilos_scss/estilos.scss */
+/* line 845, ../estilos_scss/estilos.scss */
 .producto ul { margin: 0%; padding: 0%; margin-left: 8%; margin-top: 5%; padding-bottom: 10%; text-align: left; }
 
-/* line 794, ../estilos_scss/estilos.scss */
+/* line 856, ../estilos_scss/estilos.scss */
 .producto ul li { font-size: 75%; font-family: arial; font-weight: 600; }
 
-/* line 801, ../estilos_scss/estilos.scss */
+/* line 863, ../estilos_scss/estilos.scss */
 .paralelogramo-btn { margin-left: 20%; -webkit-transform: skew(-7deg); -moz-transform: skew(-7deg); -o-transform: skew(-7deg); background: #ff6a00; width: 120px; height: 30px; }
 
-/* line 811, ../estilos_scss/estilos.scss */
-.producto a { color: white; margin-top: 15%; font-family: Futura Medium; font-size: 135%; }
+/* line 873, ../estilos_scss/estilos.scss */
+.producto a { color: white; margin-top: 15%; font-family: Futura Medium; font-size: 135%; text-decoration: none; }
 
-@-moz-document url-prefix() { /* line 821, ../estilos_scss/estilos.scss */
+/* line 884, ../estilos_scss/estilos.scss */
+.producto a:after { content: ''; position: absolute; bottom: 5px; left: 25%; width: 0%; border-bottom: 2px solid #3366FF; transition: 0.4s; border-color: white; }
+
+/* line 896, ../estilos_scss/estilos.scss */
+.producto a:hover:after { width: 50%; color: white; background-color: white; border-color: white; }
+
+@-moz-document url-prefix() { /* line 905, ../estilos_scss/estilos.scss */
   .producto a { color: white; margin-top: 15%; font-family: Arial; font-size: 135%; } }
 
 /*******************************************Buscador filtros/*********************************************/
-/* line 832, ../estilos_scss/estilos.scss */
+/* line 916, ../estilos_scss/estilos.scss */
 form#buscador-filtros-form { margin: 1% 0% 0% 2%; }
 
-/* line 836, ../estilos_scss/estilos.scss */
-#buscador-fixed { width: 110%; border-bottom-style: solid; border-bottom-color: #e6e6e6; border-bottom-width: 1px; }
+/* line 920, ../estilos_scss/estilos.scss */
+#buscador-fixed { width: 110%; border-bottom-style: solid; border-bottom-color: #e6e6e6; border-bottom-width: 1px; z-index: 2000 !important; }
 
-/* line 841, ../estilos_scss/estilos.scss */
+/* line 926, ../estilos_scss/estilos.scss */
 .buscador-filtros { z-index: 1 !important; background-color: #f2f2f2; }
 
-/* line 846, ../estilos_scss/estilos.scss */
+/* line 931, ../estilos_scss/estilos.scss */
 .buscador-filtros-tituloInput { text-align: center; float: left; margin-left: 2%; line-height: 1%; padding-bottom: 0.75%; }
 /* line 105, ../estilos_scss/estilos.scss */
 .buscador-filtros-tituloInput h5 { font-family: Futura Medium; color: #ff6a00; font-weight: bold; }
 
-/* line 856, ../estilos_scss/estilos.scss */
+/* line 941, ../estilos_scss/estilos.scss */
 .buscador-filtros-tituloInput-index { text-align: center; float: left; margin-left: 5%; line-height: 1%; }
 /* line 105, ../estilos_scss/estilos.scss */
 .buscador-filtros-tituloInput-index h5 { font-family: Futura Medium; color: #ff6a00; font-weight: bold; }
 
-@-moz-document url-prefix() { /* line 866, ../estilos_scss/estilos.scss */
+@-moz-document url-prefix() { /* line 951, ../estilos_scss/estilos.scss */
   .buscador-filtros-tituloInput { text-align: center; float: left; margin-left: 2%; }
   /* line 105, ../estilos_scss/estilos.scss */
   .buscador-filtros-tituloInput h5 { font-family: Arial; color: #ff6a00; font-weight: bold; } }
 
-/* line 876, ../estilos_scss/estilos.scss */
+/* line 961, ../estilos_scss/estilos.scss */
 select.buscador-filtros-select { width: 100px; height: 35px; font-family: Futura Medium; color: #ff6a00; }
 
-/* line 887, ../estilos_scss/estilos.scss */
+/* line 972, ../estilos_scss/estilos.scss */
 select.buscador-filtros-select-index { width: 145px; font-family: Futura Medium; }
 
-/* line 893, ../estilos_scss/estilos.scss */
+/* line 978, ../estilos_scss/estilos.scss */
 select.buscador-filtros-select option { font-family: Futura Medium; }
 
-@-moz-document url-prefix() { /* line 900, ../estilos_scss/estilos.scss */
+@-moz-document url-prefix() { /* line 985, ../estilos_scss/estilos.scss */
   select.buscador-filtros-select { width: 100px; font-family: Arial; }
-  /* line 905, ../estilos_scss/estilos.scss */
+  /* line 990, ../estilos_scss/estilos.scss */
   select.buscador-filtros-select option { font-family: Arial; } }
 
-/* line 913, ../estilos_scss/estilos.scss */
+/* line 998, ../estilos_scss/estilos.scss */
 .buscador-filtros-btn { float: left; background-color: #ff6a00; border-radius: 6px; margin-top: 0%; margin-left: 3%; cursor: pointer; }
 /* line 167, ../estilos_scss/estilos.scss */
 .buscador-filtros-btn .material-icons { padding: 5px; color: white; }
 
-/* line 925, ../estilos_scss/estilos.scss */
+/* line 1010, ../estilos_scss/estilos.scss */
 .buscador-filtros-btn:hover { background-color: #2b2a2a; }
 /* line 167, ../estilos_scss/estilos.scss */
 .buscador-filtros-btn:hover .material-icons { padding: 5px; color: #ff6a00; }
 
-/* line 930, ../estilos_scss/estilos.scss */
+/* line 1015, ../estilos_scss/estilos.scss */
 #buscar-btn-buscador-filtros { margin-top: 3.6% !important; }
 
-/* line 935, ../estilos_scss/estilos.scss */
+/* line 1020, ../estilos_scss/estilos.scss */
 .warning-buscador-filtros { display: none; font-family: Futura Medium; color: #cccccc; margin-left: 32%; }
 
-@-moz-document url-prefix() { /* line 943, ../estilos_scss/estilos.scss */
+@-moz-document url-prefix() { /* line 1028, ../estilos_scss/estilos.scss */
   .warning-buscador-filtros { display: none; font-family: Arial; color: #cccccc; } }
 
 /****************************************FOOOTERS***************************************************************/
-/* line 952, ../estilos_scss/estilos.scss */
+/* line 1037, ../estilos_scss/estilos.scss */
 .row-footer-fila-1 { margin-top: 5%; }
 
-/* line 956, ../estilos_scss/estilos.scss */
+/* line 1041, ../estilos_scss/estilos.scss */
 .row-footer-fila-1 { background-color: #f2f2f2; border-top-style: solid; border-top-color: #e6e6e6; border-top-width: 1px; }
 
-/* line 962, ../estilos_scss/estilos.scss */
+/* line 1047, ../estilos_scss/estilos.scss */
 .footer-fila-1 ul { margin-left: -3%; }
 
-/* line 966, ../estilos_scss/estilos.scss */
+/* line 1051, ../estilos_scss/estilos.scss */
 .footer-fila-1 ul li { display: inline; }
 
-/* line 970, ../estilos_scss/estilos.scss */
+/* line 1055, ../estilos_scss/estilos.scss */
 .footer-fila-1 h4 { font-weight: bold; margin-left: 2%; }
 
-/* line 978, ../estilos_scss/estilos.scss */
+/* line 1063, ../estilos_scss/estilos.scss */
 .row-footer-logo { background-color: #f2f2f2; border-top-style: solid; border-top-color: #e6e6e6; border-top-width: 1px; }
 
-/* line 984, ../estilos_scss/estilos.scss */
+/* line 1069, ../estilos_scss/estilos.scss */
 #footer-logo { margin-left: 0%; padding: 1% 1% 1% 0%; }
 
-/* line 989, ../estilos_scss/estilos.scss */
+/* line 1074, ../estilos_scss/estilos.scss */
 .row-footer-fila-2 { background-color: #f2f2f2; }
 
-/* line 994, ../estilos_scss/estilos.scss */
+/* line 1079, ../estilos_scss/estilos.scss */
 .footer-fila-2 { margin-left: 0%; padding: 0%; }
 
-/* line 999, ../estilos_scss/estilos.scss */
+/* line 1084, ../estilos_scss/estilos.scss */
 .footer-fila-2 ul { float: left; margin-left: -8%; list-style: none; font-family: Arial; font-weight: bold; font-size: 100%; }
 
-/* line 1007, ../estilos_scss/estilos.scss */
+/* line 1092, ../estilos_scss/estilos.scss */
 .footer-fila-2 ul li { padding: 1%; }
 
-/* line 1011, ../estilos_scss/estilos.scss */
-.footer-fila-2-col-2 { margin-left: 0%; padding: 0%; }
+/* line 1096, ../estilos_scss/estilos.scss */
+.footer-fila-2-col-2 { margin-top: -3%; margin-left: 0%; padding: 0%; }
 
-/* line 1016, ../estilos_scss/estilos.scss */
+/* line 1102, ../estilos_scss/estilos.scss */
 .footer-fila-2-col-2 ul { float: left; padding: 1%; margin-left: 0%; list-style: none; font-family: Arial; font-weight: bold; font-size: 85%; text-align: center; margin-top: -7%; font-size: 100%; border-left-style: solid; border-left-width: 1px; border-left-color: #cccccc; border-right-style: solid; border-right-width: 1px; border-right-color: #cccccc; }
 
-/* line 1035, ../estilos_scss/estilos.scss */
-.footer-fila-2-col-2 #utilidades { border-left-width: 0px !important; }
+/* line 1121, ../estilos_scss/estilos.scss */
+.footer-fila-2-col-2 #utilidades { height: 170px; border-left-width: 0px !important; }
 
-/* line 1040, ../estilos_scss/estilos.scss */
+/* line 1127, ../estilos_scss/estilos.scss */
 .footer-fila-2-col-2 ul li { padding: 1%; color: grey; }
 
-@-moz-document url-prefix() { /* line 1047, ../estilos_scss/estilos.scss */
+@-moz-document url-prefix() { /* line 1134, ../estilos_scss/estilos.scss */
   .footer-fila-2-col-2 ul li { padding: 1% 0% 1% 0%; color: grey; } }
 
-/* line 1055, ../estilos_scss/estilos.scss */
+/* line 1142, ../estilos_scss/estilos.scss */
 .footer-fila-2-col-2 ul li h4 { color: #ff6a00 !important; }
 
-/* line 1060, ../estilos_scss/estilos.scss */
-.footer-fila-2-col-3 { text-align: center; color: #ff6a00; }
+/* line 1147, ../estilos_scss/estilos.scss */
+.footer-fila-2-col-3 { margin-top: -3%; text-align: center; color: #ff6a00; }
 
-/* line 1065, ../estilos_scss/estilos.scss */
+/* line 1153, ../estilos_scss/estilos.scss */
 div#footer-fila-2-col-3-cont { width: auto; height: auto; margin-top: -6%; }
 
-/* line 1071, ../estilos_scss/estilos.scss */
+/* line 1159, ../estilos_scss/estilos.scss */
 div#footer-fila-2-col-3-cont h4 { font-weight: bold; }
 
+/* line 1163, ../estilos_scss/estilos.scss */
+.row-footer-fila-1-buscador-filtros { margin-top: 98%; }
+
 /*****************************************************************************************************/
-/* line 1075, ../estilos_scss/estilos.scss */
+/* line 1169, ../estilos_scss/estilos.scss */
 #resultadoBusqueda { border-style: solid; border-color: black; border-width: 1px; position: Absolute; z-index: 2000 !important; background-color: white; display: none; }
 
-/* line 1087, ../estilos_scss/estilos.scss */
+/* line 1181, ../estilos_scss/estilos.scss */
 #comprar-total { border-style: solid; border-color: black; border-width: 1px; width: 25%; height: 25%; margin-top: 5%; margin-right: 2%; display: block; }
 /* line 42, ../estilos_scss/estilos.scss */
 #comprar-total li { list-style-type: none; }
 
-/* line 1097, ../estilos_scss/estilos.scss */
+/* line 1191, ../estilos_scss/estilos.scss */
 .div-identificacionMp { display: inline-block; width: 25%; }
 
-/* line 1102, ../estilos_scss/estilos.scss */
+/* line 1196, ../estilos_scss/estilos.scss */
 .div-direccionMp { display: inline-block; width: 25%; margin-top: 0%; }
 
-/* line 1109, ../estilos_scss/estilos.scss */
+/* line 1203, ../estilos_scss/estilos.scss */
 #nombre-form-alert { display: none; }
 
-/* line 1112, ../estilos_scss/estilos.scss */
+/* line 1206, ../estilos_scss/estilos.scss */
 #apellido-form-alert { display: none; }
 
-/* line 1115, ../estilos_scss/estilos.scss */
+/* line 1209, ../estilos_scss/estilos.scss */
 #dni-form-alert { display: none; }
 
-/* line 1118, ../estilos_scss/estilos.scss */
+/* line 1212, ../estilos_scss/estilos.scss */
 #email-form-alert { display: none; }
 
-/* line 1121, ../estilos_scss/estilos.scss */
+/* line 1215, ../estilos_scss/estilos.scss */
 #cod_area-form-alert { display: none; }
 
-/* line 1124, ../estilos_scss/estilos.scss */
+/* line 1218, ../estilos_scss/estilos.scss */
 #telefono-form-alert { display: none; }
 
-/* line 1128, ../estilos_scss/estilos.scss */
+/* line 1222, ../estilos_scss/estilos.scss */
 .form-alert { color: red; }
 
-/* line 1132, ../estilos_scss/estilos.scss */
+/* line 1226, ../estilos_scss/estilos.scss */
 #btn-form { display: none; }
 
-/* line 1135, ../estilos_scss/estilos.scss */
+/* line 1229, ../estilos_scss/estilos.scss */
 #cp-form-alert { display: none; }
 
-/* line 1138, ../estilos_scss/estilos.scss */
+/* line 1232, ../estilos_scss/estilos.scss */
 #calle-form-alert { display: none; }
 
-/* line 1142, ../estilos_scss/estilos.scss */
+/* line 1236, ../estilos_scss/estilos.scss */
 #altura-form-alert { display: none; }
 
-/* line 1145, ../estilos_scss/estilos.scss */
+/* line 1239, ../estilos_scss/estilos.scss */
 #provincia-form-alert { display: none; }
 
-/* line 1148, ../estilos_scss/estilos.scss */
+/* line 1242, ../estilos_scss/estilos.scss */
 #ciudad-form-alert { display: none; }
 
-/* line 1151, ../estilos_scss/estilos.scss */
+/* line 1245, ../estilos_scss/estilos.scss */
 #piso-form-alert { display: none; }
 
-/* line 1154, ../estilos_scss/estilos.scss */
+/* line 1248, ../estilos_scss/estilos.scss */
 #departamento-form-alert { display: none; }
 
-/* line 1158, ../estilos_scss/estilos.scss */
+/* line 1252, ../estilos_scss/estilos.scss */
 #contrasenia-form-alert { display: none; }
 
-/* line 1161, ../estilos_scss/estilos.scss */
+/* line 1255, ../estilos_scss/estilos.scss */
 #validarContraseniaButton { display: none; }
 
-/* line 1164, ../estilos_scss/estilos.scss */
+/* line 1258, ../estilos_scss/estilos.scss */
 #contrasenia-repetir-form-alert { display: none; }
 
-/* line 1167, ../estilos_scss/estilos.scss */
+/* line 1261, ../estilos_scss/estilos.scss */
 #validarUsuario-form-alert { display: none; }
 
-/* line 1170, ../estilos_scss/estilos.scss */
+/* line 1264, ../estilos_scss/estilos.scss */
 .comprobante { border-style: solid; border-color: black; border-width: 1px; width: 50%; margin-top: 2%; }
 
-/* line 1175, ../estilos_scss/estilos.scss */
+/* line 1269, ../estilos_scss/estilos.scss */
 span { color: red; }
 
-/* line 1179, ../estilos_scss/estilos.scss */
+/* line 1273, ../estilos_scss/estilos.scss */
 .total-comprobante { margin-left: 40%; }

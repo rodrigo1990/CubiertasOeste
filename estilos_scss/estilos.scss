@@ -170,7 +170,10 @@ li{
 }
 }
 
+@mixin animated-btn(){
 
+	
+}
 
 
 
@@ -614,6 +617,10 @@ ul#carrito-lista{
 	color:black;
 }	
 	}
+
+	#logo-menu{
+		cursor:pointer;
+	}
 /************SLIDER****************************************************************************************/
 .slider{
 	width:100%;
@@ -733,6 +740,57 @@ div.separador{
 img.separador-img{
 	margin-top:2%;
 }
+/*************************FIXED-CONTACTO-INFO*******************************************************/
+.fixed-contacto-info{
+	z-index:5000;
+	position: fixed;
+    border-style: solid;
+    border-color: $naranja;
+    border-width: 1px;
+    width: auto;
+    height: auto;
+    background-color: $blanco;
+    right: 1%;
+    bottom: 8%;
+    margin-bottom:0%;
+    float: right;
+    border-radius:5px;
+    text-align: center;
+    display:block;
+}
+.fixed-contacto-info p{
+	margin:1.5%;
+	color:$naranja;
+}
+.fixed-contacto-info #info-contacto-close{
+	float:right;
+	color:$naranja;
+	cursor:pointer;
+}
+
+.fixed-contacto-info:after, .fixed-contacto-info:before {
+	top: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.fixed-contacto-info:after {
+	border-color: rgba(213, 110, 32, 0);
+	border-top-color: $blanco;
+	border-width: 20px;
+	margin-left: 105px;
+}
+.fixed-contacto-info:before {
+	border-color: rgba(194, 225, 245, 0);
+	border-top-color: $naranja;
+	border-width: 22px;
+	margin-left: 103px;
+}
 /**********************PRODUCTO/*************************************************************************/
 
 
@@ -774,6 +832,10 @@ img.separador-img{
 	font-size:109%;
 	font-weight:bold;
 }
+
+.producto-buscador-filtros h4{
+	font-size:100%;
+}
 @-moz-document url-prefix() {
 .producto h4{
 	font-size:100%;
@@ -813,9 +875,31 @@ img.separador-img{
    margin-top:15%;
    font-family: $fuente;
    font-size: 135%;
+   @include animated-btn();
+ 	text-decoration: none;
   
 
 }
+
+	.producto a:after {
+	  content: '';
+	  position: absolute;
+	  bottom: 5px;
+	  left: 25%;
+	  width: 0%;
+	  border-bottom: 2px solid #3366FF;
+	  transition: 0.4s;
+	    border-color: white;
+
+	}
+
+		.producto a:hover:after {
+		  width: 50%;
+		  color:white;
+		  background-color: white;
+		  border-color: white;
+		}
+
 @-moz-document url-prefix() {
 
 .producto a{
@@ -836,6 +920,7 @@ form#buscador-filtros-form{
 #buscador-fixed{
 width:110%;
 @include bordeBottom($color-bordes-menu);
+z-index: 2000 !important;
 }
 
 .buscador-filtros{
@@ -1009,6 +1094,7 @@ select.buscador-filtros-select option{
 }
 
 .footer-fila-2-col-2{
+	margin-top:-3%;
 	margin-left:0%;
 	padding:0%;
 }
@@ -1033,6 +1119,7 @@ select.buscador-filtros-select option{
 }
 
 .footer-fila-2-col-2 #utilidades{
+	height:170px;
 	border-left-width:0px !important;
 	//width:35%;
 }
@@ -1058,6 +1145,7 @@ select.buscador-filtros-select option{
 }
 
 .footer-fila-2-col-3{
+		margin-top:-3%;
 	text-align:center;
 	color:$naranja;
 }
@@ -1071,6 +1159,12 @@ div#footer-fila-2-col-3-cont{
 div#footer-fila-2-col-3-cont h4{
 	font-weight:bold;
 }
+
+.row-footer-fila-1-buscador-filtros{
+	margin-top:98%;
+}
+
+
 /*****************************************************************************************************/
 #resultadoBusqueda{
 	@include borde(black);

@@ -49,6 +49,10 @@ $usuario=new Usuario();
 		window.location.href = "buscador-filtros.php";
 		});//$(".buscador-filtros-select").change(function(){
 });
+
+	function cerrarVentanaInfo(){
+ 	 document.getElementById("fixed-contacto-info").style.display = "none";
+	}
 	</script>
 
 		<title>Cubiertas Oeste</title>
@@ -81,7 +85,7 @@ $usuario=new Usuario();
 		<div class="menu hidden-xs col-sm-12 col-md-12 col-lg-12">
 			<div class="container">
 
-				<img src="elementos_separados/logo.png" class="element-menu img-responsive" id="logo-menu" width="210">
+				<img src="elementos_separados/logo.png" class="element-menu img-responsive" id="logo-menu" onClick="window.location='index.php'" width="210">
 				
 				<img src="elementos_separados/icon-mas.png" class="element-menu vertical-align-middle  img-responsive" id="icon-mas-menu" width="15">
 				
@@ -370,6 +374,22 @@ $usuario=new Usuario();
   ?>
 
 </div>
+
+
+
+<!-- fiexed-contacto-info -->
+<div class="container">
+<div id="fixed-contacto-info" class="animated bounceInRight fixed-contacto-info">
+	<i id="info-contacto-close" class="material-icons"  onClick="cerrarVentanaInfo();">close</i>
+	<p><i><b>¡Hacenos tu consulta  a traves de nuestro chat exclusivo para el publico!</b></i></p>
+	<p><i>Lunes a sabados</i></p>
+	<p><i>De 09:00 hs a 19:00hs </i></p>
+	<p><i> Telefono: 54 11 4627 8900</i></p>
+	<p><i>Acceso Oeste 1924 - Ituzaingo - Zona Oeste - GBA</i></p>
+	<img src="elementos_separados/logo.png" alt="" width="40%;">
+</div>
+</div>
+
 
 
 <!-- FOOTER -->
