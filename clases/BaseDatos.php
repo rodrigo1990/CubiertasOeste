@@ -19,7 +19,7 @@ class BaseDatos{
 		//contador
 		$i=0;
 
-		$sql="SELECT PRO.id,PRO.marca,PRO.modelo,PRO.medida,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,CAT.descripcion,ROD.descripcion as rodado,TV.descripcion as tipo_vehiculo
+		$sql="SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.medida,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,CAT.descripcion,ROD.descripcion as rodado,TV.descripcion as tipo_vehiculo
 			 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 			 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
 			 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo";
@@ -48,7 +48,7 @@ class BaseDatos{
 						</div>
 
 						<ul>
-						<li>Medida:".$fila['medida']."</li>
+						<li>Medida:".$fila['ancho']." x ".$fila['alto']."</li>
 						<li>Rodado:".$fila['rodado']."</li>
 						<li>Vehiculo:".$fila['tipo_vehiculo']."</li>
 						<li>Categoria:".$fila['descripcion']."</li>
@@ -78,7 +78,87 @@ class BaseDatos{
 						</div>
 
 						<ul>
-						<li>Medida:".$fila['medida']."</li>
+						<li>Medida:".$fila['ancho']." x ".$fila['alto']."</li>
+						<li>Rodado:".$fila['rodado']."</li>
+						<li>Vehiculo:".$fila['tipo_vehiculo']."</li>
+						<li>Categoria:".$fila['descripcion']."</li>
+						</ul>
+
+						<div class='paralelogramo-btn'><a href='vermasproducto.php?id=".$fila['id']."'>Ver mas</a></div>
+
+					</div>";				
+				}
+		}//while
+
+
+
+	}//function
+
+	public function listarProductosHankook(){
+		//contador
+		$i=0;
+
+		$sql="SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.medida,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,CAT.descripcion,ROD.descripcion as rodado,TV.descripcion as tipo_vehiculo
+			 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
+			 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
+			 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo
+			 WHERE PRO.marca='Hankook'";
+
+		$consulta=mysqli_query($this->conexion,$sql);
+
+		while($fila=mysqli_fetch_assoc($consulta)){
+			//lista nada mas los primeros 10 productos
+			$i++;
+			if($i==6){break;}
+
+			if($fila['tiene_descuento']==0){
+
+				echo "<div class='producto'>
+
+
+						<h3>".$fila['marca']."</h3><h3> <span>".$fila['modelo']."</span></h3>
+
+
+						<img  width='175' height='175' src=img/".$fila['imagen'].">
+
+						<div class='producto-precio'>
+
+						<h4>$".$fila['precio']." ARG</h4>
+
+						</div>
+
+						<ul>
+						<li>Medida:".$fila['ancho']." x ".$fila['alto']."</li>
+						<li>Rodado:".$fila['rodado']."</li>
+						<li>Vehiculo:".$fila['tipo_vehiculo']."</li>
+						<li>Categoria:".$fila['descripcion']."</li>
+
+						</ul>
+
+
+						
+
+					<div class='paralelogramo-btn'><a href='vermasproducto.php?id=".$fila['id']."'>Ver mas</a></div>
+
+					</div>";
+
+				}else if($fila['tiene_descuento']==1){
+				
+				echo "<div class='producto'>
+
+						<h3>".$fila['marca']." </h3><h3><span> ".$fila['modelo']."</span></h3>
+
+
+						<img  width='175' height='175' src=img/".$fila['imagen'].">
+
+						<div class='producto-precio'>
+
+						<h4><del>$".$fila['precio']." arg</del> $".$fila['precio_descuento']." ARG</h4>
+
+						</div>
+
+						<ul>
+						<li>Medida:".$fila['ancho']." x ".$fila['alto']."</li>
 						<li>Rodado:".$fila['rodado']."</li>
 						<li>Vehiculo:".$fila['tipo_vehiculo']."</li>
 						<li>Categoria:".$fila['descripcion']."</li>
