@@ -12,7 +12,48 @@ $negro:rgb(43,42,42);
 $titulos-producto:impact;
 $titulos-separador:Futura Lt Condensed;
 
-
+////////////////Modificar Bootstrap para 5 columnas/////////////////
+/////////////////////////////////////////////////
+.col-xs-15,
+.col-sm-15,
+.col-md-15,
+.col-lg-15
+{
+  position: relative;
+  min-height: 1px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.col-xs-15
+{
+  width: 20%;
+  float: left;
+}
+@media (min-width: 768px)
+{
+  .col-sm-15
+  {
+    width: 20%;
+    float: left;
+  }
+}
+@media (min-width: 992px)
+{
+  .col-md-15
+  {
+    width: 20%;
+    float: left;
+  }
+}
+@media (min-width: 1200px)
+{
+  .col-lg-15
+  {
+    width: 20%;
+    float: left;
+  }
+}
+//////////////////////////////////////////////////////////
 @mixin borde($color){
 	border-style:solid;
 	border-color:$color;
@@ -911,6 +952,128 @@ img.separador-img{
 
 }
 }
+
+/*********************************************PRODUCTO-RESPONSIVE************************************/
+.producto-responsive{
+	text-align:center;
+	line-height:1%;
+}
+.producto-responsive h3{
+	font-family:$titulos-producto;
+	line-height:109%;
+	font-size:170%;
+
+}
+
+.producto-responsive h3 span{
+	font-family:$titulos-producto;
+	color:$naranja;
+}
+
+.producto-responsive h4{
+	font-weight:bold;
+	font-size:113%;
+}
+.producto-precio-responsive{
+	@include bordeBottomWidth($negro,2px);
+
+}
+
+.producto-responsive ul{
+	margin-top:3%;
+	text-align:left !important;
+	line-height:100% !important;
+		margin-left:-10%;
+
+}
+
+.producto-responsive ul li{
+	font-size:75%;
+	font-family:arial;
+	font-weight:600;
+
+
+}
+
+.paralelogramo-btn-responsive {
+	margin-left:20%;
+	-webkit-transform: skew(-7deg); 
+   -moz-transform: skew(-7deg); 
+   -o-transform: skew(-7deg); 
+    background-color: $naranja;
+    width: 120px; 
+   height: 30px; 
+
+}
+
+.producto-responsive a{
+    color: white;
+    top: 41%;
+    left: 25%;
+    font-family: $fuente;
+    font-size: 135%;
+    text-decoration: none;
+    position: absolute;
+
+}
+@-moz-document url-prefix() {
+.producto-responsive a{
+    color: white;
+    top: -15%;
+    left: 20%;
+    font-family: $fuente;
+    font-size: 135%;
+    text-decoration: none;
+    position: absolute;
+
+}
+}
+@-moz-document url-prefix() {
+.producto-responsive a:after {
+	  content: '';
+	  position: absolute;
+	  bottom: -5px !important;
+	  left: 0%;
+	  width: 0%;
+	  border-bottom: 2px solid #3366FF;
+	  transition: 0.4s;
+	    border-color: white;
+
+	}}
+
+	.producto-responsive a:after {
+	  content: '';
+	  position: absolute;
+	  bottom: -13px;
+	  left: 0%;
+	  width: 0%;
+	  border-bottom: 2px solid #3366FF;
+	  transition: 0.4s;
+	    border-color: white;
+
+	}
+
+		.producto-responsive a:hover:after {
+		  width: 99%;
+		  color:white;
+		  background-color: white;
+		  border-color: white;
+		}
+
+@-moz-document url-prefix() {
+
+.producto-responsive a{
+	color:white;
+   margin-top:15%;
+   font-family: $fuente-secundaria;
+   font-size: 135%;
+  
+
+}
+}
+.titulo-buscador{
+	font-size:160% !important;
+}
 /*******************************************Buscador filtros/*********************************************/
 
 form#buscador-filtros-form{
@@ -918,7 +1081,7 @@ form#buscador-filtros-form{
 }
 
 #buscador-fixed{
-width:110%;
+width:102%;
 @include bordeBottom($color-bordes-menu);
 z-index: 2000 !important;
 }
@@ -1020,7 +1183,6 @@ select.buscador-filtros-select option{
 .warning-buscador-filtros{
 	display:none;
 	@include warningBuscadorFiltros($fuente);
-	margin-left:32%;
 }
 
 @-moz-document url-prefix() {
@@ -1031,7 +1193,9 @@ select.buscador-filtros-select option{
 
 }
 }
-
+.align-warning-text{
+	text-align:center;
+}
 
 /****************************************FOOOTERS***************************************************************/
 .row-footer-fila-1{
@@ -1159,9 +1323,22 @@ div#footer-fila-2-col-3-cont{
 div#footer-fila-2-col-3-cont h4{
 	font-weight:bold;
 }
-
+html {
+  min-height: 100%;
+  position: relative;
+}
+body {
+  margin: 0;
+  margin-bottom: 40px;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+}
 .row-footer-fila-1-buscador-filtros{
-	margin-top:98%;
+	//margin-top:26%;
 }
 
 

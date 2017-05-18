@@ -18,63 +18,77 @@ class BaseDatos{
 	public function listarProductos(){
 		//contador
 		$i=0;
+		$z=0;//Descomentar para listar 8 elementos segun grilla bootstrap
 
 		$sql="SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.medida,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,CAT.descripcion,ROD.descripcion as rodado,TV.descripcion as tipo_vehiculo
 			 FROM producto PRO JOIN categoria CAT ON PRO.id_categoria=CAT.id 
 			 					JOIN rodado ROD ON PRO.id_rodado=ROD.id_rodado
 			 					JOIN tipo_vehiculo TV ON PRO.id_tipo_vehiculo=TV.id_tipo_vehiculo";
 
+
+
 		$consulta=mysqli_query($this->conexion,$sql);
 
 		while($fila=mysqli_fetch_assoc($consulta)){
 			//lista nada mas los primeros 10 productos
 			$i++;
+			$z++;//Descomentar para listar 8 elementos segun grilla bootstrap
 			if($i==11){break;}
 
 			if($fila['tiene_descuento']==0){
 
-				echo "<div class='producto'>
+					if($z==1){
+						echo "<div class='producto-row row'>";
+						echo "<div class='container'>";
+					}
+				
+					echo "<div class='col-xs-15 col-sm-15 col-md-15 col-lg-15'>
+					<div class='producto-responsive'>
 
 
-						<h3>".$fila['marca']."</h3><h3> <span>".$fila['modelo']."</span></h3>
+						<h3>".$fila['marca']." <br><span> ".$fila['modelo']."</span></h3>
 
 
-						<img  width='175' height='175' src=img/".$fila['imagen'].">
-
-						<div class='producto-precio'>
-
-						<h4>$".$fila['precio']." ARG</h4>
-
+						<img  src=img/".$fila['imagen']." width='165' height='165'>
+						
+						<div class='producto-precio-responsive'>
+						<h4>$".$fila['precio']."ARG</h4>
 						</div>
-
+						
 						<ul>
 						<li>Medida:".$fila['ancho']." x ".$fila['alto']."</li>
 						<li>Rodado:".$fila['rodado']."</li>
 						<li>Vehiculo:".$fila['tipo_vehiculo']."</li>
 						<li>Categoria:".$fila['descripcion']."</li>
-
 						</ul>
-
-
 						
+						<div class='paralelogramo-btn-responsive'><a href='vermasproducto.php?id=".$fila['id']."'>Ver mas</a></div>
 
-					<div class='paralelogramo-btn'><a href='vermasproducto.php?id=".$fila['id']."'>Ver mas</a></div>
-
+						</div>
 					</div>";
+					if($z==5){
+						echo "</div>";
+						echo "</div>";
+						$z=0;
+					}
 
 				}else if($fila['tiene_descuento']==1){
 				
-				echo "<div class='producto'>
+					if($z==1){
+						echo "<div class='producto-row row'>";
+						echo "<div class='container'>";
+					}
+				
+					echo "<div class='col-xs-15 col-sm-15 col-md-15 col-lg-15'>
+						<div class='producto-responsive'>
 
-						<h3>".$fila['marca']." </h3><h3><span> ".$fila['modelo']."</span></h3>
+						<h3>".$fila['marca']." <br><span> ".$fila['modelo']."</span></h3>
 
 
-						<img  width='175' height='175' src=img/".$fila['imagen'].">
+						<img   src=img/".$fila['imagen']." width='165' height='165'>
 
-						<div class='producto-precio'>
-
-						<h4><del>$".$fila['precio']." arg</del> $".$fila['precio_descuento']." ARG</h4>
-
+						<div class='producto-precio-responsive'>
+						<h4><del>$".$fila['precio']."</del> $".$fila['precio_descuento']." ARG</h4>
 						</div>
 
 						<ul>
@@ -84,9 +98,17 @@ class BaseDatos{
 						<li>Categoria:".$fila['descripcion']."</li>
 						</ul>
 
-						<div class='paralelogramo-btn'><a href='vermasproducto.php?id=".$fila['id']."'>Ver mas</a></div>
+						<div class='paralelogramo-btn-responsive'><a href='vermasproducto.php?id=".$fila['id']."'>Ver mas</a></div>
+				
+					</div>
+					</div>";	
 
-					</div>";				
+					if($z==5){
+						echo "</div>";
+						echo "</div>";
+						$z=0;
+					}
+		
 				}
 		}//while
 
@@ -96,6 +118,7 @@ class BaseDatos{
 
 	public function listarProductosHankook(){
 		//contador
+		$z=0;
 		$i=0;
 
 		$sql="SELECT PRO.id,PRO.marca,PRO.modelo,PRO.ancho,PRO.alto,PRO.medida,PRO.imagen,PRO.precio,PRO.tiene_descuento,PRO.precio_descuento,CAT.descripcion,ROD.descripcion as rodado,TV.descripcion as tipo_vehiculo
@@ -107,54 +130,64 @@ class BaseDatos{
 		$consulta=mysqli_query($this->conexion,$sql);
 
 		while($fila=mysqli_fetch_assoc($consulta)){
-			//lista nada mas los primeros 10 productos
+			
 			$i++;
 			if($i==6){break;}
 
 			if($fila['tiene_descuento']==0){
 
-				echo "<div class='producto'>
+			if($z==1){
+						echo "<div class='producto-row row'>";
+						echo "<div class='container'>";
+					}
+				
+					echo "<div class='col-xs-15 col-sm-15 col-md-15 col-lg-15'>
+					<div class='producto-responsive'>
 
 
-						<h3>".$fila['marca']."</h3><h3> <span>".$fila['modelo']."</span></h3>
+						<h3>".$fila['marca']." <br><span> ".$fila['modelo']."</span></h3>
 
 
-						<img  width='175' height='175' src=img/".$fila['imagen'].">
-
-						<div class='producto-precio'>
-
-						<h4>$".$fila['precio']." ARG</h4>
-
+						<img  src=img/".$fila['imagen']." width='165' height='165'>
+						
+						<div class='producto-precio-responsive'>
+						<h4>$".$fila['precio']."ARG</h4>
 						</div>
-
+						
 						<ul>
 						<li>Medida:".$fila['ancho']." x ".$fila['alto']."</li>
 						<li>Rodado:".$fila['rodado']."</li>
 						<li>Vehiculo:".$fila['tipo_vehiculo']."</li>
 						<li>Categoria:".$fila['descripcion']."</li>
-
 						</ul>
-
-
 						
+						<div class='paralelogramo-btn-responsive'><a href='vermasproducto.php?id=".$fila['id']."'>Ver mas</a></div>
 
-					<div class='paralelogramo-btn'><a href='vermasproducto.php?id=".$fila['id']."'>Ver mas</a></div>
-
+						</div>
 					</div>";
+					if($z==5){
+						echo "</div>";
+						echo "</div>";
+						$z=0;
+					}
 
 				}else if($fila['tiene_descuento']==1){
+					
+					if($z==1){
+						echo "<div class='producto-row row'>";
+						echo "<div class='container'>";
+					}
 				
-				echo "<div class='producto'>
+					echo "<div class='col-xs-15 col-sm-15 col-md-15 col-lg-15'>
+						<div class='producto-responsive'>
 
-						<h3>".$fila['marca']." </h3><h3><span> ".$fila['modelo']."</span></h3>
+						<h3>".$fila['marca']." <br><span> ".$fila['modelo']."</span></h3>
 
 
-						<img  width='175' height='175' src=img/".$fila['imagen'].">
+						<img   src=img/".$fila['imagen']." width='165' height='165'>
 
-						<div class='producto-precio'>
-
-						<h4><del>$".$fila['precio']." arg</del> $".$fila['precio_descuento']." ARG</h4>
-
+						<div class='producto-precio-responsive'>
+						<h4><del>$".$fila['precio']."</del> $".$fila['precio_descuento']." ARG</h4>
 						</div>
 
 						<ul>
@@ -164,9 +197,17 @@ class BaseDatos{
 						<li>Categoria:".$fila['descripcion']."</li>
 						</ul>
 
-						<div class='paralelogramo-btn'><a href='vermasproducto.php?id=".$fila['id']."'>Ver mas</a></div>
+						<div class='paralelogramo-btn-responsive'><a href='vermasproducto.php?id=".$fila['id']."'>Ver mas</a></div>
+				
+					</div>
+					</div>";	
 
-					</div>";				
+					if($z==5){
+						echo "</div>";
+						echo "</div>";
+						$z=0;
+					}
+					
 				}//end if
 		}//while
 
@@ -644,6 +685,7 @@ public function listarTipoVehiculo(){
 	public function listarTipoVehiculoParaBuscadorPorFiltros($tipo_de_vehiculo,$rodado,$marca,$categoria,$ancho,$alto){
 
 		$confirmacion_busqueda=0;
+		$z=0;
 
 
 		if($tipo_de_vehiculo!='valor_nulo' && $rodado=='valor_nulo' && $marca =='valor_nulo' && $categoria=='valor_nulo' && $ancho=='valor_nulo' && $alto=='valor_nulo'){
@@ -1406,51 +1448,62 @@ if($confirmacion_busqueda==1){
 		$resultado=$stmt->get_result();
 		
 		while($fila=$resultado->fetch_assoc()){
+			$z++;
 
 			if($fila['tiene_descuento']==0){
 
-				echo "<div class='producto producto-buscador-filtros'>
+					if($z==1){
+						echo "<div class='producto-row row'>";
+						echo "<div class='container'>";
+					}
+				
+					echo "<div class='col-xs-15 col-sm-15 col-md-15 col-lg-15'>
+					<div class='producto-responsive'>
 
 
-						<h3>".$fila['marca']."</h3><h3> <span>".$fila['modelo']."</span></h3>
+						<h3 class='titulo-buscador'>".$fila['marca']." <br><span> ".$fila['modelo']."</span></h3>
 
 
-						<img  width='175' height='175' src=img/".$fila['imagen'].">
-
-						<div class='producto-precio'>
-
-						<h4>$".$fila['precio']." ARG</h4>
-
+						<img  src=img/".$fila['imagen']." width='125' height='125'>
+						
+						<div class='producto-precio-responsive'>
+						<h4>$".$fila['precio']."ARG</h4>
 						</div>
-
+						
 						<ul>
 						<li>Medida:".$fila['ancho']." x ".$fila['alto']."</li>
 						<li>Rodado:".$fila['rodado']."</li>
 						<li>Vehiculo:".$fila['tipo_vehiculo']."</li>
 						<li>Categoria:".$fila['descripcion']."</li>
-
 						</ul>
-
-
 						
+						<div class='paralelogramo-btn-responsive'><a href='vermasproducto.php?id=".$fila['id']."'>Ver mas</a></div>
 
-					<div class='paralelogramo-btn'><a href='vermasproducto.php?id=".$fila['id']."'>Ver mas</a></div>
-
+						</div>
 					</div>";
+					if($z==5){
+						echo "</div>";
+						echo "</div>";
+						$z=0;
+					}
 
 				}else if($fila['tiene_descuento']==1){
 				
-				echo "<div class='producto producto-buscador-filtros'>
+					if($z==1){
+						echo "<div class='producto-row row'>";
+						echo "<div class='container'>";
+					}
+				
+					echo "<div class='col-xs-15 col-sm-15 col-md-15 col-lg-15'>
+						<div class='producto-responsive'>
 
-						<h3>".$fila['marca']." </h3><h3><span> ".$fila['modelo']."</span></h3>
+						<h3 class='titulo-buscador'>".$fila['marca']." <br><span> ".$fila['modelo']."</span></h3>
 
 
-						<img  width='175' height='175' src=img/".$fila['imagen'].">
+						<img   src=img/".$fila['imagen']." width='125' height='125'>
 
-						<div class='producto-precio'>
-
-						<h4><del>$".$fila['precio']." arg</del> $".$fila['precio_descuento']." ARG</h4>
-
+						<div class='producto-precio-responsive'>
+						<h4><del>$".$fila['precio']."</del> $".$fila['precio_descuento']." ARG</h4>
 						</div>
 
 						<ul>
@@ -1460,10 +1513,18 @@ if($confirmacion_busqueda==1){
 						<li>Categoria:".$fila['descripcion']."</li>
 						</ul>
 
-						<div class='paralelogramo-btn'><a href='vermasproducto.php?id=".$fila['id']."'>Ver mas</a></div>
+						<div class='paralelogramo-btn-responsive'><a href='vermasproducto.php?id=".$fila['id']."'>Ver mas</a></div>
+				
+					</div>
+					</div>";	
 
-					</div>";				
-				}//end if
+					if($z==5){
+						echo "</div>";
+						echo "</div>";
+						$z=0;
+					}
+		
+				}
 		}//while
 		
 	
@@ -1476,7 +1537,7 @@ if($confirmacion_busqueda==1){
 	public function listarTipoVehiculoParaBuscadorPorFiltrosAscendente($tipo_de_vehiculo,$rodado,$marca,$categoria,$ancho,$alto){
 
 		$confirmacion_busqueda=0;
-
+		$z=0;
 
 		if($tipo_de_vehiculo!='valor_nulo' && $rodado=='valor_nulo' && $marca =='valor_nulo' && $categoria=='valor_nulo' && $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
@@ -2299,51 +2360,62 @@ if($confirmacion_busqueda==1){
 		$resultado=$stmt->get_result();
 		
 		while($fila=$resultado->fetch_assoc()){
+			$z++;
 
 		if($fila['tiene_descuento']==0){
 
-				echo "<div class='producto producto-buscador-filtros'>
+					if($z==1){
+						echo "<div class='producto-row row'>";
+						echo "<div class='container'>";
+					}
+				
+					echo "<div class='col-xs-15 col-sm-15 col-md-15 col-lg-15'>
+					<div class='producto-responsive'>
 
 
-						<h3>".$fila['marca']."</h3><h3> <span>".$fila['modelo']."</span></h3>
+						<h3 class='titulo-buscador'>".$fila['marca']." <br><span> ".$fila['modelo']."</span></h3>
 
 
-						<img  width='175' height='175' src=img/".$fila['imagen'].">
-
-						<div class='producto-precio'>
-
-						<h4>$".$fila['precio']." ARG</h4>
-
+						<img  src=img/".$fila['imagen']." width='125' height='125'>
+						
+						<div class='producto-precio-responsive'>
+						<h4>$".$fila['precio']."ARG</h4>
 						</div>
-
+						
 						<ul>
 						<li>Medida:".$fila['ancho']." x ".$fila['alto']."</li>
 						<li>Rodado:".$fila['rodado']."</li>
 						<li>Vehiculo:".$fila['tipo_vehiculo']."</li>
 						<li>Categoria:".$fila['descripcion']."</li>
-
 						</ul>
-
-
 						
+						<div class='paralelogramo-btn-responsive'><a href='vermasproducto.php?id=".$fila['id']."'>Ver mas</a></div>
 
-					<div class='paralelogramo-btn'><a href='vermasproducto.php?id=".$fila['id']."'>Ver mas</a></div>
-
+						</div>
 					</div>";
+					if($z==5){
+						echo "</div>";
+						echo "</div>";
+						$z=0;
+					}
 
 				}else if($fila['tiene_descuento']==1){
 				
-				echo "<div class='producto producto-buscador-filtros'>
+					if($z==1){
+						echo "<div class='producto-row row'>";
+						echo "<div class='container'>";
+					}
+				
+					echo "<div class='col-xs-15 col-sm-15 col-md-15 col-lg-15'>
+						<div class='producto-responsive'>
 
-						<h3>".$fila['marca']." </h3><h3><span> ".$fila['modelo']."</span></h3>
+						<h3 class='titulo-buscador'>".$fila['marca']." <br><span> ".$fila['modelo']."</span></h3>
 
 
-						<img  width='175' height='175' src=img/".$fila['imagen'].">
+						<img   src=img/".$fila['imagen']." width='125' height='125'>
 
-						<div class='producto-precio'>
-
-						<h4><del>$".$fila['precio']." arg</del> $".$fila['precio_descuento']." ARG</h4>
-
+						<div class='producto-precio-responsive'>
+						<h4><del>$".$fila['precio']."</del> $".$fila['precio_descuento']." ARG</h4>
 						</div>
 
 						<ul>
@@ -2353,10 +2425,18 @@ if($confirmacion_busqueda==1){
 						<li>Categoria:".$fila['descripcion']."</li>
 						</ul>
 
-						<div class='paralelogramo-btn'><a href='vermasproducto.php?id=".$fila['id']."'>Ver mas</a></div>
+						<div class='paralelogramo-btn-responsive'><a href='vermasproducto.php?id=".$fila['id']."'>Ver mas</a></div>
+				
+					</div>
+					</div>";	
 
-					</div>";				
-				}//end if
+					if($z==5){
+						echo "</div>";
+						echo "</div>";
+						$z=0;
+					}
+		
+				}
 		}//while producto-buscador-filtros
 		
 	
@@ -2367,7 +2447,7 @@ if($confirmacion_busqueda==1){
 public function listarTipoVehiculoParaBuscadorPorFiltrosDescendente($tipo_de_vehiculo,$rodado,$marca,$categoria,$ancho,$alto){
 
 		$confirmacion_busqueda=0;
-
+		$z=0;
 
 		if($tipo_de_vehiculo!='valor_nulo' && $rodado=='valor_nulo' && $marca =='valor_nulo' && $categoria=='valor_nulo' && $ancho=='valor_nulo' && $alto=='valor_nulo'){
 
@@ -3190,51 +3270,62 @@ if($confirmacion_busqueda==1){
 		$resultado=$stmt->get_result();
 		
 		while($fila=$resultado->fetch_assoc()){
+			$z++;
 
 	if($fila['tiene_descuento']==0){
 
-				echo "<div class='producto producto-buscador-filtros'>
+					if($z==1){
+						echo "<div class='producto-row row'>";
+						echo "<div class='container'>";
+					}
+				
+					echo "<div class='col-xs-15 col-sm-15 col-md-15 col-lg-15'>
+					<div class='producto-responsive'>
 
 
-						<h3>".$fila['marca']."</h3><h3> <span>".$fila['modelo']."</span></h3>
+						<h3 class='titulo-buscador'>".$fila['marca']." <br><span> ".$fila['modelo']."</span></h3>
 
 
-						<img  width='175' height='175' src=img/".$fila['imagen'].">
-
-						<div class='producto-precio'>
-
-						<h4>$".$fila['precio']." ARG</h4>
-
+						<img  src=img/".$fila['imagen']." width='125' height='125'>
+						
+						<div class='producto-precio-responsive'>
+						<h4>$".$fila['precio']."ARG</h4>
 						</div>
-
+						
 						<ul>
 						<li>Medida:".$fila['ancho']." x ".$fila['alto']."</li>
 						<li>Rodado:".$fila['rodado']."</li>
 						<li>Vehiculo:".$fila['tipo_vehiculo']."</li>
 						<li>Categoria:".$fila['descripcion']."</li>
-
 						</ul>
-
-
 						
+						<div class='paralelogramo-btn-responsive'><a href='vermasproducto.php?id=".$fila['id']."'>Ver mas</a></div>
 
-					<div class='paralelogramo-btn'><a href='vermasproducto.php?id=".$fila['id']."'>Ver mas</a></div>
-
+						</div>
 					</div>";
+					if($z==5){
+						echo "</div>";
+						echo "</div>";
+						$z=0;
+					}
 
 				}else if($fila['tiene_descuento']==1){
 				
-				echo "<div class='producto producto-buscador-filtros'>
+					if($z==1){
+						echo "<div class='producto-row row'>";
+						echo "<div class='container'>";
+					}
+				
+					echo "<div class='col-xs-15 col-sm-15 col-md-15 col-lg-15'>
+						<div class='producto-responsive'>
 
-						<h3>".$fila['marca']." </h3><h3><span> ".$fila['modelo']."</span></h3>
+						<h3 class='titulo-buscador'>".$fila['marca']." <br><span> ".$fila['modelo']."</span></h3>
 
 
-						<img  width='175' height='175' src=img/".$fila['imagen'].">
+						<img   src=img/".$fila['imagen']." width='125' height='125'>
 
-						<div class='producto-precio'>
-
-						<h4><del>$".$fila['precio']." arg</del> $".$fila['precio_descuento']." ARG</h4>
-
+						<div class='producto-precio-responsive'>
+						<h4><del>$".$fila['precio']."</del> $".$fila['precio_descuento']." ARG</h4>
 						</div>
 
 						<ul>
@@ -3244,10 +3335,18 @@ if($confirmacion_busqueda==1){
 						<li>Categoria:".$fila['descripcion']."</li>
 						</ul>
 
-						<div class='paralelogramo-btn'><a href='vermasproducto.php?id=".$fila['id']."'>Ver mas</a></div>
+						<div class='paralelogramo-btn-responsive'><a href='vermasproducto.php?id=".$fila['id']."'>Ver mas</a></div>
+				
+					</div>
+					</div>";	
 
-					</div>";				
-				}//end if
+					if($z==5){
+						echo "</div>";
+						echo "</div>";
+						$z=0;
+					}
+		
+				}
 		}//while
 		
 	

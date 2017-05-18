@@ -300,6 +300,9 @@ $(document).ready(function() {
 		?>
 	</ul>
 </div>
+
+
+<!-- buscador -->
 <div id="buscador-fixed" class="row">
 	<div class="buscador-filtros hidden-xs col-sm-12 col-md-12 col-lg-12">
 		<div class="container">
@@ -431,16 +434,16 @@ $(document).ready(function() {
 	</div><!-- buscador-filtros -->
 </div><!-- row -->
 
-<div class="row">
-		<div id="resultado-buscador-filtros" class="container">
+<!-- <div class="row"> -->
+		<div id="resultado-buscador-filtros" class="">
 		</div><!-- container -->
 
 
-	<div id="warnings-buscador-filtros" class="container">
+	<div id="warnings-buscador-filtros" class="align-warning-text container">
 	<h2 id="warning-buscador-filtros-default" class="warning-buscador-filtros">Todos los campos se encuentran vacios</h2>
 	<h2 id="warning-buscador-filtros-sin-resultados" class="warning-buscador-filtros">No se encontraron resultados</h2>
-		</div><!-- container -->
-</div><!-- row -->
+	 </div><!-- container -->
+<!-- </div>--><!-- row -->
 
 
 
@@ -448,6 +451,7 @@ $(document).ready(function() {
 
 
 <!-- FOOTER -->
+<footer>
 <div class="row row-footer-fila-1 row-footer-fila-1-buscador-filtros">
 	<div class="footer-fila-1 col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		<div class="container">
@@ -476,9 +480,9 @@ $(document).ready(function() {
 	<div class="container">
 		<div class="footer-fila-2 col-xs-4 col-sm-4 col-md-4 col-lg-4">
 				<ul>
-					<li>(54) (011) 4627-8900</li>
-					<li>Acceso Oeste 1924 - Ituzaingo - Zona Oeste - GBA.</li>
-					<li>Lunes a viernes 8:30 a 19:00 hs. Sáb. de 8:30 a 14:00hs.</li>
+				<li>(54) (011) 4627-8900</li>
+					<li>Acceso Oeste 1924 - Ituzaingo - <br> Zona Oeste - GBA.</li>
+					<li>Lunes a viernes 8:30 a 19:00 hs.<br> Sáb. de 8:30 a 14:00hs.</li>
 					<li>ventas@oesteneumaticos.com.ar</li>
 				</ul>
 			</div><!--  col 4 -->
@@ -509,6 +513,7 @@ $(document).ready(function() {
 
 	</div>
 </div>
+</footer>
 
 </body>
 </html>

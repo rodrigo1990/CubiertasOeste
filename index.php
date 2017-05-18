@@ -199,12 +199,12 @@ $usuario=new Usuario();
 
 
 <!-- LISTA DE PRODUCTOS -->
-<div class="container">
+<!-- <div class="container"> --> <!-- comentar esta linea para pasar a grilla bootstrap -->
 	<?php
 	$bd->listarProductos();
   ?>
 
-</div>
+ <!-- </div>  -->
 
 
 
@@ -393,6 +393,7 @@ $usuario=new Usuario();
 
 
 <!-- FOOTER -->
+<footer>
 <div class="row row-footer-fila-1">
 	<div class="footer-fila-1 col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		<div class="container">
@@ -422,8 +423,8 @@ $usuario=new Usuario();
 		<div class="footer-fila-2 col-xs-4 col-sm-4 col-md-4 col-lg-4">
 				<ul>
 					<li>(54) (011) 4627-8900</li>
-					<li>Acceso Oeste 1924 - Ituzaingo - Zona Oeste - GBA.</li>
-					<li>Lunes a viernes 8:30 a 19:00 hs. Sáb. de 8:30 a 14:00hs.</li>
+					<li>Acceso Oeste 1924 - Ituzaingo - <br> Zona Oeste - GBA.</li>
+					<li>Lunes a viernes 8:30 a 19:00 hs.<br> Sáb. de 8:30 a 14:00hs.</li>
 					<li>ventas@oesteneumaticos.com.ar</li>
 				</ul>
 			</div><!--  col 4 -->
@@ -454,6 +455,7 @@ $usuario=new Usuario();
 
 	</div>
 </div>
+</footer>
 
 
 <!-- <div id="respuesta"></div>
