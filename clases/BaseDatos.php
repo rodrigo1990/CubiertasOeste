@@ -78,7 +78,7 @@ class BaseDatos{
 						echo "<div class='producto-row row'>";
 						echo "<div class='container'>";
 					}
-				
+					$cien=100;
 					echo "<div class='col-xs-15 col-sm-15 col-md-15 col-lg-15'>
 						<div class='producto-responsive'>
 
@@ -86,6 +86,7 @@ class BaseDatos{
 
 
 						<img   src=img/".$fila['imagen']." width='165' height='165'>
+						<div class='circulo-cont'><h3 class='producto-porcentaje-descuento'>".-floor(($fila['precio']-$fila['precio_descuento'])/$fila['precio']*$cien)."%</h3></div>
 
 						<div class='producto-precio-responsive'>
 						<h4><del>$".$fila['precio']."</del> $".$fila['precio_descuento']." ARG</h4>
@@ -172,12 +173,12 @@ class BaseDatos{
 					}
 
 				}else if($fila['tiene_descuento']==1){
-					
+				
 					if($z==1){
 						echo "<div class='producto-row row'>";
 						echo "<div class='container'>";
 					}
-				
+					$cien=100;
 					echo "<div class='col-xs-15 col-sm-15 col-md-15 col-lg-15'>
 						<div class='producto-responsive'>
 
@@ -185,6 +186,7 @@ class BaseDatos{
 
 
 						<img   src=img/".$fila['imagen']." width='165' height='165'>
+						<div class='circulo-cont'><h3 class='producto-porcentaje-descuento'>".-floor(($fila['precio']-$fila['precio_descuento'])/$fila['precio']*$cien)."%</h3></div>
 
 						<div class='producto-precio-responsive'>
 						<h4><del>$".$fila['precio']."</del> $".$fila['precio_descuento']." ARG</h4>
@@ -207,8 +209,8 @@ class BaseDatos{
 						echo "</div>";
 						$z=0;
 					}
-					
-				}//end if
+		
+				}
 		}//while
 
 
@@ -277,7 +279,22 @@ class BaseDatos{
 
 	}//function
 
-	public function buscarProvincias(){
+	public function buscarProvincias($email){
+
+		$stmt=$this->mysqli->prepare("SELECT PRO.provincia_nombre
+			  								  FROM usuario USU JOIN ciudad CIU  ON USU.ciudad_id=CIU.id
+			  								  					JOIN provincia PRO ON CIU.provincia_id=PRO.id 
+			  								  WHERE email=(?)");
+		$stmt->bind_param("s",$email);
+
+		$stmt->execute();
+
+		$resultado=$stmt->get_result();
+
+
+		$fila_provincia_usuario=$resultado->fetch_assoc();
+
+
 
 		$sql="SELECT provincia_nombre
 			  FROM provincia";
@@ -286,13 +303,34 @@ class BaseDatos{
 
 		while($fila=mysqli_fetch_assoc($consulta)){
 
-			echo "<option value='".$fila['provincia_nombre']."'>".$fila['provincia_nombre']."</option>";
+			if($fila_provincia_usuario['provincia_nombre']==$fila['provincia_nombre']){
+
+				echo "<option value='".$fila['provincia_nombre']."' selected>".$fila['provincia_nombre']."</option>";
+
+			}else{
+
+				echo "<option value='".$fila['provincia_nombre']."'>".$fila['provincia_nombre']."</option>";
+		
+			}
 		}
 
 
 	}
 
-		public function buscarTipoDocumento(){
+		public function buscarTipoDocumento($email){
+
+		$stmt=$this->mysqli->prepare("SELECT TD.descripcion
+			  								  FROM usuario USU JOIN tipo_documento TD ON USU.tipo_doc=TD.id 
+			  								  WHERE email=(?)");
+		$stmt->bind_param("s",$email);
+
+		$stmt->execute();
+
+		$resultado=$stmt->get_result();
+
+
+		$fila_doc_usuario=$resultado->fetch_assoc();
+
 
 		$sql="SELECT descripcion
 			  FROM tipo_documento";
@@ -301,7 +339,15 @@ class BaseDatos{
 
 		while($fila=mysqli_fetch_assoc($consulta)){
 
+			if($fila_doc_usuario['descripcion']==$fila['descripcion']){
+
+			echo "<option value='".$fila['descripcion']."'selected>".$fila['descripcion']."</option>";
+		
+			}else{
+
 			echo "<option value=".$fila['descripcion'].">".$fila['descripcion']."</option>";
+
+			}
 		}
 
 
@@ -310,13 +356,12 @@ class BaseDatos{
 
 
 
-
-
-
-
 	public function buscarUsuarioEInsertarloEnTabla($nro_doc,$tipo_doc,$nombre,$apellido,$calle,$altura,$cod_area,$telefono,$email,$cp,$ciudad_nombre,$provincia_nombre,$piso,$departamento){
 
-		$stmt=$this->mysqli->prepare("SELECT email
+
+		//busca el email
+
+		$stmt=$this->mysqli->prepare("SELECT email,calle
 							  		  FROM usuario
 							  		  WHERE email=(?)");
 
@@ -328,7 +373,7 @@ class BaseDatos{
 
 		$fila_existe_usuario=$resultado->fetch_assoc();
 
-
+			//si el email no existe creara un usuario en la tabla
 			if($fila_existe_usuario['email']==''){
 
 				//busco el id de la ciudad
@@ -396,6 +441,109 @@ class BaseDatos{
 
 			}//	if($piso != NULL && $departamento != NULL){
 
+				//si el email ya existe busca si estan registrados los datos de envio sino es asi, los actualiza
+			}else if($fila_existe_usuario['calle']==''){//if($fila_existe_usuario['email']=='')		
+
+				$stmt=$this->mysqli->prepare("SELECT CIU.id
+											  FROM ciudad CIU JOIN provincia PRO ON CIU.provincia_id=PRO.id
+											  WHERE ciudad_nombre=(?) AND provincia_nombre=(?)");
+
+				$stmt->bind_param("ss",$ciudad_nombre,$provincia_nombre);
+
+				$stmt->execute();
+
+				$resultado=$stmt->get_result();
+
+				$fila_id_ciudad=$resultado->fetch_assoc();
+
+				$ciudad_id=$fila_id_ciudad['id'];
+
+				//si piso y departamento estan cargados los actualiza en la bd
+
+					if($piso != NULL && $departamento != NULL){
+
+
+						$stmt=$this->mysqli->prepare("UPDATE usuario
+													   SET calle=(?),altura=(?),ciudad_id=(?),cp=(?),piso=(?),departamento=(?)
+													   WHERE email=(?)");
+
+						$stmt->bind_param("siisiss",$calle,$altura,$ciudad_id,$cp,$piso,$departamento,$email);
+
+						$stmt->execute();
+
+						$stmt->close();
+
+						echo("Finalizado el proceso de pago, te redireccionaremos a la emision del detalle de  compra.");
+
+					}else{
+
+						$stmt=$this->mysqli->prepare("UPDATE usuario
+													   SET calle=(?),altura=(?),ciudad_id=(?),cp=(?)
+													   WHERE email=(?)");
+
+						$stmt->bind_param("siiss",$calle,$altura,$ciudad_id,$cp,$email);
+
+						$stmt->execute();
+
+						$stmt->close();
+
+						echo("Finalizado el proceso de pago, te redireccionaremos a la emision del detalle de  compra.");
+
+
+					}
+			}
+
+
+
+	}//FUNCTION
+	public function buscarUsuarioEInsertarloEnTablaSinEnvio($nro_doc,$tipo_doc,$nombre,$apellido,$cod_area,$telefono,$email){
+
+		$stmt=$this->mysqli->prepare("SELECT email
+							  		  FROM usuario
+							  		  WHERE email=(?)");
+
+		$stmt->bind_param("s",$email);
+
+		$stmt->execute();
+
+		$resultado=$stmt->get_result();
+
+		$fila_existe_usuario=$resultado->fetch_assoc();
+
+
+			if($fila_existe_usuario['email']==''){
+
+				
+				//busco id de tipo de doc
+				$stmt=$this->mysqli->prepare("SELECT id
+											  FROM tipo_documento
+											  WHERE descripcion=(?)");
+
+				$stmt->bind_param("s",$tipo_doc);
+
+				$stmt->execute();
+
+				$resultado=$stmt->get_result();
+
+				$fila_id_tipo_doc=$resultado->fetch_assoc();
+
+				$tipo_doc_id=$fila_id_tipo_doc['id'];
+
+
+
+
+				$stmt=$this->mysqli->prepare("INSERT INTO usuario(nro_doc,tipo_doc,nombre,apellido,cod_area,telefono,email)
+					  							VALUES (?,?,?,?,?,?,?)");
+
+				$stmt->bind_param("iissiis",$nro_doc,$tipo_doc_id,$nombre,$apellido,$cod_area,$telefono,$email);
+
+				$stmt->execute();
+
+				$stmt->close();
+
+				echo("Finalizado el proceso de pago, te redireccionaremos a la emision del detalle de  compra.");
+
+
 
 			}else{//if($fila_existe_usuario['email']=='')		
 
@@ -407,7 +555,6 @@ class BaseDatos{
 
 
 	}//FUNCTION
-
 
 	public function insertarVenta($id_mp,$referencia,$email,$fecha,$recibio_email){
 
@@ -681,6 +828,249 @@ public function listarTipoVehiculo(){
 
 		$stmt->close();
 	}
+
+	public function buscarNombreDeUsuario($email){
+
+			$stmt=$this->mysqli->prepare("SELECT nombre
+									  FROM usuario
+									  WHERE email=(?)");
+		$stmt->bind_param("s",$email);
+
+		$stmt->execute();
+
+		$resultado=$stmt->get_result();
+
+		$stmt->close();
+
+		$fila=$resultado->fetch_assoc();
+
+
+		echo $fila['nombre'];
+	}
+
+	public function buscarApellidoDeUsuario($email){
+
+			$stmt=$this->mysqli->prepare("SELECT apellido
+									  FROM usuario
+									  WHERE email=(?)");
+		$stmt->bind_param("s",$email);
+
+		$stmt->execute();
+
+		$resultado=$stmt->get_result();
+
+		$stmt->close();
+
+		$fila=$resultado->fetch_assoc();
+
+
+		echo $fila['apellido'];
+	}
+
+
+
+	public function buscarNumeroDocumentoDeUsuario($email){
+
+			$stmt=$this->mysqli->prepare("SELECT nro_doc
+									  FROM usuario
+									  WHERE email=(?)");
+		$stmt->bind_param("s",$email);
+
+		$stmt->execute();
+
+		$resultado=$stmt->get_result();
+
+		$stmt->close();
+
+		$fila=$resultado->fetch_assoc();
+
+
+		echo $fila['nro_doc'];
+	}
+
+		public function buscarCodigoAreaDeUsuario($email){
+
+			$stmt=$this->mysqli->prepare("SELECT cod_area
+									  FROM usuario
+									  WHERE email=(?)");
+		$stmt->bind_param("s",$email);
+
+		$stmt->execute();
+
+		$resultado=$stmt->get_result();
+
+		$stmt->close();
+
+		$fila=$resultado->fetch_assoc();
+
+
+		echo $fila['cod_area'];
+	}
+
+		public function buscarTelefonoDeUsuario($email){
+
+		$stmt=$this->mysqli->prepare("SELECT telefono
+									  FROM usuario
+									  WHERE email=(?)");
+		$stmt->bind_param("s",$email);
+
+		$stmt->execute();
+
+		$resultado=$stmt->get_result();
+
+		$stmt->close();
+
+		$fila=$resultado->fetch_assoc();
+
+
+		echo $fila['telefono'];
+	}
+
+		public function buscarCiudadDeUsuario($email){
+
+		$stmt=$this->mysqli->prepare("SELECT ciudad_id
+									  FROM usuario
+									  WHERE email=(?)");
+		$stmt->bind_param("s",$email);
+
+		$stmt->execute();
+
+		$resultado=$stmt->get_result();
+
+
+		$fila_ciudad_usuario=$resultado->fetch_assoc();
+
+
+		$stmt=$this->mysqli->prepare("SELECT ciudad_nombre
+									  FROM ciudad
+									  WHERE id=(?)");
+
+		$stmt->bind_param("i",$fila_ciudad_usuario['ciudad_id']);
+
+		$stmt->execute();
+
+		$resultado=$stmt->get_result();
+
+		$stmt->close();
+
+		$fila=$resultado->fetch_assoc();
+
+		echo "<option value='".$fila['ciudad_nombre']."'selected>".$fila['ciudad_nombre']."</option>";
+	}
+
+	public function buscarCodigoPostalDeUsuario($email){
+
+
+			$stmt=$this->mysqli->prepare("SELECT cp
+									  FROM usuario
+									  WHERE email=(?)");
+		$stmt->bind_param("s",$email);
+
+		$stmt->execute();
+
+		$resultado=$stmt->get_result();
+
+
+		$fila=$resultado->fetch_assoc();
+
+		echo $fila['cp'];
+
+
+
+	}
+
+
+		public function buscarCalleDeUsuario($email){
+
+
+			$stmt=$this->mysqli->prepare("SELECT calle
+									  FROM usuario
+									  WHERE email=(?)");
+		$stmt->bind_param("s",$email);
+
+		$stmt->execute();
+
+		$resultado=$stmt->get_result();
+
+
+		$fila=$resultado->fetch_assoc();
+
+		echo $fila['calle'];
+
+
+
+	}
+
+
+		public function buscarAlturaDeUsuario($email){
+
+
+			$stmt=$this->mysqli->prepare("SELECT altura
+									  FROM usuario
+									  WHERE email=(?)");
+		$stmt->bind_param("s",$email);
+
+		$stmt->execute();
+
+		$resultado=$stmt->get_result();
+
+
+		$fila=$resultado->fetch_assoc();
+
+		echo $fila['altura'];
+
+
+
+	}
+
+		public function buscarPisoDeUsuario($email){
+
+
+			$stmt=$this->mysqli->prepare("SELECT piso
+									  FROM usuario
+									  WHERE email=(?)");
+		$stmt->bind_param("s",$email);
+
+		$stmt->execute();
+
+		$resultado=$stmt->get_result();
+
+
+		$fila=$resultado->fetch_assoc();
+
+		echo $fila['piso'];
+
+
+
+	}
+
+
+		public function buscarDepartamentoDeUsuario($email){
+
+
+			$stmt=$this->mysqli->prepare("SELECT departamento
+									  FROM usuario
+									  WHERE email=(?)");
+		$stmt->bind_param("s",$email);
+
+		$stmt->execute();
+
+		$resultado=$stmt->get_result();
+
+
+		$fila=$resultado->fetch_assoc();
+
+		if($fila['departamento']!=''){
+
+			echo $fila['departamento'];
+
+		}
+
+	}
+
+
+
+	
 
 	public function listarTipoVehiculoParaBuscadorPorFiltros($tipo_de_vehiculo,$rodado,$marca,$categoria,$ancho,$alto){
 
@@ -1488,6 +1878,7 @@ if($confirmacion_busqueda==1){
 					}
 
 				}else if($fila['tiene_descuento']==1){
+					$cien=100;
 				
 					if($z==1){
 						echo "<div class='producto-row row'>";
@@ -1501,6 +1892,7 @@ if($confirmacion_busqueda==1){
 
 
 						<img   src=img/".$fila['imagen']." width='125' height='125'>
+						<div class='circulo-cont'><h3 class='producto-porcentaje-descuento'>".-floor(($fila['precio']-$fila['precio_descuento'])/$fila['precio']*$cien)."%</h3></div>
 
 						<div class='producto-precio-responsive'>
 						<h4><del>$".$fila['precio']."</del> $".$fila['precio_descuento']." ARG</h4>
@@ -2400,6 +2792,7 @@ if($confirmacion_busqueda==1){
 					}
 
 				}else if($fila['tiene_descuento']==1){
+					$cien=100;
 				
 					if($z==1){
 						echo "<div class='producto-row row'>";
@@ -2413,6 +2806,7 @@ if($confirmacion_busqueda==1){
 
 
 						<img   src=img/".$fila['imagen']." width='125' height='125'>
+						<div class='circulo-cont'><h3 class='producto-porcentaje-descuento'>".-floor(($fila['precio']-$fila['precio_descuento'])/$fila['precio']*$cien)."%</h3></div>
 
 						<div class='producto-precio-responsive'>
 						<h4><del>$".$fila['precio']."</del> $".$fila['precio_descuento']." ARG</h4>
@@ -3273,6 +3667,7 @@ if($confirmacion_busqueda==1){
 			$z++;
 
 	if($fila['tiene_descuento']==0){
+				
 
 					if($z==1){
 						echo "<div class='producto-row row'>";
@@ -3310,6 +3705,7 @@ if($confirmacion_busqueda==1){
 					}
 
 				}else if($fila['tiene_descuento']==1){
+					$cien=100;
 				
 					if($z==1){
 						echo "<div class='producto-row row'>";
@@ -3323,6 +3719,7 @@ if($confirmacion_busqueda==1){
 
 
 						<img   src=img/".$fila['imagen']." width='125' height='125'>
+						<div class='circulo-cont'><h3 class='producto-porcentaje-descuento'>".-floor(($fila['precio']-$fila['precio_descuento'])/$fila['precio']*$cien)."%</h3></div>
 
 						<div class='producto-precio-responsive'>
 						<h4><del>$".$fila['precio']."</del> $".$fila['precio_descuento']." ARG</h4>

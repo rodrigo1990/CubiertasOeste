@@ -124,7 +124,7 @@ function mostrarCarrito(){
 
 			if($total!=0){
 			echo "<li class='item-total-carrito'>";
-			echo "<a class='boton-comprar-carrito Boton-LinearGradient1' href='comprar.php?session=true&total=".$total."'>Comprar</a><br>";
+			echo "<a class='boton-comprar-carrito Boton-LinearGradient1' data-toggle='modal' data-target='#myModal' >Comprar</a><br>";
 			echo "</li>";
 
 			//echo "</div>";
@@ -139,7 +139,7 @@ function mostrarCarrito(){
 					echo "Tu carrito de compras se encuentra vacio";
 					echo "</li>";		
 	}	
-
+//href='comprar.php?session=true&total=".$total."
 /*}else{
 	session_destroy();
 	echo "<p>El carrito esta vacio </p>";
@@ -147,7 +147,7 @@ function mostrarCarrito(){
 
 }//function mostrarCarrito()
 
-function mostrarTotal(){
+function mostrarSubtotal(){
 
   	$total=0;
 
@@ -181,6 +181,127 @@ if(isset($_SESSION['carrito'])){
 echo $total;
 
 }//function
+
+function mostrarDescuento(){
+
+  	$total=0;
+
+if(isset($_SESSION['carrito'])){
+
+
+  	$i=0;
+
+	$data=serialize($_SESSION['carrito']);
+
+	  	$carritoObtenido=unserialize($data);
+		
+
+		  	//recorro la lista
+			foreach ($carritoObtenido as $producto) {
+
+				//si la cantidad del producto es diferente de  0 muestro la informacion del carrito
+				if($producto->cantidad != 0){
+					if($producto->tiene_descuento==1){
+
+						$i++;
+
+						$total=$total+($producto->precio_descuento*$producto->cantidad)-($producto->precio*$producto->cantidad);
+
+					}
+				}
+			}//forEach
+
+			
+}//if isset
+
+echo $total;
+
+}//function
+
+function mostrarTotal(){
+
+  	$descuentos=0;
+  	$subtotal=0;
+
+if(isset($_SESSION['carrito'])){
+
+
+  	$i=0;
+
+	$data=serialize($_SESSION['carrito']);
+
+	  	$carritoObtenido=unserialize($data);
+		
+
+		  	//recorro la lista
+			foreach ($carritoObtenido as $producto) {
+
+				//si la cantidad del producto es diferente de  0 muestro la informacion del carrito
+				if($producto->cantidad != 0){
+					
+					if($producto->tiene_descuento==1){
+					
+						$descuentos=$descuentos+($producto->precio_descuento*$producto->cantidad)-($producto->precio*$producto->cantidad);
+					
+					}
+					
+					$subtotal=$subtotal+$producto->precio*$producto->cantidad;
+
+
+
+
+				}
+			}//forEach
+
+			$total=$subtotal+$descuentos;
+
+			
+}//if isset
+
+return $total;
+
+}//function
+
+
+function listarListaDeArticulosComprados(){
+
+	//if(isset($_GET['session'])){
+	if(isset($_SESSION['carrito'])){
+
+	  	$data=serialize($_SESSION['carrito']);
+
+	  	$carritoObtenido=unserialize($data);
+
+	  	
+		  	//recorro la lista
+			foreach ($carritoObtenido as $producto) {
+
+				//si la cantidad del producto es diferente de  0 muestro la informacion del carrito
+				if($producto->cantidad != 0){
+					if($producto->tiene_descuento==0){
+
+						
+						echo "<li>";
+
+						echo "
+						Marca:".$producto->marca.", ".$producto->modelo.", ".$producto->cantidad." c/u, ".$producto->cantidad*$producto->precio."$";
+						 echo "</li>";
+					 }else{
+					 	echo "<li>";
+
+						echo "
+						Marca:".$producto->marca.", ".$producto->modelo.", ".$producto->cantidad." c/u, ".$producto->cantidad*$producto->precio_descuento."$";
+						 echo "</li>";
+					 }
+				}
+
+
+			}//forEach
+
+	}		
+
+}//function mostrarCarrito()
+
 
 function mostrarCantidad(){
 	$i=0;
@@ -223,8 +344,10 @@ function mostrarCarritoCheckOut(){
 	  	$carritoObtenido=unserialize($data);
 
 	  	$total=0;
-
-	  	echo "<table>
+	  	echo "<div class='container'>";
+	  	echo "<h1 class='titulos-checkout'>1. Confirma tu Compra</h1>";
+	  	echo "<div class='table-responsive'>";
+	  	echo "<table id='tabla-checkout'class='table'>
 				<tr>
 				<th>Producto</th>
 				<th></th>
@@ -243,12 +366,16 @@ function mostrarCarritoCheckOut(){
 
 
 				echo "<tr>
-				<td><img width='120' height='120' src='img/".$producto->imagen."'/></td>
-				<td>".$producto->marca."<br>".$producto->modelo."</td>
-				<td>a calcular</td> 
-				<td>".$producto->precio."</td> 
-				<td><input type='number' id='cantidad".$contador."' name='cantidad' min='1' max='20' onChange='actualizarCantidad".$contador."(".$producto->id.")' value='".$producto->cantidad."'/></td> 
-				<td>".$producto->cantidad*$producto->precio."<button onClick='borrarDeCarritoCheckOut(".$producto->id.")'>Eliminar</button><br></tr>";
+				<td><img width='100' height='100' src='img/".$producto->imagen."'/></td>
+				<td><h4>".$producto->marca."<br>".$producto->modelo."</h4></td>
+				<td><h4>a calcular</h4></td> 
+				<td><h4>".$producto->precio."$</h4></td> 
+				<td>
+				<div class='quantity'>
+				<input type='number' class='cantidad-input' id='cantidad".$contador."' name='cantidad' min='1' max='20' onChange='actualizarCantidad".$contador."(".$producto->id.")' value='".$producto->cantidad."'/>
+				</div>
+				</td> 
+				<td><h4 class='total-tabla-checkout'>".$producto->cantidad*$producto->precio."$</h4><i class='close-total-checkout material-icons' onClick='borrarDeCarritoCheckOut(".$producto->id.")'>close</i><br></tr>";
 				
 				$total=$total+$producto->precio*$producto->cantidad;
 
@@ -257,18 +384,19 @@ function mostrarCarritoCheckOut(){
 				$contador++;
 
 				echo "<tr>
-				<td><img width='120' height='120' src='img/".$producto->imagen."'/></td>
-				<td>".$producto->marca."<br>".$producto->modelo."</td>
-				<td>a calcular</td> 
-				<td>Antes:".$producto->precio."<br>Ahora:".$producto->precio_descuento."</td> 
-				<td><input type='number' id='cantidad".$contador."' name='cantidad' min='1' max='20' onChange='actualizarCantidad".$contador."(".$producto->id.")' value='".$producto->cantidad."'/></td> 
-				<td>".$producto->cantidad*$producto->precio_descuento."<button onClick='borrarDeCarritoCheckOut(".$producto->id.")'>Eliminar</button><br></tr>";				
+				<td><img width='100' height='100' src='img/".$producto->imagen."'/></td>
+				<td><h4>".$producto->marca."<br>".$producto->modelo."</h4></td>
+				<td><h4>a calcular</h4></td> 
+				<td><h4>Original:<br>".$producto->precio."$<br>Descuento:<br>".$producto->precio_descuento."$</h4></td> 
+				<td><input type='number' class='cantidad-input' id='cantidad".$contador."' name='cantidad' min='1' max='20' onChange='actualizarCantidad".$contador."(".$producto->id.")' value='".$producto->cantidad."'/></td> 
+				<td><h4 class='total-tabla-checkout'>".$producto->cantidad*$producto->precio_descuento."$</h4><i class='close-total-checkout material-icons' onClick='borrarDeCarritoCheckOut(".$producto->id.")'>close</i><br></tr>";				
 			}
 		}//forEach
+	
 		echo "</table>";
+			echo "</div>";//table responsive
+		echo "</div>";//container
 
-
-		echo "";
 
 }else{
 	header("location: index.php");

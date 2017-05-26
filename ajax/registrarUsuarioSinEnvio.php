@@ -10,7 +10,7 @@ $destinatario = $_POST["email"];
 
 $BaseDatos=new BaseDatos();
 
-$estado_insercion=$BaseDatos->buscarUsuarioEInsertarloEnTabla($_POST['dni'],$_POST['tipo_dni'],ucwords(strtolower($_POST['nombre'])),ucwords(strtolower($_POST['apellido'])),$_POST['calle'],$_POST['altura'],$_POST['cod_area'],$_POST['telefono'],$_POST['email'],$_POST['cp'],$_POST['ciudad'],$_POST['provincia'],$_POST['piso'],$_POST['departamento']);
+$estado_insercion=$BaseDatos->buscarUsuarioEInsertarloEnTablaSinEnvio($_POST['dni'],$_POST['tipo_dni'],ucwords(strtolower($_POST['nombre'])),ucwords(strtolower($_POST['apellido'])),$_POST['cod_area'],$_POST['telefono'],$_POST['email']);
 
 	
 	//Si la validacion del lado del servidor es erronea envia un 1 
