@@ -101,7 +101,6 @@ $preference = $mp->create_preference($preference_data);
 
 	<!-- FUNCIONES JS -->
 	<script type="text/javascript" src="js/script.js"></script>
-	<script type="text/javascript" src="js/validaciones.js"></script>
 
 	<script>
 
@@ -109,15 +108,22 @@ $preference = $mp->create_preference($preference_data);
 		    if (json.collection_status=='approved'){
 		        alert ('Pago acreditado');
 		    } else if(json.collection_status=='pending'){
+
 		        alert ('El usuario no completó el pago');
-		    } else if(json.collection_status=='in_process'){    
-		        alert ('El pago está siendo revisado');    
+
+		    } else if(json.collection_status=='in_process'){ 
+
+		        alert ('El pago está siendo revisado');  
+
 		    } else if(json.collection_status=='rejected'){
+
 		        alert ('El pago fué rechazado, el usuario puede intentar nuevamente el pago');
-		         eliminarPagoFallido("<?php echo $_POST['referencia'] ?>")
+		         eliminarPagoFallido("<?php echo $_POST['referencia'] ?>");
+
 		    } else if(json.collection_status==null){
+
 		        alert ('No has finalizado el proceso de pago');
-		        eliminarPagoFallido("<?php echo $_POST['referencia'] ?>")
+		        eliminarPagoFallido("<?php echo $_POST['referencia'] ?>");
 		    }
 		}
 
@@ -186,15 +192,15 @@ $preference = $mp->create_preference($preference_data);
 
 				<ul class="lista-compraMp">
 					<li class="titulo-lista-comprar-mp">Direccion de Envio</li>
-					<li><?php echo $_POST['calle']?> <?php echo $_POST['altura']?>, <?php echo $_POST['ciudad']?></li>
-					<li><?php echo $_POST['provincia']?>, Argentina</li>
+					<li><?php echo $_POST['calle'];?> <?php echo $_POST['altura'];?>, <?php echo $_POST['ciudad'];?></li>
+					<li><?php echo $_POST['provincia'];?>, Argentina</li>
 				</ul>
 
 				<ul class="lista-compraMp">
 					<li class="titulo-lista-comprar-mp">Datos personales</li>
-					<li><?php echo $_POST['nombre'] ?> <?php echo $_POST['apellido'] ?></li>
-					<li><?php echo $_POST['email'] ?></li>
-					<li>54 <?php echo $_POST['cod_area']?> <?php echo $_POST['telefono'] ?></li>
+					<li><?php echo $_POST['nombre']; ?> <?php echo $_POST['apellido']; ?></li>
+					<li><?php echo $_POST['email']; ?></li>
+					<li>54 <?php echo $_POST['cod_area'];?> <?php echo $_POST['telefono']; ?></li>
 				</ul>
 			
 			
@@ -222,7 +228,7 @@ $preference = $mp->create_preference($preference_data);
 
 							<div class="boton-pago-row row">
 								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				       <a id="pago-btn" href="<?php echo $preference["response"]["init_point"]; ?>"mp-mode="modal" onreturn="execute_my_onreturn" onClick="registrarUsuario('<?php echo $_POST['nombre']?>','<?php echo $_POST['apellido']?>','<?php echo $_POST['tipo_dni']?>','<?php echo $_POST['dni']?>','<?php echo $_POST['email']?>','<?php echo $_POST['cod_area']?>','<?php echo $_POST['telefono']?>','<?php echo $_POST['provincia']?>','<?php echo $_POST['ciudad']?>','<?php echo $_POST['cp']?>','<?php echo $_POST['calle']?>','<?php echo $_POST['altura']?>','<?php echo $_POST['piso']?>','<?php echo $_POST['departamento']?>','<?php echo $_POST['total'] ?>','<?php echo $_POST['referencia'] ?>');"  name="MP-Checkout"class="carrito-checkout-btn">Pagar</a>
+				       <a id="pago-btn" href="<?php echo $preference["response"]["init_point"]; ?>"mp-mode="modal" onreturn="execute_my_onreturn" onClick="registrarUsuario('<?php echo $_POST['nombre']?>','<?php echo $_POST['apellido']?>','<?php echo $_POST['tipo_dni']?>','<?php echo $_POST['dni']?>','<?php echo $_POST['email']?>','<?php echo $_POST['cod_area']?>','<?php echo $_POST['telefono']?>','<?php echo $_POST['provincia']?>','<?php echo $_POST['ciudad']?>','<?php echo $_POST['cp']?>','<?php echo $_POST['calle']?>','<?php echo $_POST['altura']?>','<?php echo $_POST['piso']?>','<?php echo $_POST['departamento']?>','<?php echo $_POST['referencia'] ?>');"  name="MP-Checkout"class="carrito-checkout-btn">Pagar</a>
 								</div>
 							</div>
 						</div>
@@ -318,6 +324,7 @@ $preference = $mp->create_preference($preference_data);
 </footer>
 <script type="text/javascript" src="//resources.mlstatic.com/mptools/render.js"></script> 
 <script type="text/javascript">
+
 (function(){function $MPC_load(){window.$MPC_loaded !== true && (function(){var s = document.createElement("script");s.type = "text/javascript";s.async = true;s.src = document.location.protocol+"//secure.mlstatic.com/mptools/render.js";var x = document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s, x);window.$MPC_loaded = true;})();}window.$MPC_loaded !== true ? (window.attachEvent ?window.attachEvent('onload', $MPC_load) : window.addEventListener('load', $MPC_load, false)) : null;})();
 </script>
 </body>

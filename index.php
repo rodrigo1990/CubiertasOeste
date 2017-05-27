@@ -238,12 +238,12 @@ $usuario=new Usuario();
 
 
 <!-- LISTA DE PRODUCTOS -->
-<!-- <div class="container"> --> <!-- comentar esta linea para pasar a grilla bootstrap -->
+
 	<?php
 	$bd->listarProductos();
   ?>
 
- <!-- </div>  -->
+
 
 
 

@@ -70,10 +70,10 @@ function buscarCubiertas(){
 		}
 }
 
-function registrarUsuario(nombre,apellido,tipo_dni,dni,email,cod_area,telefono,provincia,ciudad,cp,calle,altura,piso,departamento,total,referencia){
+function registrarUsuario(nombre,apellido,tipo_dni,dni,email,cod_area,telefono,provincia,ciudad,cp,calle,altura,piso,departamento,referencia){
 				
 			$.ajax({
-			data:{nombre:nombre,apellido:apellido,tipo_dni:tipo_dni,dni:dni,email:email,cod_area:cod_area,telefono:telefono,provincia:provincia,ciudad:ciudad,cp:cp,calle:calle,altura:altura,piso:piso,departamento:departamento,total:total,referencia:referencia},
+			data:{nombre:nombre,apellido:apellido,tipo_dni:tipo_dni,dni:dni,email:email,cod_area:cod_area,telefono:telefono,provincia:provincia,ciudad:ciudad,cp:cp,calle:calle,altura:altura,piso:piso,departamento:departamento,referencia:referencia},
 			url:'ajax/registrarUsuario.php',
 			type:'post',
 			success:function(response){
@@ -89,10 +89,10 @@ function registrarUsuario(nombre,apellido,tipo_dni,dni,email,cod_area,telefono,p
 
 		}
 
-function registrarUsuarioSinEnvio(nombre,apellido,tipo_dni,dni,email,cod_area,telefono,total,referencia){
+function registrarUsuarioSinEnvio(nombre,apellido,tipo_dni,dni,email,cod_area,telefono,referencia){
 				
 			$.ajax({
-			data:{nombre:nombre,apellido:apellido,tipo_dni:tipo_dni,dni:dni,email:email,cod_area:cod_area,telefono:telefono,total:total,referencia:referencia},
+			data:{nombre:nombre,apellido:apellido,tipo_dni:tipo_dni,dni:dni,email:email,cod_area:cod_area,telefono:telefono,referencia:referencia},
 			url:'ajax/registrarUsuarioSinEnvio.php',
 			type:'post',
 			success:function(response){

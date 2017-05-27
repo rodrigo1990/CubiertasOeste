@@ -474,7 +474,7 @@ $(document).ready(function() {
 
 				 var nombre=$("#nombre").val();
 				 var apellido=$("#apellido").val();
-				 var tipo_dni;
+				// var tipo_dni;
 				 var dni=$("#dni").val();
 				 var email=$("#email").val();
 				 var cod_area=$("#cod_area").val();

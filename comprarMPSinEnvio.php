@@ -81,7 +81,7 @@ $preference = $mp->create_preference($preference_data);
 
 	<!-- FUNCIONES JS -->
 	<script type="text/javascript" src="js/script.js"></script>
-	<script type="text/javascript" src="js/validaciones.js"></script>
+	<!-- <script type="text/javascript" src="js/validaciones.js"></script> -->
 
 	<script>
 
@@ -94,10 +94,10 @@ $preference = $mp->create_preference($preference_data);
 		        alert ('El pago está siendo revisado');    
 		    } else if(json.collection_status=='rejected'){
 		        alert ('El pago fué rechazado, el usuario puede intentar nuevamente el pago');
-		         eliminarPagoFallido("<?php echo $_POST['referencia'] ?>")
+		         eliminarPagoFallido("<?php echo $_POST['referencia'] ?>");
 		    } else if(json.collection_status==null){
 		        alert ('No has finalizado el proceso de pago');
-		        eliminarPagoFallido("<?php echo $_POST['referencia'] ?>")
+		        eliminarPagoFallido("<?php echo $_POST['referencia'] ?>");
 		    }
 		}
 
@@ -213,7 +213,7 @@ $preference = $mp->create_preference($preference_data);
 
 							<div class="boton-pago-row row">
 								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				       <a id="pago-btn" href="<?php echo $preference["response"]["init_point"]; ?>"mp-mode="modal" onreturn="execute_my_onreturn" onClick="registrarUsuarioSinEnvio('<?php echo $_POST['nombre']?>','<?php echo $_POST['apellido']?>','<?php echo $_POST['tipo_dni']?>','<?php echo $_POST['dni']?>','<?php echo $_POST['email']?>','<?php echo $_POST['cod_area']?>','<?php echo $_POST['telefono']?>','<?php echo $_POST['total'] ?>','<?php echo $_POST['referencia'] ?>');"  name="MP-Checkout"class="carrito-checkout-btn">Pagar</a>
+				       <a id="pago-btn" href="<?php echo $preference["response"]["init_point"]; ?>"mp-mode="modal" onreturn="execute_my_onreturn" onClick="registrarUsuarioSinEnvio('<?php echo $_POST['nombre']?>','<?php echo $_POST['apellido']?>','<?php echo $_POST['tipo_dni']?>','<?php echo $_POST['dni']?>','<?php echo $_POST['email']?>','<?php echo $_POST['cod_area']?>','<?php echo $_POST['telefono']?>','<?php echo $_POST['referencia'] ?>');"  name="MP-Checkout"class="carrito-checkout-btn">Pagar</a>
 								</div>
 							</div>
 						</div>
