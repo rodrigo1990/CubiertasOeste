@@ -143,51 +143,56 @@ body::-webkit-scrollbar-thumb { background-color: #ff6a00; outline: 1px solid sl
 /* line 197, ../estilos_scss/estilos.scss */
 .carrito-para-buscador-filtros li { font-family: Futura Medium; font-size: 80%; font-weight: bold; color: white; }
 
-@-moz-document url-prefix() { /* line 536, ../estilos_scss/estilos.scss */
+/* line 534, ../estilos_scss/estilos.scss */
+.carrito-recuperar-contrasenia { border-style: solid; border-color: #cccccc; border-width: 1px; position: fixed; z-index: 5000; margin-top: 0%; left: 65%; display: none; height: auto; width: 30.5%; max-width: 320px; max-height: 500px; background-color: #2b2a2a; -webkit-box-shadow: 10px 29px 96px 1px rgba(0, 0, 0, 0.33); -moz-box-shadow: 10px 29px 96px 1px rgba(0, 0, 0, 0.33); box-shadow: 10px 29px 96px 1px rgba(0, 0, 0, 0.33); overflow-y: scroll; overflow-x: hidden; }
+/* line 197, ../estilos_scss/estilos.scss */
+.carrito-recuperar-contrasenia li { font-family: Futura Medium; font-size: 80%; font-weight: bold; color: white; }
+
+@-moz-document url-prefix() { /* line 540, ../estilos_scss/estilos.scss */
   .carrito { border-style: solid; border-color: #cccccc; border-width: 1px; position: fixed; z-index: 5000; margin-top: -30%; left: 65%; display: block; height: auto; width: 38%; max-width: 330px; max-height: 500px; background-color: #2b2a2a; -webkit-box-shadow: 10px 29px 96px 1px rgba(0, 0, 0, 0.33); -moz-box-shadow: 10px 29px 96px 1px rgba(0, 0, 0, 0.33); box-shadow: 10px 29px 96px 1px rgba(0, 0, 0, 0.33); overflow-y: scroll; overflow-x: hidden; }
   /* line 197, ../estilos_scss/estilos.scss */
   .carrito li { font-family: Arial; font-size: 80%; font-weight: bold; color: white; } }
 
-/* line 559, ../estilos_scss/estilos.scss */
+/* line 563, ../estilos_scss/estilos.scss */
 .carrito::-webkit-scrollbar { width: 4px; }
 
-/* line 563, ../estilos_scss/estilos.scss */
+/* line 567, ../estilos_scss/estilos.scss */
 .carrito::-webkit-scrollbar-track { -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); }
 
-/* line 567, ../estilos_scss/estilos.scss */
+/* line 571, ../estilos_scss/estilos.scss */
 .carrito::-webkit-scrollbar-thumb { background-color: #ff6a00; outline: 1px solid slategrey; }
 
-/* line 572, ../estilos_scss/estilos.scss */
+/* line 576, ../estilos_scss/estilos.scss */
 .carrito-para-buscador-filtros::-webkit-scrollbar { width: 4px; }
 
-/* line 576, ../estilos_scss/estilos.scss */
+/* line 580, ../estilos_scss/estilos.scss */
 .carrito-para-buscador-filtros::-webkit-scrollbar-track { -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); }
 
-/* line 580, ../estilos_scss/estilos.scss */
+/* line 584, ../estilos_scss/estilos.scss */
 .carrito-para-buscador-filtros::-webkit-scrollbar-thumb { background-color: #ff6a00; outline: 1px solid slategrey; }
 
-/* line 587, ../estilos_scss/estilos.scss */
+/* line 591, ../estilos_scss/estilos.scss */
 #carrito-close { float: right; color: #ff6a00; cursor: pointer; }
 
-/* line 593, ../estilos_scss/estilos.scss */
+/* line 597, ../estilos_scss/estilos.scss */
 ul#carrito-lista { margin-left: -13%; width: 113%; height: 100%; }
 
-/* line 601, ../estilos_scss/estilos.scss */
+/* line 605, ../estilos_scss/estilos.scss */
 #carrito-lista li { list-style: none; }
 
-/* line 607, ../estilos_scss/estilos.scss */
+/* line 611, ../estilos_scss/estilos.scss */
 #carrito-lista .item-descripcion-carrito { float: left; color: white; list-style: none; margin-left: 0%; margin-top: 0%; padding: 2%; width: 100%; border-bottom-style: solid; border-bottom-color: #cccccc; border-bottom-width: 1px; }
 
-/* line 620, ../estilos_scss/estilos.scss */
+/* line 624, ../estilos_scss/estilos.scss */
 #carrito-lista .item-total-carrito { float: left; font-family: Futura Medium; font-weight: bold; color: white; list-style: none; margin-left: 35%; height: 100%; width: 100%; padding: 6%; }
 
-/* line 633, ../estilos_scss/estilos.scss */
+/* line 637, ../estilos_scss/estilos.scss */
 .carrito-img { position: relative; float: left; padding: 0% 5% 5% 0%; }
 
-/* line 638, ../estilos_scss/estilos.scss */
+/* line 642, ../estilos_scss/estilos.scss */
 .carrito-borrar-item { position: absolute; right: 5px; margin-top: -9%; cursor: pointer; }
 
-/* line 644, ../estilos_scss/estilos.scss */
+/* line 648, ../estilos_scss/estilos.scss */
 .item-descripcion-vacio-carrito { margin-left: 15%; padding: 5%; }
 
 /* line 244, ../estilos_scss/estilos.scss */
@@ -222,555 +227,577 @@ ul#carrito-lista { margin-left: -13%; width: 113%; height: 100%; }
 /* line 307, ../estilos_scss/estilos.scss */
 .boton-comprar-carrito::after { z-index: -2; /* MUY IMPORTANTE esta capa va por debajo de la capa animación */ background-color: #ff6a00; /* Color del fondo gris oscuro                                 */ }
 
-/* line 655, ../estilos_scss/estilos.scss */
+/* line 659, ../estilos_scss/estilos.scss */
 .list-busqueda-menu { list-style: none; color: black; border-bottom-style: solid; border-bottom-color: #ff6a00; border-bottom-width: 1px; padding: 5px; }
 
-/* line 661, ../estilos_scss/estilos.scss */
+/* line 665, ../estilos_scss/estilos.scss */
 .a-busqueda-menu { font-family: Futura Medium; color: black; }
 
-@-moz-document url-prefix() { /* line 666, ../estilos_scss/estilos.scss */
+@-moz-document url-prefix() { /* line 670, ../estilos_scss/estilos.scss */
   .a-busqueda-menu { font-family: Arial; color: black; } }
 
-/* line 672, ../estilos_scss/estilos.scss */
+/* line 676, ../estilos_scss/estilos.scss */
 #logo-menu { cursor: pointer; }
 
-/* line 676, ../estilos_scss/estilos.scss */
+/* line 680, ../estilos_scss/estilos.scss */
 .seguro-menu { float: right; margin-top: 2%; font-family: Arial; font-weight: bolder; color: #ff6a00; }
 
-/* line 684, ../estilos_scss/estilos.scss */
+/* line 688, ../estilos_scss/estilos.scss */
 .candado-icon-menu { float: right; margin-top: 16px; color: #ff6a00; }
 
-/* line 689, ../estilos_scss/estilos.scss */
+/* line 693, ../estilos_scss/estilos.scss */
 .candado-sm { margin-top: 1.5% !important; }
 
 /*************************MODAL*/
-/* line 695, ../estilos_scss/estilos.scss */
+/* line 699, ../estilos_scss/estilos.scss */
 .modal-backdrop { z-index: 8000!important; }
 
-/* line 698, ../estilos_scss/estilos.scss */
+/* line 702, ../estilos_scss/estilos.scss */
 .modal { z-index: 10050 !important; }
 
-/* line 702, ../estilos_scss/estilos.scss */
+/* line 706, ../estilos_scss/estilos.scss */
 .modal-footer { border-top: 1px solid #ff6a00 !important; height: 150px !important; text-align: center !important; }
 
-/* line 707, ../estilos_scss/estilos.scss */
+/* line 711, ../estilos_scss/estilos.scss */
 .modal-footer ul { list-style: none; }
 
-/* line 712, ../estilos_scss/estilos.scss */
+/* line 716, ../estilos_scss/estilos.scss */
 .modal-header { border-bottom: 1px solid #ff6a00; }
 
-/* line 715, ../estilos_scss/estilos.scss */
+/* line 719, ../estilos_scss/estilos.scss */
 .modal-body { height: 220px !important; text-align: center; font-family: Futura Medium; color: #ff6a00; }
 
-@-moz-document url-prefix() { /* line 723, ../estilos_scss/estilos.scss */
+@-moz-document url-prefix() { /* line 727, ../estilos_scss/estilos.scss */
   .modal-body { height: 200px !important; text-align: center; font-family: Arial; color: #ff6a00; } }
 
-/* line 733, ../estilos_scss/estilos.scss */
+/* line 737, ../estilos_scss/estilos.scss */
 .close:hover { color: #ff6a00 !important; }
 
-/* line 737, ../estilos_scss/estilos.scss */
+/* line 741, ../estilos_scss/estilos.scss */
 #comprar-modal-btn { position: absolute; margin-top: 3% !important; margin-left: -7%; }
 
-/* line 742, ../estilos_scss/estilos.scss */
+/* line 746, ../estilos_scss/estilos.scss */
 .modal-content .form-control { width: 55% !important; margin-left: 25%; padding-left: 5%; }
 
-/* line 748, ../estilos_scss/estilos.scss */
+/* line 752, ../estilos_scss/estilos.scss */
 .modal-content .form-control:focus { border-color: #ff6a00 !important; box-shadow: none; }
 
-/* line 753, ../estilos_scss/estilos.scss */
+/* line 757, ../estilos_scss/estilos.scss */
 .modal-icon { color: #ff6a00; vertical-align: sub; font-size: 17px !important; }
 
-/* line 759, ../estilos_scss/estilos.scss */
+/* line 763, ../estilos_scss/estilos.scss */
 #email-modal-alert { color: red !important; display: none; }
 
-/* line 764, ../estilos_scss/estilos.scss */
+/* line 768, ../estilos_scss/estilos.scss */
 #modal-form label { margin-left: 0%!important; }
 
+/* line 777, ../estilos_scss/estilos.scss */
+#pedidos-modal-body { height: 315px !important; }
+
+/* line 781, ../estilos_scss/estilos.scss */
+.pedidos-alert { margin-left: 0% !important; }
+
 /************SLIDER****************************************************************************************/
-/* line 768, ../estilos_scss/estilos.scss */
+/* line 785, ../estilos_scss/estilos.scss */
 .slider { width: 100%; margin: auto; overflow: hidden; z-index: 1; }
 
-/* line 774, ../estilos_scss/estilos.scss */
+/* line 791, ../estilos_scss/estilos.scss */
 .slider ul { display: flex; padding: 0; width: 200%; animation: cambio 4s infinite; animation-direction: alternate; }
 
-/* line 782, ../estilos_scss/estilos.scss */
+/* line 799, ../estilos_scss/estilos.scss */
 .slider li { list-style: none; width: 100%; }
 
-@keyframes cambio { /* line 788, ../estilos_scss/estilos.scss */
+@keyframes cambio { /* line 805, ../estilos_scss/estilos.scss */
   0% { margin-left: 0; }
-  /* line 789, ../estilos_scss/estilos.scss */
+  /* line 806, ../estilos_scss/estilos.scss */
   25% { margin-left: 0; }
-  /* line 790, ../estilos_scss/estilos.scss */
+  /* line 807, ../estilos_scss/estilos.scss */
   50% { margin-left: -100%; }
-  /* line 791, ../estilos_scss/estilos.scss */
+  /* line 808, ../estilos_scss/estilos.scss */
   100% { margin-left: -100%; } }
 
 /****************************************TITULOS HOME/**********************************************/
-/* line 796, ../estilos_scss/estilos.scss */
+/* line 813, ../estilos_scss/estilos.scss */
 .titulo-home-row { margin-top: -3%; }
 
-/* line 802, ../estilos_scss/estilos.scss */
+/* line 819, ../estilos_scss/estilos.scss */
 .titulo-home { text-align: center; margin-top: 0% !important; }
 
-/* line 806, ../estilos_scss/estilos.scss */
+/* line 823, ../estilos_scss/estilos.scss */
 .titulo-home h3 { color: white; font-family: Futura Medium; font-weight: 500; padding: 2%; margin-top: 3%; }
 
-/* line 815, ../estilos_scss/estilos.scss */
+/* line 832, ../estilos_scss/estilos.scss */
 div.titulo-cont { background-color: #2b2a2a; width: 20%; height: 20%; margin-left: 40%; text-align: center; }
 
-@-moz-document url-prefix() { /* line 824, ../estilos_scss/estilos.scss */
+@-moz-document url-prefix() { /* line 841, ../estilos_scss/estilos.scss */
   .titulo-home h3 { color: white; font-family: Arial; font-weight: 500; padding: 9%; margin-top: 3%; } }
 
-/* line 833, ../estilos_scss/estilos.scss */
+/* line 850, ../estilos_scss/estilos.scss */
 hr.linea-titulo { border-style: solid; border-width: 1px; border-color: #ff6a00; width: 50%; margin: 0% 0% 0% 24%; }
 
 /***********************************************SEPARADOR********************************************/
-/* line 843, ../estilos_scss/estilos.scss */
+/* line 860, ../estilos_scss/estilos.scss */
 div.separador { background-color: #2b2a2a; }
 
-/* line 846, ../estilos_scss/estilos.scss */
+/* line 863, ../estilos_scss/estilos.scss */
 .separador-row { margin-top: 2%; }
 
-/* line 850, ../estilos_scss/estilos.scss */
+/* line 867, ../estilos_scss/estilos.scss */
 .separador-row h2 { float: left; font-family: Futura Lt Condensed; font-style: italic; font-weight: 100; color: white; padding-bottom: 2%; margin-left: 10%; width: auto; }
 
-@-moz-document url-prefix() { /* line 863, ../estilos_scss/estilos.scss */
+@-moz-document url-prefix() { /* line 880, ../estilos_scss/estilos.scss */
   .separador-row h2 { float: left; font-family: Arial; font-style: italic; font-weight: 100; color: white; padding-bottom: 2%; margin-left: 10%; width: auto; } }
 
-/* line 876, ../estilos_scss/estilos.scss */
+/* line 893, ../estilos_scss/estilos.scss */
 .separador-img { float: left; }
 
-/* line 880, ../estilos_scss/estilos.scss */
+/* line 897, ../estilos_scss/estilos.scss */
 .element-separador { margin-left: 14%; }
 
-/* line 883, ../estilos_scss/estilos.scss */
+/* line 900, ../estilos_scss/estilos.scss */
 img.separador-img { margin-top: 2%; }
 
 /*************************FIXED-CONTACTO-INFO*******************************************************/
-/* line 887, ../estilos_scss/estilos.scss */
+/* line 904, ../estilos_scss/estilos.scss */
 .fixed-contacto-info { z-index: 5000; position: fixed; border-style: solid; border-color: #ff6a00; border-width: 1px; width: auto; height: auto; background-color: #f2f2f2; right: 1%; bottom: 8%; margin-bottom: 0%; float: right; border-radius: 5px; text-align: center; display: block; }
 
-/* line 904, ../estilos_scss/estilos.scss */
+/* line 921, ../estilos_scss/estilos.scss */
 .fixed-contacto-info p { margin: 1.5%; color: #ff6a00; }
 
-/* line 908, ../estilos_scss/estilos.scss */
+/* line 925, ../estilos_scss/estilos.scss */
 .fixed-contacto-info #info-contacto-close { float: right; color: #ff6a00; cursor: pointer; }
 
-/* line 914, ../estilos_scss/estilos.scss */
+/* line 931, ../estilos_scss/estilos.scss */
 .fixed-contacto-info:after, .fixed-contacto-info:before { top: 100%; left: 50%; border: solid transparent; content: " "; height: 0; width: 0; position: absolute; pointer-events: none; }
 
-/* line 925, ../estilos_scss/estilos.scss */
+/* line 942, ../estilos_scss/estilos.scss */
 .fixed-contacto-info:after { border-color: rgba(213, 110, 32, 0); border-top-color: #f2f2f2; border-width: 20px; margin-left: 105px; }
 
-/* line 931, ../estilos_scss/estilos.scss */
+/* line 948, ../estilos_scss/estilos.scss */
 .fixed-contacto-info:before { border-color: rgba(194, 225, 245, 0); border-top-color: #ff6a00; border-width: 22px; margin-left: 103px; }
 
 /*********************************************PRODUCTO-RESPONSIVE************************************/
-/* line 940, ../estilos_scss/estilos.scss */
+/* line 957, ../estilos_scss/estilos.scss */
 .producto-responsive { text-align: center; line-height: 1%; }
 
-/* line 944, ../estilos_scss/estilos.scss */
+/* line 961, ../estilos_scss/estilos.scss */
 .producto-responsive h3 { font-family: impact; line-height: 109%; font-size: 170%; }
 
-/* line 951, ../estilos_scss/estilos.scss */
-.producto-responsive h3 span { font-family: impact; color: #ff6a00; }
+/* line 968, ../estilos_scss/estilos.scss */
+.producto-responsive h3 span { font-family: impact; color: #ff6a00; font-size: 77%!important; }
 
-/* line 956, ../estilos_scss/estilos.scss */
+/* line 974, ../estilos_scss/estilos.scss */
 .producto-responsive h4 { font-weight: bold; font-size: 113%; }
 
-/* line 960, ../estilos_scss/estilos.scss */
+/* line 978, ../estilos_scss/estilos.scss */
 .producto-precio-responsive { border-bottom-style: solid; border-bottom-color: #2b2a2a; border-bottom-width: 2px; }
 
-/* line 965, ../estilos_scss/estilos.scss */
+/* line 983, ../estilos_scss/estilos.scss */
 .producto-responsive ul { margin-top: 3%; text-align: left !important; line-height: 100% !important; margin-left: -10%; }
 
-/* line 973, ../estilos_scss/estilos.scss */
+/* line 991, ../estilos_scss/estilos.scss */
 .producto-responsive ul li { font-size: 75%; font-family: arial; font-weight: 600; }
 
-/* line 981, ../estilos_scss/estilos.scss */
+/* line 999, ../estilos_scss/estilos.scss */
 .paralelogramo-btn-responsive { margin-left: 20%; -webkit-transform: skew(-7deg); -moz-transform: skew(-7deg); -o-transform: skew(-7deg); background-color: #ff6a00; width: 120px; height: 30px; }
 
-/* line 992, ../estilos_scss/estilos.scss */
+/* line 1010, ../estilos_scss/estilos.scss */
 .producto-responsive a { color: white; top: 41%; left: 25%; font-family: Futura Medium; font-size: 135%; text-decoration: none; position: absolute; }
 
-@-moz-document url-prefix() { /* line 1003, ../estilos_scss/estilos.scss */
+@-moz-document url-prefix() { /* line 1021, ../estilos_scss/estilos.scss */
   .producto-responsive a { color: white; top: -15%; left: 20%; font-family: Futura Medium; font-size: 135%; text-decoration: none; position: absolute; } }
 
-@-moz-document url-prefix() { /* line 1015, ../estilos_scss/estilos.scss */
+@-moz-document url-prefix() { /* line 1033, ../estilos_scss/estilos.scss */
   .producto-responsive a:after { content: ''; position: absolute; bottom: -5px !important; left: 0%; width: 0%; border-bottom: 2px solid #3366FF; transition: 0.4s; border-color: white; } }
 
-/* line 1027, ../estilos_scss/estilos.scss */
+/* line 1045, ../estilos_scss/estilos.scss */
 .producto-responsive a:after { content: ''; position: absolute; bottom: -13px; left: 0%; width: 0%; border-bottom: 2px solid #3366FF; transition: 0.4s; border-color: white; }
 
-/* line 1039, ../estilos_scss/estilos.scss */
+/* line 1057, ../estilos_scss/estilos.scss */
 .producto-responsive a:hover:after { width: 99%; color: white; background-color: white; border-color: white; }
 
-@-moz-document url-prefix() { /* line 1048, ../estilos_scss/estilos.scss */
+@-moz-document url-prefix() { /* line 1066, ../estilos_scss/estilos.scss */
   .producto-responsive a { color: white; margin-top: 15%; font-family: Arial; font-size: 135%; } }
 
-/* line 1057, ../estilos_scss/estilos.scss */
+/* line 1075, ../estilos_scss/estilos.scss */
 .titulo-buscador { font-size: 160% !important; }
 
-/* line 1061, ../estilos_scss/estilos.scss */
+/* line 1079, ../estilos_scss/estilos.scss */
 .producto-porcentaje-descuento { position: absolute; top: -17%; left: 5%; z-index: 100; color: white; font-size: 160%!important; }
 
-/* line 1069, ../estilos_scss/estilos.scss */
+/* line 1087, ../estilos_scss/estilos.scss */
 .circulo-cont { position: absolute; top: 20%; left: 70%; width: 50px; height: 50px; -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%; background: #ff6a00; z-index: 50; }
 
 /*******************************************Buscador filtros/*********************************************/
-/* line 1083, ../estilos_scss/estilos.scss */
+/* line 1101, ../estilos_scss/estilos.scss */
 form#buscador-filtros-form { margin: 1% 0% 0% 2%; }
 
-/* line 1087, ../estilos_scss/estilos.scss */
+/* line 1105, ../estilos_scss/estilos.scss */
 #buscador-fixed { width: 102%; border-bottom-style: solid; border-bottom-color: #e6e6e6; border-bottom-width: 1px; z-index: 2000 !important; }
 
-/* line 1093, ../estilos_scss/estilos.scss */
+/* line 1111, ../estilos_scss/estilos.scss */
 .buscador-filtros { z-index: 1 !important; background-color: #f2f2f2; }
 
-/* line 1098, ../estilos_scss/estilos.scss */
+/* line 1116, ../estilos_scss/estilos.scss */
 .buscador-filtros-tituloInput { text-align: center; float: left; margin-left: 2%; line-height: 1%; padding-bottom: 0.75%; }
 /* line 156, ../estilos_scss/estilos.scss */
 .buscador-filtros-tituloInput h5 { font-family: Futura Medium; color: #ff6a00; font-weight: bold; }
 
-/* line 1108, ../estilos_scss/estilos.scss */
+/* line 1126, ../estilos_scss/estilos.scss */
 .buscador-filtros-tituloInput-index { text-align: center; float: left; margin-left: 5%; line-height: 1%; }
 /* line 156, ../estilos_scss/estilos.scss */
 .buscador-filtros-tituloInput-index h5 { font-family: Futura Medium; color: #ff6a00; font-weight: bold; }
 
-@-moz-document url-prefix() { /* line 1118, ../estilos_scss/estilos.scss */
+@-moz-document url-prefix() { /* line 1136, ../estilos_scss/estilos.scss */
   .buscador-filtros-tituloInput { text-align: center; float: left; margin-left: 2%; }
   /* line 156, ../estilos_scss/estilos.scss */
   .buscador-filtros-tituloInput h5 { font-family: Arial; color: #ff6a00; font-weight: bold; } }
 
-/* line 1128, ../estilos_scss/estilos.scss */
+/* line 1146, ../estilos_scss/estilos.scss */
 select.buscador-filtros-select { width: 100px; height: 35px; font-family: Futura Medium; color: #ff6a00; }
 
-/* line 1139, ../estilos_scss/estilos.scss */
+/* line 1157, ../estilos_scss/estilos.scss */
 select.buscador-filtros-select-index { width: 145px; font-family: Futura Medium; }
 
-/* line 1145, ../estilos_scss/estilos.scss */
+/* line 1163, ../estilos_scss/estilos.scss */
 select.buscador-filtros-select option { font-family: Futura Medium; }
 
-@-moz-document url-prefix() { /* line 1152, ../estilos_scss/estilos.scss */
+@-moz-document url-prefix() { /* line 1170, ../estilos_scss/estilos.scss */
   select.buscador-filtros-select { width: 100px; font-family: Arial; }
-  /* line 1157, ../estilos_scss/estilos.scss */
+  /* line 1175, ../estilos_scss/estilos.scss */
   select.buscador-filtros-select option { font-family: Arial; } }
 
-/* line 1165, ../estilos_scss/estilos.scss */
+/* line 1183, ../estilos_scss/estilos.scss */
 .buscador-filtros-btn { float: left; background-color: #ff6a00; border-radius: 6px; margin-top: 0%; margin-left: 3%; cursor: pointer; }
 /* line 218, ../estilos_scss/estilos.scss */
 .buscador-filtros-btn .material-icons { padding: 5px; color: white; }
 
-/* line 1177, ../estilos_scss/estilos.scss */
+/* line 1195, ../estilos_scss/estilos.scss */
 .buscador-filtros-btn:hover { background-color: #2b2a2a; }
 /* line 218, ../estilos_scss/estilos.scss */
 .buscador-filtros-btn:hover .material-icons { padding: 5px; color: #ff6a00; }
 
-/* line 1182, ../estilos_scss/estilos.scss */
+/* line 1200, ../estilos_scss/estilos.scss */
 #buscar-btn-buscador-filtros { margin-top: 3.6% !important; }
 
-/* line 1187, ../estilos_scss/estilos.scss */
+/* line 1205, ../estilos_scss/estilos.scss */
 .warning-buscador-filtros { display: none; font-family: Futura Medium; color: #cccccc; }
 
-@-moz-document url-prefix() { /* line 1194, ../estilos_scss/estilos.scss */
+@-moz-document url-prefix() { /* line 1212, ../estilos_scss/estilos.scss */
   .warning-buscador-filtros { display: none; font-family: Arial; color: #cccccc; } }
 
-/* line 1200, ../estilos_scss/estilos.scss */
+/* line 1218, ../estilos_scss/estilos.scss */
 .align-warning-text { text-align: center; }
 
 /****************************************TABLA COMPRAR.PHP*/
-/* line 1204, ../estilos_scss/estilos.scss */
+/* line 1222, ../estilos_scss/estilos.scss */
 #tabla-checkout { margin-top: 2%; }
 
-/* line 1211, ../estilos_scss/estilos.scss */
-#tabla-checkout td { text-align: center; vertical-align: middle; font-family: Futura Medium; }
+/* line 1229, ../estilos_scss/estilos.scss */
+#tabla-checkout td { text-align: center; vertical-align: middle; font-family: Futura Medium; padding: 0px!Important; }
 
-/* line 1218, ../estilos_scss/estilos.scss */
+/* line 1237, ../estilos_scss/estilos.scss */
+#tabla-checkout td.totales { border-top: 0px!important; }
+
+/* line 1242, ../estilos_scss/estilos.scss */
+#tabla-checkout span.span-table { color: #ff6a00; }
+
+/* line 1247, ../estilos_scss/estilos.scss */
 #tabla-checkout td h4 { text-align: center; vertical-align: middle; font-size: 120%; }
 
-/* line 1225, ../estilos_scss/estilos.scss */
+/* line 1254, ../estilos_scss/estilos.scss */
 #tabla-checkout th { text-align: center; vertical-align: middle; font-family: Futura Medium; }
 
-@-moz-document url-prefix() { /* line 1231, ../estilos_scss/estilos.scss */
+@-moz-document url-prefix() { /* line 1260, ../estilos_scss/estilos.scss */
   #tabla-checkout td { text-align: center; vertical-align: middle; font-family: Arial; }
-  /* line 1237, ../estilos_scss/estilos.scss */
+  /* line 1266, ../estilos_scss/estilos.scss */
   #tabla-checkout th { text-align: center; vertical-align: middle; font-family: Arial; } }
 
-/* line 1243, ../estilos_scss/estilos.scss */
+/* line 1272, ../estilos_scss/estilos.scss */
 .total-tabla-checkout { float: left; }
 
-/* line 1248, ../estilos_scss/estilos.scss */
+/* line 1277, ../estilos_scss/estilos.scss */
 .close-total-checkout { float: left; cursor: pointer; margin-top: 6px; float: right; }
 
-/* line 1255, ../estilos_scss/estilos.scss */
+/* line 1284, ../estilos_scss/estilos.scss */
 .close-total-checkout:hover { color: #ff6a00; }
 
-/* line 1260, ../estilos_scss/estilos.scss */
+/* line 1289, ../estilos_scss/estilos.scss */
 .cantidad-input { background-color: #ff6a00; color: white; }
 
-/* line 1265, ../estilos_scss/estilos.scss */
+/* line 1294, ../estilos_scss/estilos.scss */
 .cantidad-input:focus { border-color: #ff954d; box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6); }
 
-/* line 1272, ../estilos_scss/estilos.scss */
+/* line 1301, ../estilos_scss/estilos.scss */
 input.form-group-identidad { margin-left: 10%; width: 80%; color: slategrey; padding-left: 2%; }
 
-/* line 1278, ../estilos_scss/estilos.scss */
+/* line 1307, ../estilos_scss/estilos.scss */
 select.form-group-identidad { margin-left: 10%; width: 70%; border-radius: 3px; color: grey; padding-left: 2%; }
 
-/* line 1286, ../estilos_scss/estilos.scss */
+/* line 1315, ../estilos_scss/estilos.scss */
 input.small { width: 15% !important; }
 
-/* line 1289, ../estilos_scss/estilos.scss */
+/* line 1318, ../estilos_scss/estilos.scss */
 input.medium { width: 50% !important; margin-left: 2% !important; }
 
-/* line 1294, ../estilos_scss/estilos.scss */
+/* line 1323, ../estilos_scss/estilos.scss */
 input.form-group-identidad-check { width: 20px; height: 30px; }
 
-/* line 1299, ../estilos_scss/estilos.scss */
+/* line 1328, ../estilos_scss/estilos.scss */
 .form-checkbox { width: auto; height: auto; margin-top: 4%; }
 
-/* line 1304, ../estilos_scss/estilos.scss */
+/* line 1333, ../estilos_scss/estilos.scss */
 p.form-group-identidad-p { margin-left: 10% !important; font-weight: bold; }
 
-/* line 1308, ../estilos_scss/estilos.scss */
+/* line 1337, ../estilos_scss/estilos.scss */
 #a-cp { margin-left: 10%; }
 
-/* line 1312, ../estilos_scss/estilos.scss */
+/* line 1341, ../estilos_scss/estilos.scss */
 a.carrito-checkout-btn { background-color: #ff6a00; padding: 13px; color: white; font-family: Futura Medium; font-size: 125%; border-radius: 5px; cursor: pointer; }
 
-@-moz-document url-prefix() { /* line 1324, ../estilos_scss/estilos.scss */
+@-moz-document url-prefix() { /* line 1353, ../estilos_scss/estilos.scss */
   a.carrito-checkout-btn { background-color: #ff6a00; padding: 13px; color: white; font-family: Arial; font-size: 125%; border-radius: 5px; cursor: pointer; } }
 
-/* line 1335, ../estilos_scss/estilos.scss */
+/* line 1364, ../estilos_scss/estilos.scss */
 a.carrito-checkout-btn:hover { text-decoration: none; background-color: #d35702; }
 
-/* line 1340, ../estilos_scss/estilos.scss */
+/* line 1369, ../estilos_scss/estilos.scss */
 a#carrito-checkout-btn-compra { float: left; }
 
-/* line 1344, ../estilos_scss/estilos.scss */
+/* line 1373, ../estilos_scss/estilos.scss */
 a#carrito-checkout-btn-datos { float: right; }
 
-/* line 1348, ../estilos_scss/estilos.scss */
+/* line 1377, ../estilos_scss/estilos.scss */
 a#carrito-checkout-btn-comprar { float: right; }
 
-/* line 1352, ../estilos_scss/estilos.scss */
+/* line 1381, ../estilos_scss/estilos.scss */
 .slider-checkout { width: 100%; margin: auto; overflow: hidden; z-index: 1; }
 
-/* line 1358, ../estilos_scss/estilos.scss */
+/* line 1387, ../estilos_scss/estilos.scss */
 ul.normal { display: flex; padding: 0; width: 200%; }
 
-/* line 1363, ../estilos_scss/estilos.scss */
+/* line 1392, ../estilos_scss/estilos.scss */
 ul.ir-form { animation: irform 0.5s; animation-fill-mode: forwards; }
 
-/* line 1367, ../estilos_scss/estilos.scss */
+/* line 1396, ../estilos_scss/estilos.scss */
 ul.ir-compra { animation: ircompra 0.5s; animation-fill-mode: forwards; }
 
-/* line 1371, ../estilos_scss/estilos.scss */
+/* line 1400, ../estilos_scss/estilos.scss */
 .slider-checkout li { list-style: none; width: 100%; }
 
-@keyframes irform { /* line 1377, ../estilos_scss/estilos.scss */
+@keyframes irform { /* line 1406, ../estilos_scss/estilos.scss */
   0% { margin-left: 0; }
-  /* line 1378, ../estilos_scss/estilos.scss */
+  /* line 1407, ../estilos_scss/estilos.scss */
   100% { margin-left: -100%; } }
 
-@keyframes ircompra { /* line 1384, ../estilos_scss/estilos.scss */
+@keyframes ircompra { /* line 1413, ../estilos_scss/estilos.scss */
   0% { margin-left: -100%; }
-  /* line 1385, ../estilos_scss/estilos.scss */
+  /* line 1414, ../estilos_scss/estilos.scss */
   100% { margin-left: 0%; } }
 
-/* line 1390, ../estilos_scss/estilos.scss */
+/* line 1419, ../estilos_scss/estilos.scss */
 #checkout-form-row .descripcion-checkout { color: #ff6a00; }
 
-/* line 1394, ../estilos_scss/estilos.scss */
+/* line 1423, ../estilos_scss/estilos.scss */
 .btn-row { margin-top: 5%; }
 
-/* line 1398, ../estilos_scss/estilos.scss */
+/* line 1427, ../estilos_scss/estilos.scss */
 form#form-checkout { margin-top: 5%; }
 
-/* line 1401, ../estilos_scss/estilos.scss */
+/* line 1430, ../estilos_scss/estilos.scss */
 form label { margin-left: 10%; }
 
-/* line 1405, ../estilos_scss/estilos.scss */
+/* line 1434, ../estilos_scss/estilos.scss */
 .titulos-checkout { font-family: Arial; font-weight: bold; color: #ff6a00; }
 
-/* line 1411, ../estilos_scss/estilos.scss */
+/* line 1440, ../estilos_scss/estilos.scss */
 .form-alert { color: red; margin-left: 10%; }
 
 /*******************************************Comprar mercado pago*******************************************/
-/* line 1417, ../estilos_scss/estilos.scss */
+/* line 1446, ../estilos_scss/estilos.scss */
 #logo-comprarMP { margin-left: 30%; margin-top: 2%; }
 
-/* line 1422, ../estilos_scss/estilos.scss */
+/* line 1451, ../estilos_scss/estilos.scss */
 div.boton-pago { padding: 10% 10% 15% 10%; float: right; margin-right: 10%; border-style: dashed; border-color: #ff6a00; border-width: 2px; margin-top: 5%; }
 
-/* line 1429, ../estilos_scss/estilos.scss */
+/* line 1458, ../estilos_scss/estilos.scss */
 a#pago-btn { margin-top: 5%!important; padding-left: 35%; padding-right: 35%; font-size: 170%; }
 
-/* line 1435, ../estilos_scss/estilos.scss */
+/* line 1464, ../estilos_scss/estilos.scss */
 .boton-pago-row { margin-top: 25%; }
 
-/* line 1439, ../estilos_scss/estilos.scss */
+/* line 1468, ../estilos_scss/estilos.scss */
 .tit-boton-pago { font-weight: bold; }
 
-@-moz-document url-prefix() { /* line 1444, ../estilos_scss/estilos.scss */
+@-moz-document url-prefix() { /* line 1473, ../estilos_scss/estilos.scss */
   .tit-boton-pago { font-weight: bold; font-size: 18px; } }
 
-/* line 1450, ../estilos_scss/estilos.scss */
+/* line 1479, ../estilos_scss/estilos.scss */
 ul.lista-compraMp { float: left; font-size: 90%; list-style: none; margin-top: 5%; font-family: Futura Medium; margin-left: 0%; }
 
-@-moz-document url-prefix() { /* line 1460, ../estilos_scss/estilos.scss */
+@-moz-document url-prefix() { /* line 1489, ../estilos_scss/estilos.scss */
   ul.lista-compraMp { float: left; font-size: 90%; list-style: none; margin-top: 5%; font-family: Arial; margin-left: 0%; } }
 
-/* line 1469, ../estilos_scss/estilos.scss */
+/* line 1498, ../estilos_scss/estilos.scss */
 ul.articulos { margin-left: 20% !important; }
 
-/* line 1473, ../estilos_scss/estilos.scss */
+/* line 1502, ../estilos_scss/estilos.scss */
 ul.sinEnvio { margin-left: 11%!important; }
 
-/* line 1476, ../estilos_scss/estilos.scss */
+/* line 1505, ../estilos_scss/estilos.scss */
 li.titulo-lista-comprar-mp { font-size: 120%; font-weight: bold; }
 
-/* line 1481, ../estilos_scss/estilos.scss */
+/* line 1510, ../estilos_scss/estilos.scss */
 div.listar-cont { text-align: center; }
 
 /****************************************FOOOTERS***************************************************************/
-/* line 1485, ../estilos_scss/estilos.scss */
+/* line 1514, ../estilos_scss/estilos.scss */
 .row-footer-fila-1 { margin-top: 5%; }
 
-/* line 1489, ../estilos_scss/estilos.scss */
+/* line 1518, ../estilos_scss/estilos.scss */
 .row-footer-fila-1 { background-color: #f2f2f2; border-top-style: solid; border-top-color: #e6e6e6; border-top-width: 1px; }
 
-/* line 1495, ../estilos_scss/estilos.scss */
+/* line 1524, ../estilos_scss/estilos.scss */
 .footer-fila-1 ul { margin-left: -3%; }
 
-/* line 1499, ../estilos_scss/estilos.scss */
+/* line 1528, ../estilos_scss/estilos.scss */
 .footer-fila-1 ul li { display: inline; }
 
-/* line 1503, ../estilos_scss/estilos.scss */
+/* line 1532, ../estilos_scss/estilos.scss */
 .footer-fila-1 h4 { font-weight: bold; margin-left: 2%; }
 
-/* line 1511, ../estilos_scss/estilos.scss */
+/* line 1540, ../estilos_scss/estilos.scss */
 .row-footer-logo { background-color: #f2f2f2; border-top-style: solid; border-top-color: #e6e6e6; border-top-width: 1px; }
 
-/* line 1517, ../estilos_scss/estilos.scss */
+/* line 1546, ../estilos_scss/estilos.scss */
 #footer-logo { margin-left: 0%; padding: 1% 1% 1% 0%; }
 
-/* line 1522, ../estilos_scss/estilos.scss */
+/* line 1551, ../estilos_scss/estilos.scss */
 .row-footer-fila-2 { background-color: #f2f2f2; }
 
-/* line 1527, ../estilos_scss/estilos.scss */
+/* line 1556, ../estilos_scss/estilos.scss */
 .footer-fila-2 { margin-left: 0%; padding: 0%; }
 
-/* line 1532, ../estilos_scss/estilos.scss */
+/* line 1561, ../estilos_scss/estilos.scss */
 .footer-fila-2 ul { float: left; margin-left: -8%; list-style: none; font-family: Arial; font-weight: bold; font-size: 100%; }
 
-/* line 1540, ../estilos_scss/estilos.scss */
+/* line 1569, ../estilos_scss/estilos.scss */
 .footer-fila-2 ul li { padding: 1%; }
 
-/* line 1544, ../estilos_scss/estilos.scss */
+/* line 1573, ../estilos_scss/estilos.scss */
 .footer-fila-2-col-2 { margin-top: -3%; margin-left: 0%; padding: 0%; }
 
-/* line 1550, ../estilos_scss/estilos.scss */
+/* line 1579, ../estilos_scss/estilos.scss */
 .footer-fila-2-col-2 ul { float: left; padding: 1%; margin-left: 0%; list-style: none; font-family: Arial; font-weight: bold; font-size: 85%; text-align: center; margin-top: -7%; font-size: 100%; border-left-style: solid; border-left-width: 1px; border-left-color: #cccccc; border-right-style: solid; border-right-width: 1px; border-right-color: #cccccc; }
 
-/* line 1569, ../estilos_scss/estilos.scss */
+/* line 1598, ../estilos_scss/estilos.scss */
 .footer-fila-2-col-2 #utilidades { height: 170px; border-left-width: 0px !important; }
 
-/* line 1575, ../estilos_scss/estilos.scss */
+/* line 1604, ../estilos_scss/estilos.scss */
 .footer-fila-2-col-2 ul li { padding: 1%; color: grey; }
 
-@-moz-document url-prefix() { /* line 1582, ../estilos_scss/estilos.scss */
+@-moz-document url-prefix() { /* line 1611, ../estilos_scss/estilos.scss */
   .footer-fila-2-col-2 ul li { padding: 1% 0% 1% 0%; color: grey; } }
 
-/* line 1590, ../estilos_scss/estilos.scss */
+/* line 1619, ../estilos_scss/estilos.scss */
 .footer-fila-2-col-2 ul li h4 { color: #ff6a00 !important; }
 
-/* line 1595, ../estilos_scss/estilos.scss */
+/* line 1624, ../estilos_scss/estilos.scss */
 .footer-fila-2-col-3 { margin-top: -3%; text-align: center; color: #ff6a00; }
 
-/* line 1601, ../estilos_scss/estilos.scss */
+/* line 1630, ../estilos_scss/estilos.scss */
 div#footer-fila-2-col-3-cont { width: auto; height: auto; margin-top: -6%; }
 
-/* line 1607, ../estilos_scss/estilos.scss */
+/* line 1636, ../estilos_scss/estilos.scss */
 div#footer-fila-2-col-3-cont h4 { font-weight: bold; }
 
-/* line 1610, ../estilos_scss/estilos.scss */
+/* line 1639, ../estilos_scss/estilos.scss */
 html { min-height: 100%; position: relative; }
 
-/* line 1614, ../estilos_scss/estilos.scss */
+/* line 1643, ../estilos_scss/estilos.scss */
 body { margin: 0; margin-bottom: 40px; }
 
-/* line 1618, ../estilos_scss/estilos.scss */
+/* line 1647, ../estilos_scss/estilos.scss */
 footer { position: absolute; bottom: 0; width: 100%; height: 40px; }
 
-/*****************************************************************************************************/
-/* line 1630, ../estilos_scss/estilos.scss */
+/******************LANDING***********************************************************************************/
+/* line 1659, ../estilos_scss/estilos.scss */
+.landing-cont { text-align: center; padding: 90px; font-family: Futura Medium; }
+
+@-moz-document url-prefix() { /* line 1667, ../estilos_scss/estilos.scss */
+  .landing-cont { text-align: center; padding: 90px; font-family: Arial; } }
+
+/* line 1675, ../estilos_scss/estilos.scss */
+.landing-cont h3 a { color: #ff6a00; }
+
+/*************************************************************************************************/
+/* line 1680, ../estilos_scss/estilos.scss */
 #resultadoBusqueda { border-style: solid; border-color: black; border-width: 1px; position: Absolute; z-index: 2000 !important; background-color: white; display: none; }
 
-/* line 1642, ../estilos_scss/estilos.scss */
+/* line 1692, ../estilos_scss/estilos.scss */
 #comprar-total { border-style: solid; border-color: black; border-width: 1px; width: 25%; height: 25%; margin-top: 5%; margin-right: 2%; display: block; }
 /* line 93, ../estilos_scss/estilos.scss */
 #comprar-total li { list-style-type: none; }
 
-/* line 1653, ../estilos_scss/estilos.scss */
+/* line 1703, ../estilos_scss/estilos.scss */
 #nombre-form-alert { display: none; }
 
-/* line 1656, ../estilos_scss/estilos.scss */
+/* line 1706, ../estilos_scss/estilos.scss */
 #apellido-form-alert { display: none; }
 
-/* line 1659, ../estilos_scss/estilos.scss */
+/* line 1709, ../estilos_scss/estilos.scss */
 #dni-form-alert { display: none; }
 
-/* line 1662, ../estilos_scss/estilos.scss */
+/* line 1712, ../estilos_scss/estilos.scss */
 #email-form-alert { display: none; }
 
-/* line 1665, ../estilos_scss/estilos.scss */
+/* line 1715, ../estilos_scss/estilos.scss */
 #cod_area-form-alert { display: none; }
 
-/* line 1668, ../estilos_scss/estilos.scss */
+/* line 1718, ../estilos_scss/estilos.scss */
 #telefono-form-alert { display: none; }
 
-/* line 1674, ../estilos_scss/estilos.scss */
+/* line 1724, ../estilos_scss/estilos.scss */
 #btn-form { display: none; }
 
-/* line 1677, ../estilos_scss/estilos.scss */
+/* line 1727, ../estilos_scss/estilos.scss */
 #cp-form-alert { display: none; }
 
-/* line 1680, ../estilos_scss/estilos.scss */
+/* line 1730, ../estilos_scss/estilos.scss */
 #calle-form-alert { display: none; }
 
-/* line 1684, ../estilos_scss/estilos.scss */
+/* line 1734, ../estilos_scss/estilos.scss */
 #altura-form-alert { display: none; }
 
-/* line 1687, ../estilos_scss/estilos.scss */
+/* line 1737, ../estilos_scss/estilos.scss */
 #provincia-form-alert { display: none; }
 
-/* line 1690, ../estilos_scss/estilos.scss */
+/* line 1740, ../estilos_scss/estilos.scss */
 #ciudad-form-alert { display: none; }
 
-/* line 1693, ../estilos_scss/estilos.scss */
+/* line 1743, ../estilos_scss/estilos.scss */
 #piso-form-alert { display: none; }
 
-/* line 1696, ../estilos_scss/estilos.scss */
+/* line 1746, ../estilos_scss/estilos.scss */
 #departamento-form-alert { display: none; }
 
-/* line 1700, ../estilos_scss/estilos.scss */
+/* line 1750, ../estilos_scss/estilos.scss */
 #contrasenia-form-alert { display: none; }
 
-/* line 1703, ../estilos_scss/estilos.scss */
+/* line 1753, ../estilos_scss/estilos.scss */
 #validarContraseniaButton { display: none; }
 
-/* line 1706, ../estilos_scss/estilos.scss */
+/* line 1756, ../estilos_scss/estilos.scss */
 #contrasenia-repetir-form-alert { display: none; }
 
-/* line 1709, ../estilos_scss/estilos.scss */
+/* line 1759, ../estilos_scss/estilos.scss */
 #validarUsuario-form-alert { display: none; }
 
-/* line 1712, ../estilos_scss/estilos.scss */
+/* line 1762, ../estilos_scss/estilos.scss */
 .comprobante { border-style: solid; border-color: black; border-width: 1px; width: 50%; margin-top: 2%; }
 
-/* line 1717, ../estilos_scss/estilos.scss */
+/* line 1767, ../estilos_scss/estilos.scss */
 span { color: red; }
 
-/* line 1721, ../estilos_scss/estilos.scss */
+/* line 1771, ../estilos_scss/estilos.scss */
 .total-comprobante { margin-left: 40%; }

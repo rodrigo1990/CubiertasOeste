@@ -6,7 +6,12 @@ class Mail{
 
 	function enviarComprobante(){
 
-		$total=$_SESSION['total'];
+		$total=0;
+
+		$subtotal=0;
+
+		$descuentos=0;
+
 		$destinatario = $_SESSION["email"];
 
 		$data=serialize($_SESSION['carrito']);
@@ -61,6 +66,9 @@ foreach ($carritoObtenido as $producto) {
 				$cuerpo.= $producto->cantidad*$producto->precio;
 				$cuerpo.="</td>";
 				$cuerpo.="</tr>";
+
+				$subtotal=$subtotal+$producto->precio*$producto->cantidad;
+
 			}
 			if ($producto->cantidad!=0 && $producto->tiene_descuento==1) {
 				$cuerpo.="<tr>";
@@ -80,9 +88,17 @@ foreach ($carritoObtenido as $producto) {
 				$cuerpo.= $producto->cantidad*$producto->precio_descuento;
 				$cuerpo.="</td>";
 				$cuerpo.="</tr>";
+
+				$subtotal=$subtotal+$producto->precio*$producto->cantidad;
+
+				$descuentos=$descuentos+($producto->precio_descuento*$producto->cantidad)-($producto->precio*$producto->cantidad);
 			}
-		}
-$cuerpo.="<tr><td></td><td></td><td></td><td></td> <td><p style='margin-left:45%;'><b>Total: ".$_SESSION['total']."$</b></p></td></tr>";
+		}//for each
+
+$total=+$subtotal+$descuentos;
+
+
+$cuerpo.="<tr><td></td><td></td><td></td><td></td> <td><p style='margin-left:45%;'><b>Total: ".$total."$</b></p></td></tr>";
 $cuerpo.="</table>
 			<p><i>Acceso oeste 1507,(011)5423-011/4628-9292 Ituzaingo, GBA</i></p></body></html>";
 
@@ -106,7 +122,7 @@ $headers .= "Reply-To: tatyrod@gmail.com\r\n";
 
 mail($destinatario,$asunto,$cuerpo,$headers);
 
-echo "Hemos enviado un comprobante de compra a tu email, lo requerimos al momento de la entrega";
+//echo "Hemos enviado un comprobante de compra a tu email, lo requerimos al momento de la entrega";
 	}//function
 
 

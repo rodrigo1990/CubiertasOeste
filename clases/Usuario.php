@@ -4,9 +4,6 @@ require_once("Producto.php");
 
 class Usuario{
 
-
-
-
 function __construct(){}
 
 function cargarCarrito(){
@@ -222,6 +219,7 @@ function mostrarTotal(){
 
   	$descuentos=0;
   	$subtotal=0;
+  	$total=0;
 
 if(isset($_SESSION['carrito'])){
 
@@ -338,12 +336,19 @@ function mostrarCarritoCheckOut(){
 
 	$contador=0;
 
+	$usuario = new Usuario();
+
+	$subtotal=0;
+	$descuentos=0;
+	$total=0;
+
+
+
 	if(isset($_SESSION['carrito'])){
 	  	$data=serialize($_SESSION['carrito']);
 
 	  	$carritoObtenido=unserialize($data);
 
-	  	$total=0;
 	  	echo "<div class='container'>";
 	  	echo "<h1 class='titulos-checkout'>1. Confirma tu Compra</h1>";
 	  	echo "<div class='table-responsive'>";
@@ -377,7 +382,7 @@ function mostrarCarritoCheckOut(){
 				</td> 
 				<td><h4 class='total-tabla-checkout'>".$producto->cantidad*$producto->precio."$</h4><i class='close-total-checkout material-icons' onClick='borrarDeCarritoCheckOut(".$producto->id.")'>close</i><br></tr>";
 				
-				$total=$total+$producto->precio*$producto->cantidad;
+				$subtotal=$subtotal+$producto->precio*$producto->cantidad;
 
 			}else if($producto->cantidad !=0 && $producto->tiene_descuento==1){
 
@@ -390,9 +395,37 @@ function mostrarCarritoCheckOut(){
 				<td><h4>Original:<br>".$producto->precio."$<br>Descuento:<br>".$producto->precio_descuento."$</h4></td> 
 				<td><input type='number' class='cantidad-input' id='cantidad".$contador."' name='cantidad' min='1' max='20' onChange='actualizarCantidad".$contador."(".$producto->id.")' value='".$producto->cantidad."'/></td> 
 				<td><h4 class='total-tabla-checkout'>".$producto->cantidad*$producto->precio_descuento."$</h4><i class='close-total-checkout material-icons' onClick='borrarDeCarritoCheckOut(".$producto->id.")'>close</i><br></tr>";				
+				
+				$subtotal=$subtotal+$producto->precio*$producto->cantidad;
+
+				$descuentos=$descuentos+($producto->precio_descuento*$producto->cantidad)-($producto->precio*$producto->cantidad);
+
 			}
 		}//forEach
-	
+
+		$total=+$subtotal+$descuentos;
+
+		echo "<tr><td class='totales'></td>
+					<td class='totales'></td>
+					<td class='totales'></td>
+					<td class='totales'></td>
+					<td class='totales'><h4><b>Subtotal:</b></h4></td>
+					<td class='totales'><h4 class='total-tabla-checkout'><b>".$subtotal."$</b></h4></td>
+					</tr>";
+		echo "<tr><td class='totales'></td>
+					<td class='totales'></td>
+					<td class='totales'></td>
+					<td class='totales'></td>
+					<td class='totales'><h4><b>Descuentos:</b></h4></td>
+					<td class='totales'><h4 class='total-tabla-checkout'><b><span class='span-table'>".$descuentos."$</span></b></h4></td>
+					</tr>";
+		echo "<tr><td class='totales'></td>
+					<td class='totales'></td>
+					<td class='totales'></td>
+					<td class='totales'></td>
+					<td class='totales'><h4><b>Total:</b></h4></td>
+					<td class='totales'><h4 class='total-tabla-checkout'><b>".$total."$</b></h4></td>
+					</tr>";
 		echo "</table>";
 			echo "</div>";//table responsive
 		echo "</div>";//container

@@ -99,107 +99,13 @@ $usuario=new Usuario();
 </head>
 <body>
 
+	<!-- Menu con animacion de inicio -->
+	<?php 
+	include("include/menu-animated.php");
+	 ?>
 
-	<div class="animated bounceInLeft row">
-
-		<div class="direccion-menu hidden-xs col-sm-12 col-md-12 col-lg-12">
-			<div class="container">
-				<!--  --><h6 class="h6-direccion-envio-menu"><i class="material-icons md-light md-18 material-icons vertical-align-middle padding-bottom-3">phone</i>TEL:4627-8900 <span id="separadorDireccionMenu">|</span><i class="material-icons md-light md-18 material-icons vertical-align-middle padding-bottom-3">room</i>Acceso Oeste 1924 Ituzaingo - GBA</h6>
-			</div><!-- container -->
-		</div><!-- direccion-menu col-xs-12 col-sm-12 col-md-12 col-lg-12 -->
-
-		 <!-- <div class="direccion-menu-cel col-xs-12 hidden-sm hidden-md hidden-lg">
-			<div class="container">
-			<h6 class="h6-direccion-envio-menu-cel"><i class="material-icons md-light md-18 material-icons vertical-align-middle padding-bottom-3">phone</i>TEL:4627-8900 <span id="separadorDireccionMenu"> | </span><i class="material-icons md-light md-18 material-icons vertical-align-middle padding-bottom-3">room</i>Acceso Oeste 1924 Ituzaingo - GBA</h6>
-		</div> --><!-- container -->
-
-
-	</div><!-- row -->
-
-
-
-
-	<div class="animated bounceInDown row" id="menu-fixed" >
-
-		<div class="menu hidden-xs col-sm-12 col-md-12 col-lg-12">
-			<div class="container">
-
-				<img src="elementos_separados/logo.png" class="element-menu img-responsive" id="logo-menu" onClick="window.location='index.php'" width="210">
-				
-				<img src="elementos_separados/icon-mas.png" class="element-menu vertical-align-middle  img-responsive" id="icon-mas-menu" width="15">
-				
-				<h4 class="h4-producto-title-menu element-menu vertical-align-middle " id="producto-title-menu">Producto</h4>
-
-				<div class="element-menu-buscador " id="buscador-menu">
-					<form action="" method=""><!-- form buscador -->
-
-					<div class="campo-busqueda-menu inner-addon right-addon">
-						<i class="material-icons md-light ">search</i>
-						<input type="text" class="form-control campo-busqueda-menu" id="busqueda_cubiertas" placeholder="Busca tu producto" onKeyUp="buscarCubiertas()" size="40%">
-					</div>
-						<div id="resultadoBusqueda"></div><!-- resultado del buscador -->
-
-					</form><!-- cierre: buscador form -->
-				</div><!-- buscador-menu -->
-				
-				
-
-				
-				<div class="element-menu-carrito" id="mostrar-total-menu">
-					<h6><i><strong>Mi Carrito</strong></i></h6>
-					<p id="total">$<?php $usuario->mostrarSubtotal();?></p>
-
-				</div><!-- mostrar-total-menu -->
-
-				<div id="btn-carrito" class="element-menu-carrito">
-					 
-					<div   class="icon-shopping-cart"><span id="cantidad"> <strong id="cantidad-strong"><?php $usuario->mostrarCantidad();?></strong></span> </div>
-				</div>
-			
-
-				
-			</div><!-- container -->
-
-		</div><!-- menu -->
-
-
-		<!-- CELULAR !! -->
-		<div class="menu col-xs-12 hidden-sm hidden-md hidden-lg">
-			<div class="container">
-
-				<img src="elementos_separados/logo.png" class="element-menu img-responsive" id="logo-menu" width="210">
-				
-				
-
-				<div class="element-menu" id="buscador-menu">
-					<form action="" method=""><!-- form buscador -->
-
-					<div class="campo-busqueda-menu inner-addon right-addon">
-						<i class="material-icons md-light ">search</i>
-						<input type="text" class="form-control campo-busqueda-menu" id="busqueda_cubiertas" placeholder="Busca tu producto" onKeyUp="buscarCubiertas()" size="20">
-					</div>
-						<div id="resultadoBusqueda"></div><!-- resultado del buscador -->
-
-					</form><!-- cierre: buscador form -->
-				</div><!-- buscador-menu -->
-
-				<div class="element-menu" id="mostrar-total-menu">
-					<h6><i><strong>Mi Carrito</strong></i></h6>
-					<p id="total">$<?php $usuario->mostrarTotal();?></p>
-
-				</div><!-- mostrar-total-menu -->
-			
-
-				<div class="element-menu-carrito-cel ">
-					 
-					<div class="icon-shopping-cart"><span id="cantidad"> <strong id="cantidad-strong"><?php $usuario->mostrarCantidad();?></strong></span> </div>
-				</div>
-			</div><!-- container -->
-
-		</div><!-- menu -->
-	</div><!-- row  -->
-
-	  	<div class="slider">
+	<!-- Slider -->
+	 <div class="slider">
 		<ul>
 			<li><img src="banners/banner_1.jpg" alt="" width="100%"></li>
 			<li><img src="banners/banner_2.jpg" alt="" width="100%"></li>
@@ -222,6 +128,8 @@ $usuario=new Usuario();
 	</ul>
 </div>
 </div>
+
+
 <!-- TITULO OFERTAS DESTACAS -->
 <div class="row titulo-home-row">
 	<div class="container">
@@ -431,7 +339,7 @@ $usuario=new Usuario();
 
 
 
-<!-- MODAL -->
+<!-- MODAL COMPRAR -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     
@@ -465,73 +373,43 @@ $usuario=new Usuario();
 </div>
 
 
-
-
-
-<!-- FOOTER -->
-<footer>
-<div class="row row-footer-fila-1">
-	<div class="footer-fila-1 col-xs-12 col-sm-12 col-md-12 col-lg-12">
-		<div class="container">
-			<h4>Medios de Pago</h4>
-			<ul>
-				<li><img src="elementos_separados/mercadopago-icon.png" alt="" ></li>
-				<li><img src="elementos_separados/visa-icon.png" alt="" ></li>
-				<li><img src="elementos_separados/master-icon.png" alt="" ></li>
-				<li><img src="elementos_separados/cabal-icon.png" alt="" ></li>
-				<li><img src="elementos_separados/american-icon.png" alt="" ></li>
-				<li><img src="elementos_separados/diners-icon.png" alt="" ></li>
-				<li><img src="elementos_separados/shoping-icon.png" alt="" ></li>
-				<li><img src="elementos_separados/naranja-icon.png" alt="" ></li>
-			</ul>
-		</div>
-	</div>
+<!-- MODAL MIS PEDIDOS -->
+  <div class="modal fade" id="pedidos-modal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <img src="elementos_separados/logo.png" width="30%" alt="">
+        </div>
+        <div id="pedidos-modal-body" class="modal-body">
+        	
+        	<label for="email-modal"><h4>Ingrese su email</h4></label>
+			<input class="form-control" type="text" name="email" id="email" placeholder="minombre@NeumaticosOeste.com">
+        	
+        	<label for="contrasenia-modal"><h4>Ingrese su contraseña</h4></label>
+			<input class="form-control" type="password" name="contrasenia" id="contrasenia">
+			
+			<a href="recuperar-contrasenia.php">Recuperar contraseña</a><br>
+			
+			<p class="form-alert pedidos-alert" id="validarUsuario-form-alert">Usuario y/o contraseña incorrectos</p><br>
+			<a class="carrito-checkout-btn" onClick="validarUsuario()">Ingresar</a >
+        </div>
+        <div class="modal-footer">
+        	<ul>
+        		<li><b>Guardamos su correo electrónico de manera 100% segura para:</b></li><br>
+        		<li><i class="modal-icon material-icons">done</i><b>Notificar sobre los estados de su compra.</b></li>
+        		<li><i class="modal-icon material-icons">done</i><b>Guardar el historial de compras.</b></li>
+        		<li><i class="modal-icon material-icons">done</i><b>Facilitar el proceso de compras.</b></li>
+        	</ul>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
 </div>
-<div class="row-footer-logo">
-	<div class="container">
-		<div class="footer-logo col-xs-12 col-sm-12 col-md-12 col-lg-12">
-		<img id="footer-logo" src="elementos_separados/logo.png" alt="" width="24%" class="img-responsive">
-		</div>
-	</div>
-</div>
-<div class="row row-footer-fila-2">
-	<div class="container">
-		<div class="footer-fila-2 col-xs-4 col-sm-4 col-md-4 col-lg-4">
-				<ul>
-					<li>(54) (011) 4627-8900</li>
-					<li>Acceso Oeste 1924 - Ituzaingo - <br> Zona Oeste - GBA.</li>
-					<li>Lunes a viernes 8:30 a 19:00 hs.<br> Sáb. de 8:30 a 14:00hs.</li>
-					<li>ventas@oesteneumaticos.com.ar</li>
-				</ul>
-			</div><!--  col 4 -->
-		<div class="footer-fila-2-col-2 col-xs-4 col-sm-4 col-md-4 col-lg-4">
-				<ul>
-					<li><h4>Informacion</h4></li>
-					<li>Terminos y condiciones</li>
-					<li>Devoluciones y reembolsos</li>
-					<li>Quienes somos</li>
-					<li>Contacto</li>
-					<li>Envio</li>
-				</ul>
-					<ul id="utilidades">
-					<li><h4>Utilidades</h4></li>
-					<li>Mis pedidos</li>
-					<li>Como comprar</li>
-					<li>Sucursales</li>
-
-				</ul>
-			</div><!--  col 4 -->
-
-			<div class="footer-fila-2-col-3 col-xs-4 col-sm-4 col-md-4 col-lg-4">
-			<div id="footer-fila-2-col-3-cont">
-				<h4>¡Compra 100 % segura !</h4>
-				<img src="elementos_separados/afip-icon.jpg" width="15%" alt="">	
-			</div>
-			</div><!--  col 4 -->
-
-	</div>
-</div>
-</footer>
 
 
 <!-- <div id="respuesta"></div>
@@ -543,6 +421,15 @@ $usuario=new Usuario();
 	<a href="recuperar-contrasenia.php">Recuperar contraseña</a><br>
 	<p class="form-alert" id="validarUsuario-form-alert">Usuario y/o contraseña incorrectos</p>
 	<button onClick="validarUsuario()">Ingresar</button> --> 
+
+
+<!-- FOOTER -->
+<?php 
+include("include/footer.php");
+ ?>
+
+
+
 
 
 </body>

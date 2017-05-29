@@ -411,8 +411,6 @@ class BaseDatos{
 
 
 
-			if($piso != NULL && $departamento != NULL){
-
 				$stmt=$this->mysqli->prepare("INSERT INTO usuario(nro_doc,tipo_doc,nombre,apellido,calle,altura,cod_area,telefono,email,ciudad_id,cp,piso,departamento)
 					  							VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
@@ -424,25 +422,8 @@ class BaseDatos{
 
 				echo("Finalizado el proceso de pago, te redireccionaremos a la emision del detalle de  compra.");
 
-
-			}else{
-
-				$stmt=$this->mysqli->prepare("INSERT INTO usuario(nro_doc,tipo_doc,nombre,apellido,calle,altura,cod_area,telefono,email,ciudad_id,cp)
-					  							VALUES (?,?,?,?,?,?,?,?,?,?,?)");
-
-				$stmt->bind_param("iisssiissis",$nro_doc,$tipo_doc_id,$nombre,$apellido,$calle,$altura,$cod_area,$telefono,$email,$ciudad_id,$cp);
-
-				$stmt->execute();
-
-				$stmt->close();
-		
-				echo("Finalizado el proceso de pago, te redireccionaremos a la emision del detalle de  compra.");
-
-
-			}//	if($piso != NULL && $departamento != NULL){
-
-				//si el email ya existe busca si estan registrados los datos de envio sino es asi, los actualiza
-			}else if($fila_existe_usuario['calle']==''){//if($fila_existe_usuario['email']=='')		
+				//Si el email ya existe actualiza el resto de los datos
+		}else{
 
 				$stmt=$this->mysqli->prepare("SELECT CIU.id
 											  FROM ciudad CIU JOIN provincia PRO ON CIU.provincia_id=PRO.id
@@ -458,44 +439,44 @@ class BaseDatos{
 
 				$ciudad_id=$fila_id_ciudad['id'];
 
-				//si piso y departamento estan cargados los actualiza en la bd
+					//busco id de tipo de doc
+				$stmt=$this->mysqli->prepare("SELECT id
+											  FROM tipo_documento
+											  WHERE descripcion=(?)");
 
-					if($piso != NULL && $departamento != NULL){
+				$stmt->bind_param("s",$tipo_doc);
 
+				$stmt->execute();
 
-						$stmt=$this->mysqli->prepare("UPDATE usuario
-													   SET calle=(?),altura=(?),ciudad_id=(?),cp=(?),piso=(?),departamento=(?)
-													   WHERE email=(?)");
+				$resultado=$stmt->get_result();
 
-						$stmt->bind_param("siisiss",$calle,$altura,$ciudad_id,$cp,$piso,$departamento,$email);
+				$fila_id_tipo_doc=$resultado->fetch_assoc();
 
-						$stmt->execute();
+				$ciudad_id=$fila_id_ciudad['id'];
 
-						$stmt->close();
-
-						echo("Finalizado el proceso de pago, te redireccionaremos a la emision del detalle de  compra.");
-
-					}else{
-
-						$stmt=$this->mysqli->prepare("UPDATE usuario
-													   SET calle=(?),altura=(?),ciudad_id=(?),cp=(?)
-													   WHERE email=(?)");
-
-						$stmt->bind_param("siiss",$calle,$altura,$ciudad_id,$cp,$email);
-
-						$stmt->execute();
-
-						$stmt->close();
-
-						echo("Finalizado el proceso de pago, te redireccionaremos a la emision del detalle de  compra.");
+				$tipo_doc_id=$fila_id_tipo_doc['id'];
 
 
-					}
+				$stmt=$this->mysqli->prepare("UPDATE usuario
+											   SET nro_doc=(?),tipo_doc=(?), nombre=(?),apellido=(?), calle=(?),altura=(?),cod_area=(?),telefono=(?),ciudad_id=(?),cp=(?),piso=(?),departamento=(?)
+											   WHERE email=(?)");
+
+				$stmt->bind_param("iisssiisisiss",$nro_doc,$tipo_doc_id,$nombre,$apellido,$calle,$altura,$cod_area,$telefono,$ciudad_id,$cp,$piso,$departamento,$email);
+
+				$stmt->execute();
+
+				$stmt->close();
+
+				echo("Finalizado el proceso de pago, te redireccionaremos a la emision del detalle de  compra.");
+
+
+					
+
 			}
 
-
-
 	}//FUNCTION
+
+
 	public function buscarUsuarioEInsertarloEnTablaSinEnvio($nro_doc,$tipo_doc,$nombre,$apellido,$cod_area,$telefono,$email){
 
 		$stmt=$this->mysqli->prepare("SELECT email
@@ -543,12 +524,36 @@ class BaseDatos{
 
 				echo("Finalizado el proceso de pago, te redireccionaremos a la emision del detalle de  compra.");
 
-
-
+			//Si el email ya existe actualiza el resto de los datos
 			}else{//if($fila_existe_usuario['email']=='')		
 
-				echo("Finalizado el proceso de pago, te redireccionaremos a la emision del detalle de  compra.");
 
+					//busco id de tipo de doc
+				$stmt=$this->mysqli->prepare("SELECT id
+											  FROM tipo_documento
+											  WHERE descripcion=(?)");
+
+				$stmt->bind_param("s",$tipo_doc);
+
+				$stmt->execute();
+
+				$resultado=$stmt->get_result();
+
+				$fila_id_tipo_doc=$resultado->fetch_assoc();
+
+				$tipo_doc_id=$fila_id_tipo_doc['id'];
+
+				$stmt=$this->mysqli->prepare("UPDATE usuario
+											   SET nro_doc=(?),tipo_doc=(?), nombre=(?),apellido=(?),cod_area=(?),telefono=(?)
+											   WHERE email=(?)");
+
+				$stmt->bind_param("iississ",$nro_doc,$tipo_doc_id,$nombre,$apellido,$cod_area,$telefono,$email);
+
+				$stmt->execute();
+
+				$stmt->close();
+
+				echo("Finalizado el proceso de pago, te redireccionaremos a la emision del detalle de  compra.");
 
 			}
 
