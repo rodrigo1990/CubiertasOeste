@@ -1,0 +1,58 @@
+.precio-oferta{
+   text-decoration: line-through;
+}
+
+.borde-inferior-fila{
+   border-bottom: 1px solid black !important;
+}
+
+/*   FONTS
+*/
+
+.calcular{
+   font-style: italic;
+}
+
+.bold-text{
+	font-weight: bold;
+}
+
+.finito{
+	font-weight: 100;
+}
+
+.span_h2{
+	font-weight: 300;
+}
+
+.span_h1{
+	font-weight: 400;
+}
+
+.font-large{
+	font-size: 6em !important;
+}
+
+.font-upper-semi-large{
+	font-size: 5.5em !important;
+}
+
+.font-semi-large{
+	font-size: 5em !important;
+}
+
+.font-medium{
+	font-size: 4em !important;
+}
+
+.font-small{
+	font-size: 2em !important;
+}
+
+.font-micro{
+	font-size: 1em !important;
+}
+
+.font-upper-micro{
+	font-size: 1.5em !important;
+}
