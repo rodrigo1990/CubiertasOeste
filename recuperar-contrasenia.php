@@ -54,10 +54,10 @@ $usuario=new Usuario();
 </head>
 <body>
 
-		<!-- Menu -->
-	<?php 
-	include("include/menu-no-animated.php");
-	 ?>
+	<!-- Menu -->
+<?php 
+include("include/menu-no-animated.php");
+ ?>
 
 	 <!-- CARRITO DE COMPRAS !! -->
 <div class="container">
@@ -75,15 +75,26 @@ $usuario=new Usuario();
 </div>
 </div> <!--Fin carrito de compras  -->
 
+	<div class="row">
+		<div class="recuperar col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<div class="container">
 
-		<p>Su email</p>
-		<input type="text" name="email-recuperar" id="email-recuperar" placeholdeer="ej:jose@neumaticosoeste.com">
-		<button onClick="registrarToken();">Ingresar</button>
-
+				<label class="label" for="email-recuperar"><h3>Ingrese su email</h3></label>	
+				<input align="middle" class="form-control" type="text" name="email-recuperar" id="email-recuperar" width="30%" placeholder="ej:jose@neumaticosoeste.com"><br>
+				<a class="carrito-checkout-btn" onClick="registrarToken();">Ingresar</a>
+				
+				<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<p class="texto-recuperar"><i>Te enviaremos un link a tu email al cual debes ingresar para poder ingresar tu contraseña.</i></p>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 		<!-- Footer -->
-	<?php 
-	include("include/footer.php");
-	 ?>
+<?php 
+include("include/footer.php");
+ ?>
 </body>
 </html>

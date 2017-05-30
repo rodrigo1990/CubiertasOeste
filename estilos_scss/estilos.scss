@@ -1510,6 +1510,34 @@ li.titulo-lista-comprar-mp{
 div.listar-cont{
 	text-align:center;
 }
+
+
+/****************************************RECUEPRAR CONTRASENIA*/////////////////////////
+label h3{
+	font-family:$fuente;
+	color:$naranja;
+}
+
+.recuperar{
+	text-align:center;
+}
+
+.recuperar input{
+	width:300px !important;
+	margin-left:34%;
+	color:grey;
+}
+
+.recuperar .form-control:focus {
+  border-color: $naranja-input;
+  box-shadow:none;
+}
+
+.texto-recuperar{
+	margin-top:3%;
+	color:$naranja;
+}
+
 /****************************************FOOOTERS***************************************************************/
 .row-footer-fila-1{
 	margin-top:5%;
